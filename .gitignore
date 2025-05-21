@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 test/unit/coverage
 package-lock.json
-optimal-rating.zip
+optimal-rating.zip 
 
 # Editor directories and files
 .idea
