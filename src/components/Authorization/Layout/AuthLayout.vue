@@ -7,13 +7,13 @@
 </template>
 
 <script>
-  import AuthorizationContent from './Content.vue'
-  export default {
-    components: {
-      AuthorizationContent,
-    }
-  }
+import AuthorizationContent from "./Content.vue";
+
+export default {
+  components: {
+    AuthorizationContent,
+  },
+};
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

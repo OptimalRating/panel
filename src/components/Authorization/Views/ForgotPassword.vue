@@ -22,14 +22,24 @@
                   name="username"
                   autocomplete="off"
                   :placeholder="$t('auth.username')"
-                  v-model="username">
+                  v-model="username"
+                />
                 <span class="forgot-pass">
-                  <small><router-link :to="{ name: 'auth.login' }">{{$t('auth.login')}}</router-link></small>
+                  <small
+                    ><router-link :to="{ name: 'auth.login' }">{{
+                      $t("auth.login")
+                    }}</router-link></small
+                  >
                 </span>
               </div>
               <div class="row justify-content-center">
                 <div class="col-8">
-                    <button type="submit" class="btn btn-danger btn-round btn-fill">{{$t('auth.send')}}</button>
+                  <button
+                    type="submit"
+                    class="btn btn-danger btn-round btn-fill"
+                  >
+                    {{ $t("auth.send") }}
+                  </button>
                 </div>
               </div>
             </form>
@@ -41,20 +51,19 @@
 </template>
 
 <script>
-  export default {
-    name: 'login',
-    data(){
-      return {
-        username: null
-      }
+export default {
+  name: "login",
+  data() {
+    return {
+      username: null,
+    };
+  },
+  methods: {
+    login(user) {
+      this.$store.dispatch("auth/login", user);
     },
-    methods: {
-      login(user){
-        this.$store.dispatch('auth/login', user);
-      }
-    }
-  }
+  },
+};
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

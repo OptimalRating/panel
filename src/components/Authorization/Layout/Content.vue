@@ -5,18 +5,17 @@
 </template>
 
 <script>
-  export default {}
+export default {};
 </script>
 
 <style lang="scss">
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity .1s
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s;
+}
 
-  .fade-enter,
-  .fade-leave-to
-  {
-    opacity: 0
-  }
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
