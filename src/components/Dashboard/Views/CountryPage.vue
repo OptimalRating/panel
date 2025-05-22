@@ -132,7 +132,7 @@
         this.loading = true;
         this.$store.dispatch('definition/getAllPages', {filter: filter}).then((response) => {
           this.loading = false;
-          this.datatable.total = response.pagination && response.pagination.recordCount ? response.pagination.recordCount : 1;
+          this.datatable.total = response.pagination?.recordCount ? response.pagination.recordCount : 1;
           this.datatable.data = this.pages;
         })
       },

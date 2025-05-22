@@ -220,7 +220,7 @@ export default {
         });
     },
     uploadSuccess: function(response) {
-      if (response && response.result.set) {
+      if (response?.result.set) {
         this.uploadedImage = response.result.set[0];
         this.imageUrl = this.uploadedImage.name;
         //this.cdnUrl = this.uploadedImage.cdnPath;

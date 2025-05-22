@@ -59,8 +59,7 @@
     },
     computed: {
       isFolder: function () {
-        return this.item.children &&
-                this.item.children.length
+        return this.item.children?.length
       },
       indent() {
         return { 'padding-left': `${this.depth * 10}px` }
