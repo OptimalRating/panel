@@ -144,7 +144,7 @@ export default {
       this.$store
         .dispatch("definition/getChildren", this.category)
         .then(response => {
-          let message = `Are you sure to delete this category?`;
+          let message = "Are you sure to delete this category?";
           let countChild = response.length;
           if (countChild > 0)
             message = `There are ${countChild} subcategories linked to this category? Are you sure to delete this category?`;

@@ -5,7 +5,7 @@ class SurveyProxy extends Proxy {
     super("surveys", parameters);
   }
   pendingChoices() {
-    return this.submit("get", `/pendingChoices`);
+    return this.submit("get", "/pendingChoices");
   }
 
   updateChoiceStatus(payload) {
@@ -15,13 +15,13 @@ class SurveyProxy extends Proxy {
   }
 
   SpecialSurveyList() {
-    return this.submit("get", `/surveys/special`);
+    return this.submit("get", "/surveys/special");
   }
   SurveyList() {
-    return this.submit("get", `/surveys/normal`);
+    return this.submit("get", "/surveys/normal");
   }
   create(payload) {
-    return this.submit("post", `/surveys`, payload);
+    return this.submit("post", "/surveys", payload);
   }
 
   find(id) {
@@ -37,7 +37,7 @@ class SurveyProxy extends Proxy {
   }
 
   specialDateRange() {
-    return this.submit("get", `/specialDateRange`);
+    return this.submit("get", "/specialDateRange");
   }
 
   updateSurveyStatus(payload) {

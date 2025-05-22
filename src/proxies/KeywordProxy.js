@@ -5,7 +5,7 @@ class CategoryProxy extends Proxy {
     super('keywords', parameters);
   }
   all(){
-    return this.submit('get', `/keywords`);
+    return this.submit('get', "/keywords");
   }
 }
 

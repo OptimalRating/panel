@@ -5,7 +5,7 @@ class CommentProxy extends Proxy {
     super('comments', parameters);
   }
   all(){
-    return this.submit('get', `/comments`);
+    return this.submit('get', "/comments");
   }
 }
 

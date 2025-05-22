@@ -37,7 +37,7 @@
       },
       inlineClass () {
         if (this.inline) {
-          return `radio-inline`
+          return "radio-inline"
         }
         return ''
       }

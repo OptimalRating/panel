@@ -5,13 +5,13 @@ class categoriesProxy extends Proxy {
     super('categories', parameters);
   }
   getTree(){
-    return this.submit('get', `/categories`);
+    return this.submit('get', "/categories");
   }
   findChild(id){
     return this.submit('get', `/categories/find_parent/${id}`);
   }
   create(payload){
-    return this.submit('post', `/categories`, payload);
+    return this.submit('post', "/categories", payload);
   }
   update(id, payload){
     return this.submit('put', `/categories/${id}`, payload);

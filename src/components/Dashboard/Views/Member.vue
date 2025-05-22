@@ -951,7 +951,7 @@ export default {
     delete(item) {
       this.$modal.show("dialog", {
         title: "Warning!!",
-        text: `Do you really want to delete this member?`,
+        text: "Do you really want to delete this member?",
         buttons: [
           {
             title: "Cancel",

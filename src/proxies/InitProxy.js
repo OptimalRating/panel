@@ -5,7 +5,7 @@ class InitProxy extends Proxy {
     super('panel-init', parameters);
   }
   dashboard(){
-    return this.submit('get', `/dashboard`);
+    return this.submit('get', "/dashboard");
   }
 }
 

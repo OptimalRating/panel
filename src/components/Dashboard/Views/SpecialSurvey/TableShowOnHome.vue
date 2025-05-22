@@ -22,7 +22,7 @@
             if (status.value == true){
               this.$modal.show('dialog', {
                 title: 'Warning!!',
-                text: `Are you sure?`,
+                text: "Are you sure?",
                 buttons: [
                   { title: 'Cancel', handler: () => {
                       this.selectedStatus = this.row.show_on_home == '1'  ? true : false;
@@ -41,7 +41,7 @@
             else{
               this.$modal.show('dialog', {
                 title: 'Warning!!',
-                text: `Are you sure?`,
+                text: "Are you sure?",
                 buttons: [
                   { title: 'Cancel', handler: () => {
                       this.selectedStatus = this.row.show_on_home == '1'  ? true : false;

@@ -154,7 +154,7 @@ export default {
       category: null,
       choice_path: "cdn/images/choice/",
       cdnUrl: process.env.CDN_LOCATION,
-      userImageUrl: `cdn/images/user/`,
+      userImageUrl: "cdn/images/user/",
       selectedCategory: null
     };
   },

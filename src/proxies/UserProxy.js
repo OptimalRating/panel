@@ -14,11 +14,11 @@ class UserProxy extends Proxy {
   }
 
   getAllUsers(){
-    return this.submit('get', `/users`);
+    return this.submit('get', "/users");
   }
 
   addUser(payload){
-    return this.submit('post', `/user`, payload);
+    return this.submit('post', "/user", payload);
   }
 
   updateUser(id, payload){

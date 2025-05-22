@@ -5,13 +5,13 @@ class CityProxy extends Proxy {
     super('cities', parameters);
   }
   all(){
-    return this.submit('get', `/cities`);
+    return this.submit('get', "/cities");
   }
   getAllCitiesWithCountryId(id){
     return this.submit('get', `/cities/country/${id}`);
   }
   createCityWithCountryAdmin(data){
-    return this.submit('post', `/cities/country`, data);
+    return this.submit('post', "/cities/country", data);
   }
 }
 

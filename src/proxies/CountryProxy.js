@@ -5,7 +5,7 @@ class CountryProxy extends Proxy {
     super('countries', parameters);
   }
   all(){
-    return this.submit('get', `/countries`);
+    return this.submit('get', "/countries");
   }
 
   updateCountryPassword(id, data) {
