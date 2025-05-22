@@ -1,17 +1,21 @@
 <template>
   <div class>
     <h4 :class="`mb-4 mt-2 ${hideFilter ? 'text-danger' : ''}`">
-      {{title}}
+      {{ title }}
       <i
-        @click="collapsed = !collapsed"
         :class="`fa fa-caret-${collapsed ? 'right' : 'down'}`"
-        style="color: #333; cursor: pointer; margin-left: 10px;"
+        style="color: #333; cursor: pointer; margin-left: 10px"
+        @click="collapsed = !collapsed"
       />
     </h4>
     <div v-if="!collapsed" class="row">
       <div class="col-12">
         <card>
-          <datatable :class="{'loading-table': loading}" v-if="datatable.data" v-bind="datatable" />
+          <datatable
+            v-if="datatable.data"
+            :class="{ 'loading-table': loading }"
+            v-bind="datatable"
+          />
         </card>
       </div>
     </div>
@@ -22,21 +26,21 @@
 import Card from "src/components/UIComponents/Cards/Card.vue";
 import { mapState } from "vuex";
 export default {
-  props: ["title", "loading", "datatable", "hideFilter"],
   components: {
-    Card
+    Card,
   },
+  props: ["title", "loading", "datatable", "hideFilter"],
   data() {
     return {
       collapsed: false,
       years: [
         { id: "2019", label: "2019" },
-        { id: "2020", label: "2020" }
+        { id: "2020", label: "2020" },
       ],
       months: [],
       statuses: [
         { id: 1, label: "active" },
-        { id: 0, label: "pending" }
+        { id: 0, label: "pending" },
       ],
       month: null,
       yearSelected: null,
@@ -54,16 +58,16 @@ export default {
         "September",
         "October",
         "November",
-        "December"
+        "December",
       ],
       categorySelected: null,
-      categories: []
+      categories: [],
     };
   },
   computed: {
     ...mapState("definition", {
-      _categories: state => state.categories
-    })
+      _categories: (state) => state.categories,
+    }),
   },
   watch: {
     yearSelected: function(val) {
@@ -90,28 +94,28 @@ export default {
       } else {
         this.datatable.xprops.eventbus.$emit("categorySelected", val);
       }
-    }
+    },
   },
   created() {
     this.months.push(
       this._.map(this.monthsArray, (month, index) => {
         return {
           id: index + 1,
-          label: month
+          label: month,
         };
-      })
+      }),
     );
-    this._categories.map(category => {
+    this._categories.map((category) => {
       this.categories.push({
         id: category.id,
-        label: category.name
+        label: category.name,
       });
     });
   },
   methods: {
     openModal(modal) {
       this.datatable.xprops.eventbus.$emit("openModal");
-    }
-  }
+    },
+  },
 };
 </script>

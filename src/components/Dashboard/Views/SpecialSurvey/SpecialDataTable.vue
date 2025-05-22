@@ -15,8 +15,8 @@
 
                     <treeselect
                       id="year"
-                                                    class="col-8"
                       v-model="yearSelected"
+                      class="col-8"
                       :options="years"
                       placeholder="Year"
                       value-format="id"
@@ -26,11 +26,11 @@
                     <label class="col-3" for="month">Month</label>
                     <treeselect
                       id="month"
-                                                    class="col-8"
                       v-model="monthSelected"
+                      class="col-8"
                       :options="months[0]"
                       placeholder="Month"
-                      valueFormat="id"
+                      value-format="id"
                     />
                   </div>
                 </div>
@@ -56,8 +56,8 @@
           <div class="col-12">
             <card>
               <datatable
-                :class="{ 'loading-table': loading }"
                 v-if="datatable.data"
+                :class="{ 'loading-table': loading }"
                 v-bind="datatable"
               />
             </card>
@@ -71,10 +71,10 @@
 <script>
 import Card from "src/components/UIComponents/Cards/Card.vue";
 export default {
-  props: ["title", "loading", "datatable"],
   components: {
     Card,
   },
+  props: ["title", "loading", "datatable"],
   data() {
     return {
       years: [
@@ -122,7 +122,7 @@ export default {
         return {
           id: index + 1,
           label: month,
-        }
+        };
       }),
     );
   },

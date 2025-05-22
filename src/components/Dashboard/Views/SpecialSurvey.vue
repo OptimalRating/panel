@@ -17,14 +17,14 @@
           <div class="row">
             <div class="col">
               <i
-                class="fas fa-times fa-2x btn-modal-close text-success"
                 slot="top-right"
+                class="fas fa-times fa-2x btn-modal-close text-success"
                 @click="$modal.hide('special-modal')"
               ></i>
-              <h4 class="mt-0" v-if="mode === 'edit'">
+              <h4 v-if="mode === 'edit'" class="mt-0">
                 {{ $t("common.special.labels.edit") }}
               </h4>
-              <h4 class="mt-0" v-else>{{ $t("common.special.labels.new") }}</h4>
+              <h4 v-else class="mt-0">{{ $t("common.special.labels.new") }}</h4>
               <hr />
               <form @submit.prevent="$emit('submitAction', item)">
                 <div class="form-group row">
@@ -33,9 +33,9 @@
                   >
                   <div class="col-8">
                     <input
+                      v-model="special.title"
                       type="text"
                       class="form-control"
-                      v-model="special.title"
                     />
                   </div>
                 </div>
@@ -45,9 +45,9 @@
                   >
                   <div class="col-8">
                     <date-range-picker
+                      v-model="dateRange"
                       :locale-data="locale"
                       class="col-12 p-0"
-                      v-model="dateRange"
                       :date-format="dateFormat"
                       :opens="opens"
                     ></date-range-picker>
@@ -68,18 +68,18 @@
                     {{ $t("common.special.input.add_option") }}
                   </button>
                 </div>
-                <div class="form-group row" v-for="(option, index) in choices">
+                <div v-for="(option, index) in choices" class="form-group row">
                   <label class="col-4 col-form-label"
                     >{{ $t("common.special.input.option") }} :</label
                   >
                   <div class="col-4">
                     <input
+                      v-model="option.choice_title"
                       type="text"
                       class="form-control"
-                      v-model="option.choice_title"
                     />
                   </div>
-                  <div class="col-4" v-if="index > 1">
+                  <div v-if="index > 1" class="col-4">
                     <button
                       type="button"
                       name="button"
@@ -101,7 +101,7 @@
                       :options="subjectOptions"
                       placeholder="Subject"
                       :multiple="true"
-                      valueFormat="label"
+                      value-format="label"
                       :flat="true"
                     />
                   </div>
@@ -122,8 +122,8 @@
         <button
           type="button"
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
-          @click="saveSpecial"
           :disabled="saving"
+          @click="saveSpecial"
         >
           {{ saving ? "Saving..." : $t("common.buttons.save") }}
         </button>
@@ -131,14 +131,6 @@
     </modal>
   </div>
 </template>
-<style>
-.reportrange-text {
-  line-height: normal !important;
-}
-.v--modal-overlay .v--modal-box {
-  overflow: unset !important;
-}
-</style>
 <script>
 import Vue from "vue";
 import TableCustomColumn from "src/components/UIComponents/DataTable/TableCustomColumn";
@@ -267,13 +259,13 @@ export default {
       },
       deep: true,
     },
-    datetime: function (item) {
+    datetime: function(item) {
       return item;
     },
-    specialSurveys: function (item) {
+    specialSurveys: function(item) {
       //console.log(item);
     },
-    selectedSubject: function (val) {
+    selectedSubject: function(val) {
       if (typeof val !== "undefined" || val === null) {
         this.special.subjects = [];
         this._.map(val, (item) => {
@@ -285,7 +277,7 @@ export default {
   created() {
     this.addAnotherAnswer();
     this.addAnotherAnswer();
-    this.datatable.xprops.eventbus.$on("openModal", function () {
+    this.datatable.xprops.eventbus.$on("openModal", function() {
       this.special = new Special();
       this.choice = new Choice();
       this.mode = "edit";
@@ -324,7 +316,7 @@ export default {
       this.subjectOptions = this._.orderBy(
         this.subjectOptions,
         ["label"],
-        ["asc"]
+        ["asc"],
       );
     });
   },
@@ -332,7 +324,7 @@ export default {
     ...mapState("definition", {
       _specialSurveys: (state) => state.specialSurveys,
     }),
-    specialSurveys: function () {
+    specialSurveys: function() {
       return this._.cloneDeep(this._specialSurveys);
     },
   },
@@ -357,7 +349,6 @@ export default {
 
         if (startDate < currentDate) {
           classes.disabled = true;
-          
         }
       }
 
@@ -402,7 +393,7 @@ export default {
               return {
                 id: item.id,
               };
-            })
+            }),
           );
           this.selectedSubject = subject.length > 0 ? subject[0] : [];
 
@@ -452,7 +443,7 @@ export default {
           }
           return accumulator;
         },
-        []
+        [],
       );
       this.choices = newChoices;
     },
@@ -537,3 +528,11 @@ export default {
   },
 };
 </script>
+<style>
+.reportrange-text {
+  line-height: normal !important;
+}
+.v--modal-overlay .v--modal-box {
+  overflow: unset !important;
+}
+</style>

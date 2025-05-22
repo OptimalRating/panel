@@ -4,9 +4,11 @@
       <div class="CategoryText" @click="toggle">
         <i
           :class="`fa fa-caret-${visible ? 'down' : 'right'}`"
-          :style="data.children && data.children.length > 0 ? '' : 'opacity: 0;'"
+          :style="
+            data.children && data.children.length > 0 ? '' : 'opacity: 0;'
+          "
         />
-        {{data.name}}
+        {{ data.name }}
       </div>
       <div style="margin-left: auto; display: flex; align-items: center">
         <!-- <toggle-button
@@ -21,25 +23,36 @@
         <i class="fa fa-trash" @click="onDelete" /> -->
       </div>
     </div>
-    <div v-if="data.children && data.children.length > 0 && visible" class="SubCategories">
-      <SubCategory v-for="category in data.children" :key="category.id" :data="category" />
+    <div
+      v-if="data.children && data.children.length > 0 && visible"
+      class="SubCategories"
+    >
+      <SubCategory
+        v-for="category in data.children"
+        :key="category.id"
+        :data="category"
+      />
     </div>
-    <modal name="categoryEditModal" :classes="['v--modal', 'm-modal']" height="auto">
+    <modal
+      name="categoryEditModal"
+      :classes="['v--modal', 'm-modal']"
+      height="auto"
+    >
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
             <div class="col">
               <i
-                class="fas fa-times fa-2x btn-modal-close text-success"
                 slot="top-right"
+                class="fas fa-times fa-2x btn-modal-close text-success"
                 @click="$modal.hide('categoryEditModal')"
               ></i>
               <h4 class="mt-0">Edit Category</h4>
               <hr />
               <div style="font-weight: bold">Name</div>
-              <input class="form-control" v-model="editData.name" />
+              <input v-model="editData.name" class="form-control" />
               <div style="font-weight: bold; margin-top: 20px">Keyword</div>
-              <input class="form-control" v-model="editData.code" />
+              <input v-model="editData.code" class="form-control" />
               <div style="font-weight: bold; margin-top: 20px">Status</div>
               <switches
                 v-model="editData.status"
@@ -55,13 +68,17 @@
           type="button"
           class="btn btn-simple btn-sm px-3"
           @click="$modal.hide('categoryEditModal')"
-        >Cancel</button>
+        >
+          Cancel
+        </button>
         <button
           type="button"
           :disabled="saving"
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
           @click="save"
-        >{{saving ? 'Saving...' : 'Save'}}</button>
+        >
+          {{ saving ? "Saving..." : "Save" }}
+        </button>
       </div>
     </modal>
   </div>
@@ -71,14 +88,14 @@ import SubCategory from "./SubCategory";
 export default {
   name: "Category",
   components: {
-    SubCategory
+    SubCategory,
   },
   props: ["data"],
   data() {
     return {
       saving: false,
       visible: false,
-      editData: {}
+      editData: {},
     };
   },
   mounted() {
@@ -105,16 +122,16 @@ export default {
                   this.notify("Deleted successfully.", "success");
                 })
                 .catch(() => {});
-            }
-          }
-        ]
+            },
+          },
+        ],
       });
     },
     changeStatus(val) {
       this.$store
         .dispatch("definition/updateCategory", {
           id: this.data.id,
-          data: { status: val ? "active" : "passive" }
+          data: { status: val ? "active" : "passive" },
         })
         .then(() => {
           this.data.status = val ? "active" : "passive";
@@ -127,7 +144,7 @@ export default {
         id: this.editData.id,
         code: this.editData.code,
         status: this.editData.status,
-        name: this.editData.name
+        name: this.editData.name,
       };
       data.status = data.status ? "active" : "passive";
       this.$store
@@ -139,7 +156,7 @@ export default {
         .catch(() => {
           this.saving = false;
         });
-    }
-  }
+    },
+  },
 };
 </script>

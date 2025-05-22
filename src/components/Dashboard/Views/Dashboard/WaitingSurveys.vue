@@ -48,7 +48,7 @@ export default {
           },
           {
             title: this.$t("common.special.datatable.date"),
-            field: "created_at"
+            field: "created_at",
           },
           {
             title: "Created By",
@@ -202,7 +202,7 @@ export default {
           }
           return accumulator;
         },
-        []
+        [],
       );
       this.choices = newChoices;
     },
@@ -234,8 +234,8 @@ export default {
 </script>
 <style>
 select.form-control {
-    height: 32px !important;
-    display: inline-block;
-    width: 65px;
+  height: 32px !important;
+  display: inline-block;
+  width: 65px;
 }
 </style>

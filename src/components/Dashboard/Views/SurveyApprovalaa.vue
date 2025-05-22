@@ -2,7 +2,11 @@
   <div class="CategorySurvey">
     <h3 style="font-weight: bold">Categories</h3>
     <!-- <NewCategory /> -->
-    <Category v-for="category in categories" :key="category.id" :data="category" />
+    <Category
+      v-for="category in categories"
+      :key="category.id"
+      :data="category"
+    />
   </div>
 </template>
 <script>
@@ -12,13 +16,13 @@ export default {
   name: "CategorySurvey",
   components: {
     Category,
-    NewCategory
+    NewCategory,
   },
   data() {
     return {
       surveys: [],
       categories: [],
-      newData: {}
+      newData: {},
     };
   },
   mounted() {
@@ -27,28 +31,27 @@ export default {
   methods: {
     getCategories() {
       (this.categories = []), (this.surveys = []);
-      this.$store.dispatch("definition/getAllCategoryTree").then(response => {
-        this.$store.dispatch("definition/getAllSurveys").then(res => {
-          
-          response = response.map(x => {
+      this.$store.dispatch("definition/getAllCategoryTree").then((response) => {
+        this.$store.dispatch("definition/getAllSurveys").then((res) => {
+          response = response.map((x) => {
             return {
               ...x,
               children: x.children
-                ? x.children.map(y => {
+                ? x.children.map((y) => {
                     let surveys = res.set.filter(
-                      x => x.category_id === y.id.toString()
+                      (x) => x.category_id === y.id.toString(),
                     );
                     return { ...y, surveys };
                   })
-                : []
+                : [],
             };
           });
           this.categories = response;
         });
       });
     },
-    addNew() {}
-  }
+    addNew() {},
+  },
 };
 </script>
 <style>

@@ -55,7 +55,7 @@ export default class Transformer {
    * @returns {Array} The transformed localizations.
    */
   static mapLanguages(item) {
-    return item.localizations.map((localization) =>{
+    return item.localizations.map((localization) => {
       localization.language = localization.language.id;
       return localization;
     });

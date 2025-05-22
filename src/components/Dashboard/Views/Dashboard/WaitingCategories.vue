@@ -4,15 +4,15 @@
       Pending Categories
       <i
         :class="`fa fa-caret-${collapsed ? 'right' : 'down'}`"
-        @click="collapsed = !collapsed"
         style="color: #333; cursor: pointer; margin-left: 10px"
+        @click="collapsed = !collapsed"
       />
     </h4>
     <card v-if="!collapsed" class="col-12 float-left">
       <div class="col">
         <datatable
-          :class="{ 'loading-table': loading }"
           v-if="datatable.data"
+          :class="{ 'loading-table': loading }"
           v-bind="datatable"
         />
       </div>
@@ -38,7 +38,7 @@
                 <category-form
                   :nodisable="true"
                   :item="category"
-                  :whichForm="'survey'"
+                  :which-form="'survey'"
                   @save="save"
                   @remove="remove"
                 ></category-form>
@@ -67,7 +67,7 @@ export default {
     TableCustomColumn,
     WaitCategoryTableActions,
     TableStatus,
-    CategoryForm
+    CategoryForm,
   },
   props: ["bus", "categories"],
   data() {
@@ -97,7 +97,7 @@ export default {
             visible: "true",
             thStyle: { width: "30%" },
             tdStyle: { width: "30%" },
-          }
+          },
         ],
         data: null,
         total: 0,
@@ -108,7 +108,7 @@ export default {
         supportBackup: true,
         xprops: {
           eventbus: new Vue(),
-        }
+        },
       },
     };
   },
@@ -190,7 +190,7 @@ export default {
                         this.$modal.hide("category-detail-modal");
                       });
                   },
-                }
+                },
               ],
             },
             { classes: "test" },
@@ -230,6 +230,6 @@ export default {
           this.datatable.data = response.categories;
         });
     },
-  }
+  },
 };
 </script>

@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-8">
-          <h4 class="mb-4 mt-2">{{$t('common.country.labels.list')}}</h4>
+          <h4 class="mb-4 mt-2">{{ $t("common.country.labels.list") }}</h4>
         </div>
         <div class="col-4">
           <button
@@ -13,7 +13,7 @@
             @click="openModal('save')"
           >
             <i class="fas fa-plus"></i>
-            {{$t('common.buttons.new')}}
+            {{ $t("common.buttons.new") }}
           </button>
         </div>
       </div>
@@ -23,8 +23,8 @@
             <div class="col-12">
               <card>
                 <datatable
-                  :class="{'loading-table': loading}"
                   v-if="datatable.data"
+                  :class="{ 'loading-table': loading }"
                   v-bind="datatable"
                 />
               </card>
@@ -33,29 +33,46 @@
         </div>
       </div>
     </div>
-    <modal name="city-modal" height="auto" :draggable="true" :classes="['v--modal', 'm-modal']">
+    <modal
+      name="city-modal"
+      height="auto"
+      :draggable="true"
+      :classes="['v--modal', 'm-modal']"
+    >
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
             <div class="col">
               <i
-                class="fas fa-times fa-2x btn-modal-close text-success"
                 slot="top-right"
+                class="fas fa-times fa-2x btn-modal-close text-success"
                 @click="$modal.hide('city-modal')"
               ></i>
-              <h4 class="mt-0">{{$t('common.city.labels.new')}}</h4>
+              <h4 class="mt-0">{{ $t("common.city.labels.new") }}</h4>
               <hr />
               <form @submit.prevent="$emit('submitAction', item)">
                 <div class="form-group row">
-                  <label class="col-4 col-form-label">{{$t('common.city.input.name')}} :</label>
+                  <label class="col-4 col-form-label"
+                    >{{ $t("common.city.input.name") }} :</label
+                  >
                   <div class="col-8">
-                    <input type="text" class="form-control" v-model="city.name" />
+                    <input
+                      v-model="city.name"
+                      type="text"
+                      class="form-control"
+                    />
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-4 col-form-label">{{$t('common.city.input.order')}} :</label>
+                  <label class="col-4 col-form-label"
+                    >{{ $t("common.city.input.order") }} :</label
+                  >
                   <div class="col-8">
-                    <input type="text" class="form-control" v-model="city.order" />
+                    <input
+                      v-model="city.order"
+                      type="text"
+                      class="form-control"
+                    />
                   </div>
                 </div>
               </form>
@@ -68,13 +85,17 @@
           type="button"
           class="btn btn-simple btn-sm px-3"
           @click="$modal.hide('city-modal')"
-        >{{$t('common.close')}}</button>
+        >
+          {{ $t("common.close") }}
+        </button>
         <button
           type="button"
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
-          @click="saveCity"
           :disabled="saving"
-        >{{saving ? 'Saving...' : $t('common.buttons.save')}}</button>
+          @click="saveCity"
+        >
+          {{ saving ? "Saving..." : $t("common.buttons.save") }}
+        </button>
       </div>
     </modal>
   </div>
@@ -93,7 +114,7 @@ export default {
     Card,
     TableCustomColumn,
     TableActions,
-    TableColumnStatus
+    TableColumnStatus,
   },
   data() {
     return {
@@ -108,20 +129,20 @@ export default {
           {
             title: this.$t("common.city.datatable.name"),
             field: "name",
-            tdComp: TableCustomColumn
+            tdComp: TableCustomColumn,
           },
           {
             title: this.$t("common.city.datatable.order"),
             field: "order",
             sortable: true,
-            tdComp: TableCustomColumn
+            tdComp: TableCustomColumn,
           },
           {
             tdComp: TableActions,
             visible: "true",
             thStyle: { width: "10%" },
-            tdStyle: { width: "10%" }
-          }
+            tdStyle: { width: "10%" },
+          },
         ],
         data: [],
         total: 0,
@@ -131,10 +152,10 @@ export default {
         supportNested: true,
         supportBackup: true,
         xprops: {
-          eventbus: new Vue()
-        }
+          eventbus: new Vue(),
+        },
       },
-      bus: new Vue()
+      bus: new Vue(),
     };
   },
   watch: {
@@ -142,16 +163,16 @@ export default {
       handler(query) {
         this.init();
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   computed: {
     ...mapState("account", {
-      _auth_country: state => state.country
+      _auth_country: (state) => state.country,
     }),
 
     ...mapState("definition", {
-      _cities: state => state.cities
+      _cities: (state) => state.cities,
     }),
 
     auth_country: function() {
@@ -159,14 +180,14 @@ export default {
     },
     cities: function() {
       return this._.cloneDeep(this._cities);
-    }
+    },
   },
   created() {
     this.init();
-    this.datatable.xprops.eventbus.$on("edit", item => {
+    this.datatable.xprops.eventbus.$on("edit", (item) => {
       this.edit(item);
     });
-    this.datatable.xprops.eventbus.$on("delete", item => {
+    this.datatable.xprops.eventbus.$on("delete", (item) => {
       this.delete(item);
     });
   },
@@ -186,12 +207,12 @@ export default {
         order: query.order,
         limit: query.limit,
         offset: query.offset,
-        id: this.auth_country.id
+        id: this.auth_country.id,
       };
       this.loading = true;
       this.$store
         .dispatch("definition/getAllCities", { filter: filter })
-        .then(response => {
+        .then((response) => {
           this.loading = false;
           this.datatable.data = this.cities;
           this.datatable.total = response.recordCount;
@@ -215,7 +236,7 @@ export default {
         text: `${item.name} will be deleted. Are you sure?`,
         buttons: [
           {
-            title: "Cancel"
+            title: "Cancel",
           },
           {
             title: "Yes",
@@ -228,9 +249,9 @@ export default {
                   this.$modal.hide("dialog");
                   this.getAllCities();
                 });
-            }
-          }
-        ]
+            },
+          },
+        ],
       });
     },
     saveCity() {
@@ -238,21 +259,21 @@ export default {
       if (this.mode === "save") {
         this.$store
           .dispatch("definition/createCity", { data: this.city })
-          .then(response => {
+          .then((response) => {
             this.saving = false;
             this.getAllCities();
             this.datatable.data = null;
             this.$modal.hide("city-modal");
             this.notify(this.$t(response.message), "success");
           })
-          .catch(error => {
+          .catch((error) => {
             this.saving = false;
             //console.log(error);
           });
       } else {
         this.$store
           .dispatch("definition/updateCity", { data: this.city })
-          .then(response => {
+          .then((response) => {
             this.saving = false;
             if (response.code === 200) {
               this.getAllCities();
@@ -260,14 +281,13 @@ export default {
               this.notify(this.$t(response.message), "success");
             }
           })
-          .catch(error => {
+          .catch((error) => {
             this.saving = false;
             this.notify(this.$t(response.message), "err");
           });
       }
-    }
-  }
+    },
+  },
 };
 </script>
-<style>
-</style>
+<style></style>

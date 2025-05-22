@@ -18,8 +18,8 @@
         <category-form
           :item="category"
           :which-form="'category'"
-          @save="save"
           :saving="saving"
+          @save="save"
           @remove="remove"
         ></category-form>
       </div>
@@ -35,7 +35,7 @@ import Vue from "vue";
 
 export default {
   components: {
-    CategoryForm
+    CategoryForm,
   },
   props: ["item", "bus"],
   data() {
@@ -63,7 +63,7 @@ export default {
       } else {
         this.formMode = "new";
       }
-    }
+    },
   },
   methods: {
     newCategory() {
@@ -137,7 +137,7 @@ export default {
                         this.bus.$emit("update-list");
                       });
                   },
-                }
+                },
               ],
             },
             { classes: "test" },
@@ -160,7 +160,7 @@ export default {
         },
       });
     },
-  }
+  },
 };
 </script>
 

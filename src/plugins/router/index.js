@@ -1,19 +1,18 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import routes from './routes';
-import store from '@/store';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import routes from "./routes";
+import store from "@/store";
 
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
   routes,
-  linkActiveClass: 'nav-item active',
+  linkActiveClass: "nav-item active",
 });
 
 router.beforeEach((to, from, next) => {
-
   if (!to.meta.middleware) {
-    return next()
+    return next();
   }
 
   const middleware = to.meta.middleware;
@@ -22,12 +21,11 @@ router.beforeEach((to, from, next) => {
     to,
     from,
     next,
-    store
+    store,
   };
   return middleware[0]({
-    ...context
-  })
-
+    ...context,
+  });
 });
 
 Vue.router = router;

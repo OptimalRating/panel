@@ -17,9 +17,9 @@
                       >
                       <div class="col-8 p-0 float-left">
                         <input
+                          v-model="datatable.query.keyword"
                           type="text"
                           class="form-control"
-                          v-model="datatable.query.keyword"
                           @keyup="getAllUsers"
                         />
                       </div>
@@ -27,8 +27,8 @@
                     </div>
                     <div class="filter-country-or-city col-12">
                       <label
-                        class="col-3 col-form-label p-0 float-left"
                         v-if="roles && roles !== 'country_admin'"
+                        class="col-3 col-form-label p-0 float-left"
                         >{{ $t("common.user.input.country") }} :</label
                       >
                       <!-- <label
@@ -37,15 +37,15 @@
                       >{{$t('common.user.input.city')}} :</label> -->
 
                       <div
-                        class="form-inline col-md-8 float-left p-0"
                         v-if="roles && roles !== 'country_admin'"
+                        class="form-inline col-md-8 float-left p-0"
                       >
                         <treeselect
                           id="country"
                           v-model="filteredCountry"
-                          :options="this.countries"
+                          :options="countries"
                           placeholder="Country"
-                          valueFormat="id"
+                          value-format="id"
                         />
                       </div>
                       <!-- <div class="form-inline col-md-8 float-left p-0" v-else>
@@ -60,8 +60,8 @@
                     </div>
 
                     <div
-                      class="filter-country-or-city col-12 mt-1"
                       v-if="roles && roles !== 'country_admin'"
+                      class="filter-country-or-city col-12 mt-1"
                     >
                       <!-- <label
                         class="col-3 col-form-label p-0 float-left"
@@ -85,9 +85,9 @@
                         <div class="filter-input-item">
                           <input
                             id="statusApproved"
+                            v-model="userStatus"
                             value="approved"
                             type="checkbox"
-                            v-model="userStatus"
                             @change="getAllUsers"
                           />
                           <label for="statusApproved">Approved</label>
@@ -95,9 +95,9 @@
                         <div class="filter-input-item">
                           <input
                             id="statusDisApproved"
+                            v-model="userStatus"
                             value="disapproved"
                             type="checkbox"
-                            v-model="userStatus"
                             @change="getAllUsers"
                           />
                           <label for="statusDisApproved">Disapproved</label>
@@ -105,9 +105,9 @@
                         <div class="filter-input-item">
                           <input
                             id="statusPending"
+                            v-model="userStatus"
                             value="pending"
                             type="checkbox"
-                            v-model="userStatus"
                             @change="getAllUsers"
                           />
                           <label for="statusPending">Pending</label>
@@ -115,9 +115,9 @@
                         <div class="filter-input-item">
                           <input
                             id="statusBusiness"
+                            v-model="userStatus"
                             value="business"
                             type="checkbox"
-                            v-model="userStatus"
                             @change="getAllUsers"
                           />
                           <label for="statusBusiness">Business</label>
@@ -130,9 +130,9 @@
                         <div class="filter-input-item">
                           <input
                             id="female"
+                            v-model="userGender"
                             value="female"
                             type="checkbox"
-                            v-model="userGender"
                             @change="getAllUsers"
                           />
                           <label for="female">Female</label>
@@ -140,9 +140,9 @@
                         <div class="filter-input-item">
                           <input
                             id="male"
+                            v-model="userGender"
                             value="male"
                             type="checkbox"
-                            v-model="userGender"
                             @change="getAllUsers"
                           />
                           <label for="male">Male</label>
@@ -150,9 +150,9 @@
                         <div class="filter-input-item">
                           <input
                             id="no"
+                            v-model="userGender"
                             value="male"
                             type="checkbox"
-                            v-model="userGender"
                             @change="getAllUsers"
                           />
                           <label for="no">No Response</label>
@@ -165,9 +165,9 @@
                         <div class="filter-input-item">
                           <input
                             id="university"
+                            v-model="userEducation"
                             value="university"
                             type="checkbox"
-                            v-model="userEducation"
                             @change="getAllUsers"
                           />
                           <label for="university">University</label>
@@ -175,9 +175,9 @@
                         <div class="filter-input-item">
                           <input
                             id="high_school"
+                            v-model="userEducation"
                             value="high_school"
                             type="checkbox"
-                            v-model="userEducation"
                             @change="getAllUsers"
                           />
                           <label for="high_school">High School</label>
@@ -185,9 +185,9 @@
                         <div class="filter-input-item">
                           <input
                             id="school"
+                            v-model="userEducation"
                             value="school"
                             type="checkbox"
-                            v-model="userEducation"
                             @change="getAllUsers"
                           />
                           <label for="school">School</label>
@@ -211,9 +211,9 @@
                           >From Date</label
                         >
                         <input
+                          v-model="datatable.query.birthdate.from_date"
                           type="date"
                           class="form-control"
-                          v-model="datatable.query.birthdate.from_date"
                           @keyup="getAllUsers"
                         />
                       </div>
@@ -224,9 +224,9 @@
                         >
 
                         <input
+                          v-model="datatable.query.birthdate.until_date"
                           type="date"
                           class="form-control"
-                          v-model="datatable.query.birthdate.until_date"
                           @keyup="getAllUsers"
                         />
                       </div>
@@ -245,8 +245,8 @@
             <div class="col-12">
               <card>
                 <datatable
-                  :class="{ 'loading-table': loading }"
                   v-if="datatable.data"
+                  :class="{ 'loading-table': loading }"
                   v-bind="datatable"
                 />
               </card>
@@ -254,7 +254,7 @@
           </div>
         </div>
       </div>
-      <div class="row" v-if="datatableF.data.length > 0">
+      <div v-if="datatableF.data.length > 0" class="row">
         <div class="col-12">
           <div class="row">
             <div class="col-8">
@@ -263,8 +263,8 @@
             <div class="col-12">
               <card>
                 <datatable
-                  :class="{ 'loading-table': loading }"
                   v-if="datatableF.data"
+                  :class="{ 'loading-table': loading }"
                   v-bind="datatableF"
                 />
               </card>
@@ -273,10 +273,10 @@
         </div>
       </div>
       <div
-        class="row"
         v-if="
           datatableTrash.data.length > 0 && roles && roles !== 'country_admin'
         "
+        class="row"
       >
         <div class="col-12">
           <div class="row">
@@ -286,8 +286,8 @@
             <div class="col-12">
               <card>
                 <datatable
-                  :class="{ 'loading-table': loading }"
                   v-if="datatableTrash.data"
+                  :class="{ 'loading-table': loading }"
                   v-bind="datatableTrash"
                 />
               </card>
@@ -307,8 +307,8 @@
           <div class="row">
             <div class="col">
               <i
-                class="fas fa-times fa-2x btn-modal-close text-success"
                 slot="top-right"
+                class="fas fa-times fa-2x btn-modal-close text-success"
                 @click="$modal.hide('approve-modal')"
               ></i>
               <h4 class="mt-0">{{ $t("common.user.labels.edit") }}</h4>
@@ -354,8 +354,8 @@
         <button
           type="button"
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
-          @click="saveStatus"
           :disabled="saving"
+          @click="saveStatus"
         >
           {{ saving ? "Approving..." : "Approve Profile" }}
         </button>
@@ -372,8 +372,8 @@
           <div class="row">
             <div class="col">
               <i
-                class="fas fa-times fa-2x btn-modal-close text-success"
                 slot="top-right"
+                class="fas fa-times fa-2x btn-modal-close text-success"
                 @click="$modal.hide('status-modal')"
               ></i>
               <h4 class="mt-0">{{ $t("common.user.labels.edit") }}</h4>
@@ -388,7 +388,7 @@
                       v-model="selectedStatus"
                       :options="optionsStatus"
                       placeholder="Country"
-                      valueFormat="id"
+                      value-format="id"
                     />
                   </div>
                 </div>
@@ -425,8 +425,8 @@
           <div class="row">
             <div class="col">
               <i
-                class="fas fa-times fa-2x btn-modal-close text-success"
                 slot="top-right"
+                class="fas fa-times fa-2x btn-modal-close text-success"
                 @click="$modal.hide('user-modal')"
               ></i>
               <h4 class="mt-0">{{ $t("common.user.labels.edit") }}</h4>
@@ -438,9 +438,9 @@
                   >
                   <div class="col-8">
                     <input
+                      v-model="user.firstname"
                       type="text"
                       class="form-control"
-                      v-model="user.firstname"
                     />
                   </div>
                 </div>
@@ -450,22 +450,22 @@
                   >
                   <div class="col-8">
                     <input
+                      v-model="user.email"
                       type="text"
                       class="form-control"
-                      v-model="user.email"
                     />
                   </div>
                 </div>
-                <div class="form-group row" v-if="roles === 'super_admin'">
+                <div v-if="roles === 'super_admin'" class="form-group row">
                   <label class="col-4 col-form-label"
                     >{{ $t("common.user.input.country") }} :</label
                   >
                   <div class="col-8">
                     <treeselect
                       v-model="selectedCountry"
-                      :options="this.countries"
+                      :options="countries"
                       placeholder="Country"
-                      valueFormat="id"
+                      value-format="id"
                     />
                   </div>
                 </div>
@@ -478,7 +478,7 @@
                       v-model="selectedStatus"
                       :options="optionsStatus"
                       placeholder="Country"
-                      valueFormat="id"
+                      value-format="id"
                     />
                   </div>
                 </div>
@@ -488,9 +488,9 @@
                   >
                   <div class="col-8">
                     <input
+                      v-model="user.created_at"
                       type="text"
                       class="form-control"
-                      v-model="user.created_at"
                     />
                   </div>
                 </div>
@@ -500,9 +500,9 @@
                   >
                   <div class="col-8">
                     <input
+                      v-model="user.updated_at"
                       type="text"
                       class="form-control"
-                      v-model="user.updated_at"
                     />
                   </div>
                 </div>
@@ -522,8 +522,8 @@
         <button
           type="button"
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
-          @click="saveUser"
           :disabled="saving"
+          @click="saveUser"
         >
           {{ saving ? "Saving..." : $t("common.buttons.save") }}
         </button>
@@ -870,14 +870,12 @@ export default {
         .dispatch("definition/getAllUsers", { filter: filter })
         .then((response) => {
           this.loading = false;
-          this.datatable.total =
-            response.pagination?.recordCount
-              ? response.pagination.recordCount
-              : 1;
+          this.datatable.total = response.pagination?.recordCount
+            ? response.pagination.recordCount
+            : 1;
           // this.datatable.data = response.set;
           this.datatable.data = response.set.filter(
-            (user) =>
-              user.status === "approved"
+            (user) => user.status === "approved",
           );
         });
     },
@@ -896,14 +894,13 @@ export default {
         .dispatch("definition/getAllUsers", { filter: filter })
         .then((response) => {
           this.loading = false;
-          this.datatableF.total =
-            response.pagination?.recordCount
-              ? response.pagination.recordCount
-              : 1;
+          this.datatableF.total = response.pagination?.recordCount
+            ? response.pagination.recordCount
+            : 1;
           // this.datatableF.data = response.set;
           this.datatableF.data = response.set.filter(
             (user) =>
-              user.status === "pending" || user.status === "pendingFreeze"
+              user.status === "pending" || user.status === "pendingFreeze",
           );
         });
     },
@@ -921,10 +918,9 @@ export default {
         .dispatch("definition/getAllUsers", { filter: filter })
         .then((response) => {
           this.loading = false;
-          this.datatableTrash.total =
-            response.pagination?.recordCount
-              ? response.pagination.recordCount
-              : 1;
+          this.datatableTrash.total = response.pagination?.recordCount
+            ? response.pagination.recordCount
+            : 1;
           this.datatableTrash.data = response.set;
         });
     },
