@@ -1,23 +1,20 @@
 <template>
-  <div>
-    {{name}} ({{row.user_id}})
-  </div>
+  <div>{{ name }} ({{ row.user_id }})</div>
 </template>
 <script>
 export default {
   props: ["row"],
   data() {
     return {
-      name: "-"
+      name: "-",
     };
   },
   mounted() {
     this.$store
       .dispatch("definition/getUser", { id: this.row.user_id })
-      .then(res => {
+      .then((res) => {
         this.name = res.set.email;
-        
       });
-  }
+  },
 };
 </script>

@@ -16,7 +16,7 @@ export default {
   props: ["row", "field", "xprops"],
   data() {
     return {
-      selectedStatus: this.row.status === "1"
+      selectedStatus: this.row.status === "1",
     };
   },
   methods: {
@@ -30,7 +30,7 @@ export default {
               title: "Cancel",
               handler: () => {
                 this.$modal.hide("dialog");
-              }
+              },
             },
             {
               title: "Yes",
@@ -38,13 +38,13 @@ export default {
               handler: () => {
                 this.xprops.eventbus.$emit("status", {
                   id: this.row.id,
-                  status: "1"
+                  status: "1",
                 });
                 this.selectedStatus = true;
                 this.$modal.hide("dialog");
-              }
-            }
-          ]
+              },
+            },
+          ],
         });
       } else {
         this.$modal.show("dialog", {
@@ -55,7 +55,7 @@ export default {
               title: "Cancel",
               handler: () => {
                 this.$modal.hide("dialog");
-              }
+              },
             },
             {
               title: "Yes",
@@ -63,19 +63,18 @@ export default {
               handler: () => {
                 this.xprops.eventbus.$emit("status", {
                   id: this.row.id,
-                  status: "0"
+                  status: "0",
                 });
                 this.selectedStatus = false;
                 this.$modal.hide("dialog");
-              }
-            }
-          ]
+              },
+            },
+          ],
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style lang="css">
-</style>
+<style lang="css"></style>

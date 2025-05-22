@@ -1,17 +1,20 @@
 <template>
   <div class="banner-images">
-    <img :src="imageUrl+'images/country/'+row.flag" width="50" height="30">
+    <img
+      :src="imageUrl + 'images/country/' + row.flag"
+      width="50"
+      height="30"
+    />
   </div>
 </template>
 
 <script>
-	export default {
-		props: ['row', 'field', 'xprops'],
-		data(){
-			return {
-				imageUrl : 'https://staging.server.optimalrating.com/cdn/',
-			}
-		}
-	}
+export default {
+  props: ["row", "field", "xprops"],
+  data() {
+    return {
+      imageUrl: "https://staging.server.optimalrating.com/cdn/",
+    };
+  },
+};
 </script>
-

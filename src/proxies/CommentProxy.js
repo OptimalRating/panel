@@ -1,11 +1,11 @@
-import Proxy from './Proxy';
+import Proxy from "./Proxy";
 
 class CommentProxy extends Proxy {
   constructor(parameters = {}) {
-    super('comments', parameters);
+    super("comments", parameters);
   }
-  all(){
-    return this.submit('get', "/comments");
+  all() {
+    return this.submit("get", "/comments");
   }
 }
 

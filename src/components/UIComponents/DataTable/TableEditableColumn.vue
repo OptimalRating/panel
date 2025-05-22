@@ -1,10 +1,10 @@
 <template>
   <div>
-    <input class="form-control" type="text" v-model="row[field]">
+    <input v-model="row[field]" class="form-control" type="text" />
   </div>
 </template>
 <script>
-  export default {
-    props: ['row', 'field']
-  }
+export default {
+  props: ["row", "field"],
+};
 </script>

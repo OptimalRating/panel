@@ -3,14 +3,18 @@
     <h4 class="mb-4 mt-2 text-danger" @click="test()">
       Pending Candidates
       <i
-        @click="collapsed = !collapsed"
         :class="`fa fa-caret-${collapsed ? 'right' : 'down'}`"
-        style="color: #333; cursor: pointer; margin-left: 10px;"
+        style="color: #333; cursor: pointer; margin-left: 10px"
+        @click="collapsed = !collapsed"
       />
     </h4>
     <card v-if="!collapsed" class="col-12 float-left">
       <div class="col">
-        <datatable :class="{'loading-table': loading}" v-if="datatable.data" v-bind="datatable" />
+        <datatable
+          v-if="datatable.data"
+          :class="{ 'loading-table': loading }"
+          v-bind="datatable"
+        />
       </div>
     </card>
   </div>
@@ -25,15 +29,15 @@ import TableCustomColumn from "src/components/UIComponents/DataTable/TableCustom
 import TableStatus from "src/components/UIComponents/DataTable/TableStatus";
 import CategoryForm from "src/components/Dashboard/Views/Category/CategoryForm";
 export default {
-  props: ["bus", "categories"],
   components: {
     Card,
     DetailModal,
     TableCustomColumn,
     ShowTableActions,
     TableStatus,
-    CategoryForm
+    CategoryForm,
   },
+  props: ["bus", "categories"],
   data() {
     return {
       collapsed: false,
@@ -45,26 +49,26 @@ export default {
             title: "Choices",
             field: "choice_title",
             thStyle: { width: "30%" },
-            tdComp: TableCustomColumn
+            tdComp: TableCustomColumn,
           },
           {
             title: "Added By",
             field: "user.username",
             thStyle: { width: "30%" },
-            tdComp: TableCustomColumn
+            tdComp: TableCustomColumn,
           },
           {
             title: "Survey",
             field: "only_survey.title",
             thStyle: { width: "30%" },
-            tdComp: TableCustomColumn
+            tdComp: TableCustomColumn,
           },
           {
             tdComp: ShowTableActions,
             visible: "true",
             thStyle: { width: "10%" },
-            tdStyle: { width: "30%" }
-          }
+            tdStyle: { width: "30%" },
+          },
         ],
         data: null,
         total: 0,
@@ -74,22 +78,22 @@ export default {
         supportNested: true,
         supportBackup: true,
         xprops: {
-          eventbus: new Vue()
+          eventbus: new Vue(),
         },
-        surveyChoices: []
-      }
+        surveyChoices: [],
+      },
     };
   },
   watch: {
     surveyChoices: function(item) {
       // console.log(item);
-    }
+    },
   },
   created() {
-    this.datatable.xprops.eventbus.$on("detail", item => {
+    this.datatable.xprops.eventbus.$on("detail", (item) => {
       this.$router.push({
         name: "admin.survey_edit",
-        params: { id: item.only_survey.id }
+        params: { id: item.only_survey.id },
       });
     });
 
@@ -100,26 +104,26 @@ export default {
       this.loading = true;
       this.$store
         .dispatch("definition/getAllPendingChoices")
-        .then(response => {
+        .then((response) => {
           // this.datatable.data = response.set.filter(
           //   x => x.only_survey.type !== "special"
           // );
-          const filteredData = response.set.filter(x => {
-          if (x && x.survey_type == "normal") {
-          // if (x && x.only_survey && x.only_survey.type == "normal") {
-            // console.log("Filtered Data:", x); // Log the filtered data
-            return true; // Keep the item in the filtered array
-          }
-          return false; // Exclude the item from the filtered array
-        });
-        
-        this.datatable.data = filteredData;
+          const filteredData = response.set.filter((x) => {
+            if (x && x.survey_type == "normal") {
+              // if (x && x.only_survey && x.only_survey.type == "normal") {
+              // console.log("Filtered Data:", x); // Log the filtered data
+              return true; // Keep the item in the filtered array
+            }
+            return false; // Exclude the item from the filtered array
+          });
+
+          this.datatable.data = filteredData;
           this.loading = false;
         })
         .catch(() => {
           this.loading = false;
         });
-    }
-  }
+    },
+  },
 };
 </script>

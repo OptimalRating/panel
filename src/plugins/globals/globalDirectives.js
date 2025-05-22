@@ -1,8 +1,8 @@
-import {directive as vClickOutside} from 'vue-clickaway';
+import { directive as vClickOutside } from "vue-clickaway";
 
 const GlobalDirectives = {
   install(Vue) {
-    Vue.directive('click-outside', vClickOutside);
+    Vue.directive("click-outside", vClickOutside);
   },
 };
 

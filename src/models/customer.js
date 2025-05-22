@@ -3,11 +3,11 @@
  */
 export class Details {
   constructor() {
-    this.accountNr = '';
+    this.accountNr = "";
     this.salesReps = [];
     this.salesSupport = [];
     this.company = null;
-    this.url = '';
+    this.url = "";
     this.title = {
       known: null,
       tax: null,
@@ -20,24 +20,24 @@ export class Details {
  */
 export class Location {
   constructor() {
-    this.title = '';
-    this.code = '';
+    this.title = "";
+    this.code = "";
     this.contactInfo = {
-      email: [''],
+      email: [""],
       phoneNumbers: [
-        {countryCode: '90', areaCode: null, number: null, extension: null},
+        { countryCode: "90", areaCode: null, number: null, extension: null },
       ],
       faxNumbers: [
-        {countryCode: '90', areaCode: null, number: null, extension: null},
+        { countryCode: "90", areaCode: null, number: null, extension: null },
       ],
       address: {
-        title: '',
+        title: "",
         country: null,
         state: null,
         city: null,
         district: null,
         street: null,
-        zipCode: '',
+        zipCode: "",
       },
     };
     this.salesReps = [];
@@ -51,11 +51,11 @@ export class Location {
 export class B2BSettings {
   constructor() {
     this.isPosActive = false;
-    this.defaultLanguage = 'tr';
-    this.primaryWarehouse = '';
-    this.defaultCurrencyCode = 'TRY';
+    this.defaultLanguage = "tr";
+    this.primaryWarehouse = "";
+    this.defaultCurrencyCode = "TRY";
     this.notification = {
-      babsEmails: [''],
+      babsEmails: [""],
     };
     this.cart = {
       isShared: false,
@@ -68,14 +68,14 @@ export class B2BSettings {
  */
 export class ContactInfo {
   constructor() {
-    this.title = '';
-    this.type = '';
-    this.email = [''];
+    this.title = "";
+    this.type = "";
+    this.email = [""];
     this.phoneNumbers = [
-      {countryCode: '90', areaCode: null, number: null, extension: null},
+      { countryCode: "90", areaCode: null, number: null, extension: null },
     ];
     this.faxNumbers = [
-      {countryCode: '90', areaCode: null, number: null, extension: null},
+      { countryCode: "90", areaCode: null, number: null, extension: null },
     ];
     this.address = {
       title: null,

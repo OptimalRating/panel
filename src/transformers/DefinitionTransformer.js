@@ -5,10 +5,9 @@
  * The transformer for the tag group.
  */
 
-import Transformer from './Transformer';
+import Transformer from "./Transformer";
 
 export default class DefinitionTransformer extends Transformer {
-
   /**
    * Method used to transform a fetched account.
    *

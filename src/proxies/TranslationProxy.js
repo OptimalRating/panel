@@ -1,8 +1,8 @@
-import Proxy from './Proxy';
+import Proxy from "./Proxy";
 
 class TranslationProxy extends Proxy {
   constructor(parameters = {}) {
-    super('translations', parameters);
+    super("translations", parameters);
   }
 }
 

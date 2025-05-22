@@ -32,7 +32,7 @@ class SurveyProxy extends Proxy {
     return this.submit(
       "post",
       `/${this.endpoint}/fake/${payload.id}`,
-      payload.data
+      payload.data,
     );
   }
 

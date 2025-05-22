@@ -12,7 +12,7 @@ export default {
   cities: [],
   users: [],
   subjects: [],
-  specialSurveys : [],
-  normalSurveys : [],
-  pages:[]
+  specialSurveys: [],
+  normalSurveys: [],
+  pages: [],
 };

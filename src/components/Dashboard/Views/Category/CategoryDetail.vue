@@ -1,24 +1,26 @@
 <template>
   <div class="category-detail">
     <div class="d-flex align-items-center mb-4">
-      <h5 class="text-danger m-0">{{$t('common.category.components.list')}}</h5>
+      <h5 class="text-danger m-0">
+        {{ $t("common.category.components.list") }}
+      </h5>
       <button
         type="button"
         class="btn btn-primary btn-round btn-sm ml-auto"
         @click.prevent="newCategory"
       >
         <i class="fas fa-plus mr-1"></i>
-        {{$t('common.buttons.new')}}
+        {{ $t("common.buttons.new") }}
       </button>
     </div>
     <div class="row">
       <div class="col">
         <category-form
           :item="category"
-          :whichForm="'category'"
+          :which-form="'category'"
           @save="save"
-          @remove="remove"
           :saving="saving"
+          @remove="remove"
         ></category-form>
       </div>
     </div>
@@ -32,10 +34,10 @@ import { Category } from "src/models/definition";
 import Vue from "vue";
 
 export default {
-  props: ["item", "bus"],
   components: {
     CategoryForm
   },
+  props: ["item", "bus"],
   data() {
     return {
       saving: false,
@@ -43,9 +45,10 @@ export default {
       isChanged: false,
       uploadedImage: null,
       formMode: "new",
-      category: new Category()
+      category: new Category(),
     };
   },
+  computed: {},
   watch: {
     item: function() {
       this.isChanged = false;
@@ -62,7 +65,6 @@ export default {
       }
     }
   },
-  computed: {},
   methods: {
     newCategory() {
       this.category = new Category();
@@ -86,7 +88,7 @@ export default {
         this.$store
           .dispatch("definition/updateCategory", {
             id: this.category.id,
-            data: this.category
+            data: this.category,
           })
           .then(() => {
             this.saving = false;
@@ -102,7 +104,7 @@ export default {
     remove() {
       this.$store
         .dispatch("definition/getChildren", this.category)
-        .then(response => {
+        .then((response) => {
           let message = "Are you sure to delete this category?";
           let countChild = response.length;
           if (countChild > 0)
@@ -124,24 +126,24 @@ export default {
                     this.loading = true;
                     this.$store
                       .dispatch("definition/deleteCategory", {
-                        data: this.category
+                        data: this.category,
                       })
                       .then(() => {
                         this.loading = false;
                         this.notify(
                           "Category has been deleted successfully.",
-                          "success"
+                          "success",
                         );
                         this.bus.$emit("update-list");
                       });
-                  }
+                  },
                 }
-              ]
+              ],
             },
-            { classes: "test" }
+            { classes: "test" },
           );
         })
-        .catch(error => {
+        .catch((error) => {
           //this.notify('Kategori  silinirken bir hata oluştu.', 'error');
         });
     },
@@ -153,14 +155,13 @@ export default {
             message: message,
             horizontalAlign: "right",
             verticalAlign: "top",
-            type: status
+            type: status,
           });
-        }
+        },
       });
-    }
+    },
   }
 };
 </script>
 
-<style lang="css">
-</style>
+<style lang="css"></style>
