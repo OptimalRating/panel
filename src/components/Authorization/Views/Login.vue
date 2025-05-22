@@ -57,7 +57,7 @@
 <script>
   export default {
     name: 'login',
-    data () {
+    data() {
       return {
         user: {
           email: null,

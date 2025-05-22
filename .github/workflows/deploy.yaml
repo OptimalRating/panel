@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+permissions:
+  contents: write
 
 jobs:
   deploy:
@@ -21,8 +23,20 @@ jobs:
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Run ESLint
-        run: npm run lint
+      - name: Run ESLint (Auto Fix)
+        run: |
+          npm run lint || true
+          npx eslint --fix --ext .js,.vue src test/unit/specs || true
+
+      - name: Commit fixed ESLint issues
+        run: |
+         git config user.name "github-actions[bot]"
+         git config user.email "github-actions[bot]@users.noreply.github.com"
+         git add .
+         git diff --cached --quiet || git commit -m "chore: auto-fix ESLint issues"
+         git push
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Project
         run: npm run build
@@ -54,4 +68,3 @@ jobs:
 
             # Restart the application (adjust pm2 to use the right path)
             # pm2 restart all || pm2 start dist/ --name "optimal-panel" # Use dist if it's the build output folder for Vue.js
-

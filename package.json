@@ -8,7 +8,7 @@
     "dev": "node build/dev-server.js",
     "start": "cross-env ENABLE_ESLINT=true node build/dev-server.js",
     "build": "cross-env ENABLE_ESLINT=false node build/build.js",
-    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "lint": "eslint --fix --ext .js,.vue src test/unit/specs",
     "connect": "sshpass -p Mrtdnlr1! ssh -o StrictHostKeyChecking=no muratdinler@merlinkitap.com"
   },
   "dependencies": {
@@ -62,6 +62,7 @@
     "cssnano": "^3.10.0",
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.9.1",
+    "eslint-config-prettier": "^10.1.5",
     "eslint-config-standard": "^17.1.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.0.0",

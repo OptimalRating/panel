@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import TopNavbar from './TopNavbar.vue'
-import ContentFooter from './ContentFooter.vue'
-import DashboardContent from './Content.vue'
-import axios from 'axios'
+import TopNavbar from './TopNavbar.vue';
+import ContentFooter from './ContentFooter.vue';
+import DashboardContent from './Content.vue';
+import axios from 'axios';
 
 export default {
   components: {
@@ -29,8 +29,8 @@ export default {
   },
   data() {
     return {
-      menu: []
-    }
+      menu: [],
+    };
   },
   created() {
     this.getMenu();
@@ -46,23 +46,23 @@ export default {
       let apiUrl = process.env.API_LOCATION;
       return axios.get(apiUrl + 'menu', {
         headers: {
-          Authorization: 'Bearer ' + token
-        }
+          Authorization: 'Bearer ' + token,
+        },
       })
-      .then(response => {
+      .then((response) => {
         this.menu = response.data;
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error fetching menu:', error);
       });
     },
     toggleSidebar() {
       if (this.$sidebar.showSidebar) {
-        this.$sidebar.displaySidebar(false)
+        this.$sidebar.displaySidebar(false);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss">
