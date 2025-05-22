@@ -10,8 +10,7 @@ module.exports = {
   },
   plugins: [
     "vue",
-    "prettier",
-    "html"
+    "prettier"
   ],
   rules: {
     "prettier/prettier": "error",
