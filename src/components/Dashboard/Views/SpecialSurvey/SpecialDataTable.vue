@@ -110,14 +110,14 @@ export default {
     };
   },
   watch: {
-    yearSelected: function (val) {
+    yearSelected: function(val) {
       if (typeof val == "undefined" || val === null) {
         // console.log(val)
       } else {
         this.datatable.xprops.eventbus.$emit("yearSelected", val);
       }
     },
-    monthSelected: function (val) {
+    monthSelected: function(val) {
       if (typeof val == "undefined" || val === null) {
       } else {
         this.datatable.xprops.eventbus.$emit("monthSelected", val);

@@ -69,14 +69,14 @@
                   >
                   <div class="col-8">
                     <input
-<<<<<<< Updated upstream
-                      v-model="keyword.key"
+v-model="keyword.key" v-model="keyword.key" <<<<<<<
+                      Updated
+                      upstream
+                      type="text"
+class="form-control"
+                      =======
                       type="text"
                       class="form-control"
-=======
-                      type="text"
-                      class="form-control"
-                      v-model="keyword.key"
 >>>>>>> Stashed changes
                     />
                   </div>
@@ -87,14 +87,14 @@
                   >
                   <div class="col-8">
                     <input
-<<<<<<< Updated upstream
-                      v-model="keyword.default"
+v-model="keyword.default" v-model="keyword.default" <<<<<<<
+                      Updated
+                      upstream
+                      type="text"
+class="form-control"
+                      =======
                       type="text"
                       class="form-control"
-=======
-                      type="text"
-                      class="form-control"
-                      v-model="keyword.default"
 >>>>>>> Stashed changes
                     />
                   </div>
@@ -117,8 +117,8 @@
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
           :disabled="saving"
 <<<<<<< Updated upstream
-          @click="saveKeyword"
-=======
+          =======
+@click="saveKeyword"
 >>>>>>> Stashed changes
         >
           {{ saving ? "Saving..." : $t("common.buttons.save") }}

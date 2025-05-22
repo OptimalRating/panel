@@ -61,14 +61,14 @@
                   >
                   <div class="col-8">
                     <input
-<<<<<<< Updated upstream
-                      v-model="city.name"
+v-model="city.name" v-model="city.name" <<<<<<<
+                      Updated
+                      upstream
+                      type="text"
+class="form-control"
+                      =======
                       type="text"
                       class="form-control"
-=======
-                      type="text"
-                      class="form-control"
-                      v-model="city.name"
 >>>>>>> Stashed changes
                     />
                   </div>
@@ -79,14 +79,14 @@
                   >
                   <div class="col-8">
                     <input
-<<<<<<< Updated upstream
-                      v-model="city.order"
+v-model="city.order" v-model="city.order" <<<<<<<
+                      Updated
+                      upstream
+                      type="text"
+class="form-control"
+                      =======
                       type="text"
                       class="form-control"
-=======
-                      type="text"
-                      class="form-control"
-                      v-model="city.order"
 >>>>>>> Stashed changes
                     />
                   </div>
@@ -109,8 +109,8 @@
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
           :disabled="saving"
 <<<<<<< Updated upstream
-          @click="saveCity"
-=======
+          =======
+@click="saveCity"
 >>>>>>> Stashed changes
         >
           {{ saving ? "Saving..." : $t("common.buttons.save") }}
@@ -194,10 +194,10 @@ export default {
       _cities: (state) => state.cities,
     }),
 
-    auth_country: function () {
+    auth_country: function() {
       return this._.cloneDeep(this._auth_country);
     },
-    cities: function () {
+    cities: function() {
       return this._.cloneDeep(this._cities);
     },
   },

@@ -7,7 +7,7 @@
         'badge-pill',
         row[field] === 'active' || row[field] === 1
           ? 'badge-success'
-          : 'badge-secondary'
+          : 'badge-secondary',
       ]"
     >
       {{

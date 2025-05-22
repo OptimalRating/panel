@@ -20,19 +20,19 @@
               <h4 class="mt-0">Create Category</h4>
               <hr />
               <div style="font-weight: bold">Name</div>
-<<<<<<< Updated upstream
+              <<<<<<< Updated upstream
               <input v-model="name" class="form-control" />
               <div style="font-weight: bold; margin-top: 20px">
                 Translation Code
               </div>
               <input v-model="code" class="form-control" />
-=======
-              <input class="form-control" v-model="name" />
+              =======
+              <input v-model="name" class="form-control" />
               <div style="font-weight: bold; margin-top: 20px">
                 Translation Code
               </div>
-              <input class="form-control" v-model="code" />
->>>>>>> Stashed changes
+              <input v-model="code" class="form-control" />
+              >>>>>>> Stashed changes
               <div style="font-weight: bold; margin-top: 20px">
                 Parent Category
               </div>

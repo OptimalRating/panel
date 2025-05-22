@@ -22,12 +22,12 @@
             <div class="col-12">
               <card>
                 <datatable
-<<<<<<< Updated upstream
-                  v-if="datatable.data"
+v-if="datatable.data" v-if="datatable.data" <<<<<<<
+                  Updated
+                  upstream
+:class="{ 'loading-table': loading }"
+                  =======
                   :class="{ 'loading-table': loading }"
-=======
-                  :class="{ 'loading-table': loading }"
-                  v-if="datatable.data"
 >>>>>>> Stashed changes
                   v-bind="datatable"
                 />
@@ -48,12 +48,12 @@
           <div class="row">
             <div class="col">
               <i
-<<<<<<< Updated upstream
-                slot="top-right"
+slot="top-right" slot="top-right" <<<<<<<
+                Updated
+                upstream
+class="fas fa-times fa-2x btn-modal-close text-success"
+                =======
                 class="fas fa-times fa-2x btn-modal-close text-success"
-=======
-                class="fas fa-times fa-2x btn-modal-close text-success"
-                slot="top-right"
 >>>>>>> Stashed changes
                 @click="$modal.hide('subject-modal')"
               ></i>
@@ -66,14 +66,14 @@
                   >
                   <div class="col-8">
                     <input
-<<<<<<< Updated upstream
-                      v-model="subject.title"
+v-model="subject.title" v-model="subject.title" <<<<<<<
+                      Updated
+                      upstream
+                      type="text"
+class="form-control"
+                      =======
                       type="text"
                       class="form-control"
-=======
-                      type="text"
-                      class="form-control"
-                      v-model="subject.title"
 >>>>>>> Stashed changes
                     />
                   </div>

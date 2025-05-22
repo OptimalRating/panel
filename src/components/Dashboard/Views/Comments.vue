@@ -12,12 +12,12 @@
             <div class="col-12">
               <card>
                 <datatable
-<<<<<<< Updated upstream
-                  v-if="datatable.data"
+v-if="datatable.data" v-if="datatable.data" <<<<<<<
+                  Updated
+                  upstream
+:class="{ 'loading-table': loading }"
+                  =======
                   :class="{ 'loading-table': loading }"
-=======
-                  :class="{ 'loading-table': loading }"
-                  v-if="datatable.data"
 >>>>>>> Stashed changes
                   v-bind="datatable"
                 />

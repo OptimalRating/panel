@@ -60,14 +60,14 @@
                   >
                   <div class="col-8">
                     <input
-<<<<<<< Updated upstream
-                      v-model="keyword.default"
+v-model="keyword.default" v-model="keyword.default" <<<<<<<
+                      Updated
+                      upstream
+                      type="text"
+class="form-control"
+                      =======
                       type="text"
                       class="form-control"
-=======
-                      type="text"
-                      class="form-control"
-                      v-model="keyword.default"
 >>>>>>> Stashed changes
                       disabled
                     />
@@ -80,11 +80,11 @@
                   <div class="col-8">
                     <input
                       v-model="keyword.translation.translation"
-                      type="text"
-                      class="form-control"
-<<<<<<< Updated upstream
-=======
                       v-model="keyword.translation.translation"
+                      type="text"
+class="form-control" <<<<<<< Updated
+                      upstream
+=======
 >>>>>>> Stashed changes
                     />
                   </div>
@@ -107,8 +107,8 @@
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
           :disabled="saving"
 <<<<<<< Updated upstream
-          @click="saveTranslation"
-=======
+          =======
+@click="saveTranslation"
 >>>>>>> Stashed changes
         >
           {{ saving ? "Saving..." : $t("common.buttons.save") }}
@@ -187,7 +187,7 @@ export default {
     ...mapState("definition", {
       _keywords: (state) => state.keywords,
     }),
-    keywords: function () {
+    keywords: function() {
       return this._.cloneDeep(this._keywords);
     },
   },
