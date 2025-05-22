@@ -29,7 +29,7 @@ export default {
       (this.categories = []), (this.surveys = []);
       this.$store.dispatch("definition/getAllCategoryTree").then(response => {
         this.$store.dispatch("definition/getAllSurveys").then(res => {
-          console.log(res, response);
+          
           response = response.map(x => {
             return {
               ...x,
