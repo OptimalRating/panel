@@ -99,6 +99,7 @@
                           @click="$modal.hide('upload-modal')"
                         ></i>
                         <file-upload
+<<<<<<< Updated upstream
                           upload-type="ct"
                           :max-files="1"
                           :resize-size="{
@@ -110,6 +111,19 @@
                             height: thumbnailSize.height,
                           }"
                           @upload-success="uploadSuccess"
+=======
+                          uploadType="ct"
+                          :maxFiles="1"
+                          @uploadSuccess="uploadSuccess"
+                          :resizeSize="{
+                            width: imageSize.width,
+                            height: imageSize.height,
+                          }"
+                          :thumbnailSize="{
+                            width: thumbnailSize.width,
+                            height: thumbnailSize.height,
+                          }"
+>>>>>>> Stashed changes
                         ></file-upload>
                       </div>
                     </div>
@@ -173,9 +187,15 @@
           >
           <div class="col-8">
             <input
+<<<<<<< Updated upstream
               v-model="item.password"
               type="password"
               class="form-control"
+=======
+              type="password"
+              class="form-control"
+              v-model="item.password"
+>>>>>>> Stashed changes
             />
           </div>
         </div>
@@ -189,9 +209,15 @@
           >
           <div class="col-8">
             <input
+<<<<<<< Updated upstream
               v-model="item.password_confirmation"
               type="password"
               class="form-control"
+=======
+              type="password"
+              class="form-control"
+              v-model="item.password_confirmation"
+>>>>>>> Stashed changes
             />
           </div>
         </div>
@@ -229,7 +255,7 @@ export default {
     };
   },
   watch: {
-    item: function() {
+    item: function () {
       this.selectedStatus = this.item.status == "active" ? true : false;
 
       if (this.item.flag === "no-image-icon-11.png") {
@@ -238,7 +264,7 @@ export default {
         this.imageUrl = `images/country/${this.item.flag}`;
       }
     },
-    selectedStatus: function() {
+    selectedStatus: function () {
       this.item.status = this.selectedStatus ? "active" : "passive";
     },
   },
@@ -259,14 +285,14 @@ export default {
           this.newPassSaving = false;
         });
     },
-    uploadSuccess: function(response) {
+    uploadSuccess: function (response) {
       if (response?.result.set) {
         this.uploadedImage = response.result.set[0];
         this.imageUrl = this.uploadedImage.name;
         //this.cdnUrl = this.uploadedImage.cdnPath;
       }
     },
-    saveImage: function() {
+    saveImage: function () {
       this.item.flag = this.uploadedImage.name;
       // this.cdnUrl = this.uploadedImage.cdnPath;
       this.imageUrl = this.uploadedImage.name;

@@ -20,11 +20,19 @@
               <h4 class="mt-0">Create Category</h4>
               <hr />
               <div style="font-weight: bold">Name</div>
+<<<<<<< Updated upstream
               <input v-model="name" class="form-control" />
               <div style="font-weight: bold; margin-top: 20px">
                 Translation Code
               </div>
               <input v-model="code" class="form-control" />
+=======
+              <input class="form-control" v-model="name" />
+              <div style="font-weight: bold; margin-top: 20px">
+                Translation Code
+              </div>
+              <input class="form-control" v-model="code" />
+>>>>>>> Stashed changes
               <div style="font-weight: bold; margin-top: 20px">
                 Parent Category
               </div>
@@ -84,7 +92,7 @@ export default {
     ...mapState("definition", {
       categories: (state) => state.categories,
     }),
-    categoryOptions: function() {
+    categoryOptions: function () {
       let _this = this;
       function mapChildren(children) {
         return _this._.map(children, (child) => {

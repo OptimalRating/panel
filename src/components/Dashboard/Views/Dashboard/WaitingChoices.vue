@@ -85,7 +85,7 @@ export default {
     };
   },
   watch: {
-    surveyChoices: function(item) {
+    surveyChoices: function (item) {
       // console.log(item);
     },
   },

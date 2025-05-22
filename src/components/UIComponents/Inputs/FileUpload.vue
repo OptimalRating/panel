@@ -34,8 +34,8 @@ export default {
         thumbnailHeight: this.thumbnailSize ? this.thumbnailSize.height : null,
         resizeMethod: "contain",
         thumbnailMethod: "contain",
-        init: function() {
-          this.on("maxfilesexceeded", function(file) {
+        init: function () {
+          this.on("maxfilesexceeded", function (file) {
             this.removeAllFiles();
             this.addFile(file);
           });

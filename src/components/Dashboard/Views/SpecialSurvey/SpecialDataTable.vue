@@ -15,6 +15,10 @@
 
                     <treeselect
                       id="year"
+<<<<<<< Updated upstream
+=======
+                      class="col-8"
+>>>>>>> Stashed changes
                       v-model="yearSelected"
                       class="col-8"
                       :options="years"
@@ -26,6 +30,10 @@
                     <label class="col-3" for="month">Month</label>
                     <treeselect
                       id="month"
+<<<<<<< Updated upstream
+=======
+                      class="col-8"
+>>>>>>> Stashed changes
                       v-model="monthSelected"
                       class="col-8"
                       :options="months[0]"
@@ -102,14 +110,14 @@ export default {
     };
   },
   watch: {
-    yearSelected: function(val) {
+    yearSelected: function (val) {
       if (typeof val == "undefined" || val === null) {
         // console.log(val)
       } else {
         this.datatable.xprops.eventbus.$emit("yearSelected", val);
       }
     },
-    monthSelected: function(val) {
+    monthSelected: function (val) {
       if (typeof val == "undefined" || val === null) {
       } else {
         this.datatable.xprops.eventbus.$emit("monthSelected", val);

@@ -13,34 +13,61 @@
         <div class="form-inline col-md-6 float-left">
           <label class="col-3" for="categoryOption">Categories</label>
           <treeselect
+<<<<<<< Updated upstream
             id="categoryOption"
             v-model="categorySelected"
             class="col-8"
             :options="categories"
             placeholder="Choose a category"
             value-format="id"
+=======
+            class="col-8"
+            id="categoryOption"
+            v-model="categorySelected"
+            :options="categories"
+            placeholder="Choose a category"
+            valueFormat="id"
+>>>>>>> Stashed changes
           />
         </div>
         <div class="form-inline col-md-2 float-left">
           <label class="col-3" for="year">Year</label>
           <treeselect
+<<<<<<< Updated upstream
             id="year"
             v-model="yearSelected"
             class="col-8"
             :options="years"
             placeholder="Year"
             value-format="id"
+=======
+            class="col-8"
+            id="year"
+            v-model="yearSelected"
+            :options="years"
+            placeholder="Year"
+            valueFormat="id"
+>>>>>>> Stashed changes
           />
         </div>
         <div class="form-inline col-md-2 float-left">
           <label class="col-3" for="month">Month</label>
           <treeselect
+<<<<<<< Updated upstream
             id="month"
             v-model="monthSelected"
             class="col-9"
             :options="months[0]"
             placeholder="Month"
             value-format="id"
+=======
+            class="col-9"
+            id="month"
+            v-model="monthSelected"
+            :options="months[0]"
+            placeholder="Month"
+            valueFormat="id"
+>>>>>>> Stashed changes
           />
         </div>
 
@@ -61,8 +88,13 @@
       <div class="col-12">
         <card>
           <datatable
+<<<<<<< Updated upstream
             v-if="datatable.data"
             :class="{ 'loading-table': loading }"
+=======
+            :class="{ 'loading-table': loading }"
+            v-if="datatable.data"
+>>>>>>> Stashed changes
             v-bind="datatable"
           />
         </card>
@@ -75,11 +107,18 @@
 import Card from "src/components/UIComponents/Cards/Card.vue";
 import { mapState } from "vuex";
 export default {
+<<<<<<< Updated upstream
   components: {
     Card,
   },
 
   props: ["title", "loading", "datatable", "hideFilter"],
+=======
+  props: ["title", "loading", "datatable", "hideFilter"],
+  components: {
+    Card,
+  },
+>>>>>>> Stashed changes
   data() {
     return {
       years: [

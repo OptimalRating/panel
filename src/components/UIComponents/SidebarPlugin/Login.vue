@@ -77,7 +77,7 @@ export default {
   methods: {
     login(user) {
       var _this = this;
-      this.$store.dispatch("auth/login", user).catch(function(response) {
+      this.$store.dispatch("auth/login", user).catch(function (response) {
         response.message ? (_this.errorMessage = response.message) : null;
       });
     },

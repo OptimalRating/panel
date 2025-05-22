@@ -14,7 +14,7 @@
       :value="value"
       v-bind="$attrs"
       class="form-control"
-      @input="$emit('input',$event.target.value)"
+      @input="$emit('input', $event.target.value)"
       aria-describedby="addon-right addon-left"
     />
     <slot></slot>

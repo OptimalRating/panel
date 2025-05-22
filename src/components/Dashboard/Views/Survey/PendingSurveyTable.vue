@@ -5,15 +5,23 @@
       <i
         :class="`fa fa-caret-${collapsed ? 'right' : 'down'}`"
         style="color: #333; cursor: pointer; margin-left: 10px"
+<<<<<<< Updated upstream
         @click="collapsed = !collapsed"
+=======
+>>>>>>> Stashed changes
       />
     </h4>
     <div v-if="!collapsed" class="row">
       <div class="col-12">
         <card>
           <datatable
+<<<<<<< Updated upstream
             v-if="datatable.data"
             :class="{ 'loading-table': loading }"
+=======
+            :class="{ 'loading-table': loading }"
+            v-if="datatable.data"
+>>>>>>> Stashed changes
             v-bind="datatable"
           />
         </card>
@@ -70,26 +78,26 @@ export default {
     }),
   },
   watch: {
-    yearSelected: function(val) {
+    yearSelected: function (val) {
       if (typeof val == "undefined" || val === null) {
         // console.log(val)
       } else {
         this.datatable.xprops.eventbus.$emit("yearSelected", val);
       }
     },
-    monthSelected: function(val) {
+    monthSelected: function (val) {
       if (typeof val == "undefined" || val === null) {
       } else {
         this.datatable.xprops.eventbus.$emit("monthSelected", val);
       }
     },
-    statusSelected: function(val) {
+    statusSelected: function (val) {
       if (typeof val == "undefined" || val === null) {
       } else {
         this.datatable.xprops.eventbus.$emit("statusSelected", val);
       }
     },
-    categorySelected: function(val) {
+    categorySelected: function (val) {
       if (typeof val == "undefined" || val === null) {
       } else {
         this.datatable.xprops.eventbus.$emit("categorySelected", val);

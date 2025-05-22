@@ -1,10 +1,17 @@
 <template>
   <div>
     <div
+<<<<<<< Updated upstream
       v-if="
         datatableTrash.data.length > 0 && roles && roles !== 'country_admin'
       "
       class="row"
+=======
+      class="row"
+      v-if="
+        datatableTrash.data.length > 0 && roles && roles !== 'country_admin'
+      "
+>>>>>>> Stashed changes
     >
       <div class="col-12">
         <div class="row">
@@ -14,8 +21,13 @@
           <div class="col-12">
             <card>
               <datatable
+<<<<<<< Updated upstream
                 v-if="datatableTrash.data"
                 :class="{ 'loading-table': loading }"
+=======
+                :class="{ 'loading-table': loading }"
+                v-if="datatableTrash.data"
+>>>>>>> Stashed changes
                 v-bind="datatableTrash"
               />
             </card>

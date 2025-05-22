@@ -20,7 +20,7 @@ export default {
     };
   },
   watch: {
-    "row.status": function(status) {
+    "row.status": function (status) {
       this.selectedStatus = this.row.show_on_home == "1" ? true : false;
     },
   },

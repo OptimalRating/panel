@@ -21,7 +21,7 @@ export default {
     };
   },
   watch: {
-    "row.status": function(status) {
+    "row.status": function (status) {
       this.selectedStatus =
         this.row.status == "active" || this.row.status ? true : false;
     },

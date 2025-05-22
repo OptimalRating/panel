@@ -93,7 +93,7 @@ export default {
       },
       deep: true,
     },
-    selectedSubject: function(val) {
+    selectedSubject: function (val) {
       if (typeof val !== "undefined" || val === null) {
         this.special.subjects = [];
         this._.map(val, (item) => {
@@ -105,7 +105,7 @@ export default {
   created() {
     this.addAnotherAnswer();
     this.addAnotherAnswer();
-    this.datatable.xprops.eventbus.$on("openModal", function() {
+    this.datatable.xprops.eventbus.$on("openModal", function () {
       this.special = new Special();
       this.choice = new Choice();
 
@@ -152,7 +152,7 @@ export default {
     ...mapState("definition", {
       _normalSurveys: (state) => state.normalSurveys,
     }),
-    normalSurveys: function() {
+    normalSurveys: function () {
       return this._.cloneDeep(this._normalSurveys);
     },
   },

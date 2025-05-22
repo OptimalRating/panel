@@ -22,8 +22,13 @@
             <div class="col-12">
               <card>
                 <datatable
+<<<<<<< Updated upstream
                   v-if="datatable.data"
                   :class="{ 'loading-table': loading }"
+=======
+                  :class="{ 'loading-table': loading }"
+                  v-if="datatable.data"
+>>>>>>> Stashed changes
                   v-bind="datatable"
                 />
               </card>
@@ -43,8 +48,13 @@
           <div class="row">
             <div class="col">
               <i
+<<<<<<< Updated upstream
                 slot="top-right"
                 class="fas fa-times fa-2x btn-modal-close text-success"
+=======
+                class="fas fa-times fa-2x btn-modal-close text-success"
+                slot="top-right"
+>>>>>>> Stashed changes
                 @click="$modal.hide('subject-modal')"
               ></i>
               <h4 class="mt-0">{{ $t("common.subject.labels.new") }}</h4>
@@ -56,9 +66,15 @@
                   >
                   <div class="col-8">
                     <input
+<<<<<<< Updated upstream
                       v-model="subject.title"
                       type="text"
                       class="form-control"
+=======
+                      type="text"
+                      class="form-control"
+                      v-model="subject.title"
+>>>>>>> Stashed changes
                     />
                   </div>
                 </div>

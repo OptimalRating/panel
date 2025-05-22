@@ -29,9 +29,15 @@
                     <label class="col-3 col-form-label">Survey Title :</label>
                     <div class="col-8">
                       <input
+<<<<<<< Updated upstream
                         v-model="survey.title"
                         type="text"
                         class="form-control"
+=======
+                        type="text"
+                        class="form-control"
+                        v-model="survey.title"
+>>>>>>> Stashed changes
                       />
                     </div>
                   </div>
@@ -39,9 +45,15 @@
                     <label class="col-3 col-form-label">Survey Url :</label>
                     <div class="col-8">
                       <input
+<<<<<<< Updated upstream
                         v-model="survey.slug"
                         type="text"
                         class="form-control"
+=======
+                        type="text"
+                        class="form-control"
+                        v-model="survey.slug"
+>>>>>>> Stashed changes
                       />
                     </div>
                   </div>
@@ -64,8 +76,13 @@
                     >
                     <div class="col-8">
                       <vue-editor
+<<<<<<< Updated upstream
                         v-model="survey.description"
                         :editor-toolbar="customToolbar"
+=======
+                        :editorToolbar="customToolbar"
+                        v-model="survey.description"
+>>>>>>> Stashed changes
                       ></vue-editor>
                     </div>
                   </div>
@@ -86,6 +103,7 @@
               <hr />
               <h4>Choices</h4>
               <div
+<<<<<<< Updated upstream
                 v-for="(choice, index) in survey.choices"
                 class="form-group row mb-5"
               >
@@ -94,6 +112,16 @@
                     v-model="choice.choice_title"
                     type="text"
                     class="form-control"
+=======
+                class="form-group row mb-5"
+                v-for="(choice, index) in survey.choices"
+              >
+                <div class="col-7 pt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="choice.choice_title"
+>>>>>>> Stashed changes
                   />
                 </div>
                 <div class="col-1">
@@ -128,9 +156,15 @@
                 </div>
                 <div class="col-7">
                   <vue-editor
+<<<<<<< Updated upstream
                     v-model="choice.choice_description"
                     :editor-toolbar="customToolbar"
                     :tag="textarea"
+=======
+                    :editorToolbar="customToolbar"
+                    :tag="textarea"
+                    v-model="choice.choice_description"
+>>>>>>> Stashed changes
                     @text-change="onTextChange($event, index)"
                   ></vue-editor>
                 </div>
@@ -206,7 +240,7 @@ export default {
     ...mapState("definition", {
       categories: (state) => state.categories,
     }),
-    categoryOptions: function() {
+    categoryOptions: function () {
       let _this = this;
       function mapChildren(children) {
         return _this._.map(children, (child) => {
@@ -292,7 +326,7 @@ export default {
     },
   },
   watch: {
-    selectedCategory: function(val) {
+    selectedCategory: function (val) {
       if (typeof val == "undefined" || val === null) {
         this.survey.category_id = null;
       }

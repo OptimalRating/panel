@@ -1,6 +1,10 @@
 <template>
   <div class="shopping-bag-detail">
+<<<<<<< Updated upstream
     <div v-if="loading" class="loader"></div>
+=======
+    <div class="loader" v-if="loading"></div>
+>>>>>>> Stashed changes
 
     <div class="clearfix"></div>
     <div class="row">
@@ -21,8 +25,13 @@
     <div class="row">
       <div class="col-12">
         <datatable
+<<<<<<< Updated upstream
           v-if="datatable.data"
           :class="{ 'loading-table': loading }"
+=======
+          :class="{ 'loading-table': loading }"
+          v-if="datatable.data"
+>>>>>>> Stashed changes
           v-bind="datatable"
         />
       </div>
@@ -39,8 +48,13 @@
           <div class="row">
             <div class="col">
               <i
+<<<<<<< Updated upstream
                 slot="top-right"
                 class="fas fa-times fa-2x btn-modal-close text-success"
+=======
+                class="fas fa-times fa-2x btn-modal-close text-success"
+                slot="top-right"
+>>>>>>> Stashed changes
                 @click="$modal.hide('city-modal')"
               ></i>
               <h4 class="mt-0">{{ $t("common.city.labels.new") }}</h4>
@@ -52,9 +66,15 @@
                   >
                   <div class="col-8">
                     <input
+<<<<<<< Updated upstream
                       v-model="city.name"
                       type="text"
                       class="form-control"
+=======
+                      type="text"
+                      class="form-control"
+                      v-model="city.name"
+>>>>>>> Stashed changes
                     />
                   </div>
                 </div>
@@ -65,9 +85,15 @@
                   >
                   <div class="col-8">
                     <input
+<<<<<<< Updated upstream
                       v-model="city.order"
                       type="text"
                       class="form-control"
+=======
+                      type="text"
+                      class="form-control"
+                      v-model="city.order"
+>>>>>>> Stashed changes
                     />
                   </div>
                 </div>
@@ -166,7 +192,11 @@ export default {
     ...mapState("definition", {
       _cities: (state) => state.cities,
     }),
+<<<<<<< Updated upstream
     cities: function() {
+=======
+    cities: function () {
+>>>>>>> Stashed changes
       return this._.cloneDeep(this._cities);
     },
   },

@@ -22,8 +22,13 @@
             <div class="col-12">
               <card>
                 <datatable
+<<<<<<< Updated upstream
                   v-if="datatable.data"
                   :class="{ 'loading-table': loading }"
+=======
+                  :class="{ 'loading-table': loading }"
+                  v-if="datatable.data"
+>>>>>>> Stashed changes
                   v-bind="datatable"
                 />
               </card>
@@ -43,8 +48,13 @@
           <div class="row">
             <div class="col">
               <i
+<<<<<<< Updated upstream
                 slot="top-right"
                 class="fas fa-times fa-2x btn-modal-close text-success"
+=======
+                class="fas fa-times fa-2x btn-modal-close text-success"
+                slot="top-right"
+>>>>>>> Stashed changes
                 @click="$modal.hide('page-modal')"
               ></i>
               <h4 class="mt-0">{{ $t("common.page.labels.new") }}</h4>
@@ -145,7 +155,11 @@ export default {
     ...mapState("definition", {
       _pages: (state) => state.pages,
     }),
+<<<<<<< Updated upstream
     pages: function() {
+=======
+    pages: function () {
+>>>>>>> Stashed changes
       return this._.cloneDeep(this._pages);
     },
   },

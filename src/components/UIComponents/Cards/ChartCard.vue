@@ -15,7 +15,11 @@
 import Card from "./Card.vue";
 
 export default {
+<<<<<<< Updated upstream
   name: "ChartCard",
+=======
+  name: "chart-card",
+>>>>>>> Stashed changes
   components: {
     Card,
   },
@@ -48,12 +52,15 @@ export default {
       chart: null,
     };
   },
+<<<<<<< Updated upstream
   async mounted() {
     this.updateChartId();
     const Chartist = await import("chartist");
     this.$Chartist = Chartist;
     this.initChart();
   },
+=======
+>>>>>>> Stashed changes
   methods: {
     /***
      * Initializes the chart by merging the chart options sent via props and the default chart options
@@ -139,6 +146,15 @@ export default {
       });
     },
   },
+<<<<<<< Updated upstream
+=======
+  async mounted() {
+    this.updateChartId();
+    const Chartist = await import("chartist");
+    this.$Chartist = Chartist;
+    this.initChart();
+  },
+>>>>>>> Stashed changes
 };
 </script>
 <style></style>

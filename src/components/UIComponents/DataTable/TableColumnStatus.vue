@@ -1,15 +1,21 @@
 <template>
   <div>
     <span
-v-if="field === 'status'"
-      :class="['badge', 'badge-pill', row[field] === 'active' || row[field] === 1 ? 'badge-success' : 'badge-secondary']"
+      v-if="field === 'status'"
+      :class="[
+        'badge',
+        'badge-pill',
+        row[field] === 'active' || row[field] === 1
+          ? 'badge-success'
+          : 'badge-secondary'
       ]"
-      >{{
+    >
+      {{
         row[field] === "active" || row[field] === 1
           ? $t("common.labels.active")
           : $t("common.labels.passive")
-      }}</span
-    >
+      }}
+    </span>
     <span v-if="is_new" class="badge badge-pill badge-warning">NEW</span>
   </div>
 </template>
@@ -18,12 +24,11 @@ v-if="field === 'status'"
 export default {
   props: ["row", "field"],
   computed: {
-    is_new: function() {
-      if (this.field == "isNew") {
-        return this.row["is_new"] == "y" ? true : false;
-      } else {
-        return null;
+    is_new() {
+      if (this.field === "isNew") {
+        return this.row["is_new"] === "y";
       }
+      return null;
     },
   },
 };

@@ -31,6 +31,10 @@
             <div class="col-12">
               <card>
                 <datatable
+<<<<<<< Updated upstream
+=======
+                  :class="{ 'loading-table': loading }"
+>>>>>>> Stashed changes
                   v-if="datatable.data"
                   :class="{ 'loading-table': loading }"
                   v-bind="datatable"
@@ -65,9 +69,15 @@
                   >
                   <div class="col-8">
                     <input
+<<<<<<< Updated upstream
                       v-model="keyword.key"
                       type="text"
                       class="form-control"
+=======
+                      type="text"
+                      class="form-control"
+                      v-model="keyword.key"
+>>>>>>> Stashed changes
                     />
                   </div>
                 </div>
@@ -77,9 +87,15 @@
                   >
                   <div class="col-8">
                     <input
+<<<<<<< Updated upstream
                       v-model="keyword.default"
                       type="text"
                       class="form-control"
+=======
+                      type="text"
+                      class="form-control"
+                      v-model="keyword.default"
+>>>>>>> Stashed changes
                     />
                   </div>
                 </div>
@@ -100,7 +116,10 @@
           type="button"
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
           :disabled="saving"
+<<<<<<< Updated upstream
           @click="saveKeyword"
+=======
+>>>>>>> Stashed changes
         >
           {{ saving ? "Saving..." : $t("common.buttons.save") }}
         </button>
