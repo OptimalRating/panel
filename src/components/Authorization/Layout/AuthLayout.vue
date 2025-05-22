@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import AuthorizationContent from "./Content.vue";
+import AuthorizationContent from './Content.vue';
 
 export default {
   components: {

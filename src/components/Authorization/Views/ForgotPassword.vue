@@ -52,7 +52,7 @@
 
 <script>
 export default {
-  name: "login",
+  name: 'login',
   data() {
     return {
       username: null,
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     login(user) {
-      this.$store.dispatch("auth/login", user);
+      this.$store.dispatch('auth/login', user);
     },
   },
 };

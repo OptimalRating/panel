@@ -57,27 +57,27 @@
 <script>
   export default {
     name: 'login',
-    data(){
+    data () {
       return {
         user: {
           email: null,
-          password: null
+          password: null,
         },
         errorMessage: null,
-        loading: false
-      }
+        loading: false,
+      };
     },
     methods: {
-      login(user){
-        var _this = this;
+      login(user) {
+        const _this = this;
         this.loading = true;
         this.$store.dispatch('auth/login', user).catch((response) => {
           this.loading = false;
           response.message ? _this.errorMessage = response.message : null;
         });
-      }
-    }
-  }
+      },
+    },
+  };
 </script>
 
 <style lang="scss">
