@@ -1313,7 +1313,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('tbody',[(_vm.data.length)?[_vm._l((_vm.data),function(item){return [_c('tr',[(_vm.shouldRenderSelection)?_c('td',[_c('multi-select',{attrs:{"selection":_vm.selection,"row":item}})],1):_vm._e(),_vm._v(" "),_vm._l((_vm.columns),function(col){return _c('td',{class:col.tdClass,style:(col.tdStyle)},[(col.tdComp)?_c(_vm.forDynCompIs(col.tdComp),_vm._b({tag:"component",attrs:{"row":item,"field":col.field,"value":item[col.field],"nested":item.__nested__}},'component',_vm.$props,false)):[_vm._v("\n            "+_vm._s(item[col.field])+"\n          ")]],2)})],2),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(item.__nested__ && item.__nested__.visible)?_c('tr',[_c('td',{attrs:{"colspan":_vm.colLen}},[_c(_vm.forDynCompIs(item.__nested__.comp),_vm._b({tag:"component",attrs:{"row":item,"nested":item.__nested__}},'component',_vm.$props,false))],1)]):_vm._e()])]})]:(!_vm.leftFixed && !_vm.rightFixed)?_c('tr',[_c('td',{staticClass:"text-center text-muted",attrs:{"colspan":_vm.colLen}},[_vm._v("\n      ( "+_vm._s(_vm.$i18nForDatatable('No Data'))+" )\n    ")])]):_vm._e()],2)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('tbody',[(_vm.data.length)?[_vm._l((_vm.data),function(item){return [_c('tr',[(_vm.shouldRenderSelection)?_c('td',[_c('multi-select',{attrs:{"selection":_vm.selection,"row":item}})],1):_vm._e(),_vm._v(" "),_vm._l((_vm.columns),function(col){return _c('td',{class:col.tdClass,style:(col.tdStyle)},[(col.tdComp)?_c(_vm.forDynCompIs(col.tdComp),_vm._b({tag:"component",attrs:{"row":item,"field":col.field,"value":item[col.field],"nested":item.__nested__}},'component',_vm.$props,false)):[_vm._v("\n            "+_vm._s(item[col.field])+"\n          ")]],2)})],2),_vm._v(" "),_c('transition',{attrs:{"name":"fade"}},[(item.__nested__?.visible)?_c('tr',[_c('td',{attrs:{"colspan":_vm.colLen}},[_c(_vm.forDynCompIs(item.__nested__.comp),_vm._b({tag:"component",attrs:{"row":item,"nested":item.__nested__}},'component',_vm.$props,false))],1)]):_vm._e()])]})]:(!_vm.leftFixed && !_vm.rightFixed)?_c('tr',[_c('td',{staticClass:"text-center text-muted",attrs:{"colspan":_vm.colLen}},[_vm._v("\n      ( "+_vm._s(_vm.$i18nForDatatable('No Data'))+" )\n    ")])]):_vm._e()],2)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -1473,7 +1473,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
   },
   computed: {
     isFolder: function isFolder() {
-      return this.item.children && this.item.children.length;
+      return this.item.children?.length;
     },
     indent: function indent() {
       return { 'padding-left': this.depth * 10 + 'px' };
@@ -4560,7 +4560,7 @@ var Component = normalizeComponent(
       this.loading = true;
       this.$store.dispatch('definition/getAllCountries', { filter: filter }).then(function (response) {
         _this2.loading = false;
-        _this2.datatable.total = response.pagination && response.pagination.recordCount ? response.pagination.recordCount : 1;
+        _this2.datatable.total = response.pagination?.recordCount ? response.pagination.recordCount : 1;
         _this2.datatable.data = _this2.countries;
       });
     },
@@ -5274,7 +5274,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.$emit('submitAction', _vm.item)}}},[_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("Admin e-mail :")]),_vm._v(" "),_c('div',{staticClass:"col-8",staticStyle:{"line-height":"33px"}},[_vm._v("\n        "+_vm._s(_vm.item.user && _vm.item.id ? _vm.item.user.email : _vm.item.email)+"\n      ")])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.name_en'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.name_en),expression:"item.name_en"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.name_en)},on:{"keyup":_vm.countryAdminGenerate,"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "name_en", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.name'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.name),expression:"item.name"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "name", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.code'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.code),expression:"item.code"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.code)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "code", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.sort_order'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.sort_order),expression:"item.sort_order"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.sort_order)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "sort_order", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.status'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('switches',{attrs:{"text-enabled":_vm.activeText,"text-disabled":_vm.passiveText},model:{value:(_vm.selectedStatus),callback:function ($$v) {_vm.selectedStatus=$$v},expression:"selectedStatus"}})],1)]),_vm._v(" "),_c('div',{staticClass:"from-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.flag'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('div',{staticClass:"form-image-upload"},[(_vm.item && _vm.item.flag)?_c('div',{staticClass:"image-container"},[_c('img',{attrs:{"src":("" + _vm.cdnUrl + _vm.imageUrl),"alt":""}})]):_c('span',{staticClass:"no-image"},[_c('i',{staticClass:"fa-2x fas fa-image"})]),_vm._v(" "),_c('div',{staticClass:"upload-container"},[_c('button',{staticClass:"btn btn-round btn-fill px-3 btn-xs",attrs:{"type":"button"},on:{"click":function($event){return _vm.$modal.show('upload-modal')}}},[_c('i',{staticClass:"fas fa-upload fa-lg mr-2"}),_vm._v("\n              "+_vm._s(_vm.$t('common.inputs.upload_image'))+"\n            ")]),_vm._v(" "),_c('br'),_vm._v(" "),_c('small',{staticClass:"text-muted"},[_vm._v("Önerilen görsel boyutu : "+_vm._s(_vm.imageSize.width)+" x "+_vm._s(_vm.imageSize.height))]),_vm._v(" "),_c('modal',{attrs:{"name":"upload-modal","height":"auto","draggable":true,"classes":['v--modal', 'm-modal']}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"container-fluid"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('h4',{staticClass:"mt-0"},[_vm._v("Flag Upload")]),_vm._v(" "),_c('i',{staticClass:"fas fa-times fa-2x btn-modal-close text-success",attrs:{"slot":"top-right"},on:{"click":function($event){return _vm.$modal.hide('upload-modal')}},slot:"top-right"}),_vm._v(" "),_c('file-upload',{attrs:{"uploadType":"ct","maxFiles":1,"resizeSize":{width: _vm.imageSize.width, height: _vm.imageSize.height},"thumbnailSize":{width: _vm.thumbnailSize.width, height: _vm.thumbnailSize.height}},on:{"uploadSuccess":_vm.uploadSuccess}})],1)])])]),_vm._v(" "),_c('div',{staticClass:"modal-footer"},[_c('button',{staticClass:"btn btn-simple btn-sm px-3",attrs:{"type":"button"},on:{"click":function($event){return _vm.$modal.hide('upload-modal')}}},[_vm._v(_vm._s(_vm.$t('common.close')))]),_vm._v(" "),_c('button',{staticClass:"btn btn-primary btn-sm btn-round btn-fill px-4",class:[_vm.uploadedImage == null ? 'disabled' : ''],attrs:{"type":"button","disabled":_vm.uploadedImage == null},on:{"click":function($event){$event.preventDefault();return _vm.saveImage.apply(null, arguments)}}},[_vm._v("Save")])])])],1)])])]),_vm._v(" "),(_vm.mode !== 'save')?_c('div',{staticStyle:{"margin-top":"20px"}},[_c('div',{staticStyle:{"font-weight":"bold","font-size":"16px"}},[_vm._v("UPDATE ADMIN PASSWORD")]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("New Password :")]),_vm._v(" "),_c('div',{staticClass:"col-8",staticStyle:{"display":"flex"}},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.newPassword),expression:"newPassword"}],staticClass:"form-control",domProps:{"value":(_vm.newPassword)},on:{"input":function($event){if($event.target.composing){ return; }_vm.newPassword=$event.target.value}}}),_vm._v(" "),_c('button',{staticClass:"btn btn-xs btn-primary btn-fill",attrs:{"disabled":!_vm.newPassword || _vm.newPassSaving},on:{"click":_vm.saveNewPassword}},[_vm._v(_vm._s(_vm.newPassSaving ? 'Updating' : 'Update'))])])])]):_vm._e(),_vm._v(" "),(_vm.mode === 'save')?_c('div',[_c('hr'),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.labels.country_admin'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.email),expression:"item.email"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.email)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "email", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.labels.country_admin_password'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.password),expression:"item.password"}],staticClass:"form-control",attrs:{"type":"password"},domProps:{"value":(_vm.item.password)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "password", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.labels.country_admin_password_confirmation'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.password_confirmation),expression:"item.password_confirmation"}],staticClass:"form-control",attrs:{"type":"password"},domProps:{"value":(_vm.item.password_confirmation)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "password_confirmation", $event.target.value)}}})])])]):_vm._e()])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.$emit('submitAction', _vm.item)}}},[_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("Admin e-mail :")]),_vm._v(" "),_c('div',{staticClass:"col-8",staticStyle:{"line-height":"33px"}},[_vm._v("\n        "+_vm._s(_vm.item.user && _vm.item.id ? _vm.item.user.email : _vm.item.email)+"\n      ")])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.name_en'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.name_en),expression:"item.name_en"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.name_en)},on:{"keyup":_vm.countryAdminGenerate,"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "name_en", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.name'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.name),expression:"item.name"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "name", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.code'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.code),expression:"item.code"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.code)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "code", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.sort_order'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.sort_order),expression:"item.sort_order"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.sort_order)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "sort_order", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.status'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('switches',{attrs:{"text-enabled":_vm.activeText,"text-disabled":_vm.passiveText},model:{value:(_vm.selectedStatus),callback:function ($$v) {_vm.selectedStatus=$$v},expression:"selectedStatus"}})],1)]),_vm._v(" "),_c('div',{staticClass:"from-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.input.flag'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('div',{staticClass:"form-image-upload"},[(_vm.item?.flag)?_c('div',{staticClass:"image-container"},[_c('img',{attrs:{"src":("" + _vm.cdnUrl + _vm.imageUrl),"alt":""}})]):_c('span',{staticClass:"no-image"},[_c('i',{staticClass:"fa-2x fas fa-image"})]),_vm._v(" "),_c('div',{staticClass:"upload-container"},[_c('button',{staticClass:"btn btn-round btn-fill px-3 btn-xs",attrs:{"type":"button"},on:{"click":function($event){return _vm.$modal.show('upload-modal')}}},[_c('i',{staticClass:"fas fa-upload fa-lg mr-2"}),_vm._v("\n              "+_vm._s(_vm.$t('common.inputs.upload_image'))+"\n            ")]),_vm._v(" "),_c('br'),_vm._v(" "),_c('small',{staticClass:"text-muted"},[_vm._v("Önerilen görsel boyutu : "+_vm._s(_vm.imageSize.width)+" x "+_vm._s(_vm.imageSize.height))]),_vm._v(" "),_c('modal',{attrs:{"name":"upload-modal","height":"auto","draggable":true,"classes":['v--modal', 'm-modal']}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"container-fluid"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"},[_c('h4',{staticClass:"mt-0"},[_vm._v("Flag Upload")]),_vm._v(" "),_c('i',{staticClass:"fas fa-times fa-2x btn-modal-close text-success",attrs:{"slot":"top-right"},on:{"click":function($event){return _vm.$modal.hide('upload-modal')}},slot:"top-right"}),_vm._v(" "),_c('file-upload',{attrs:{"uploadType":"ct","maxFiles":1,"resizeSize":{width: _vm.imageSize.width, height: _vm.imageSize.height},"thumbnailSize":{width: _vm.thumbnailSize.width, height: _vm.thumbnailSize.height}},on:{"uploadSuccess":_vm.uploadSuccess}})],1)])])]),_vm._v(" "),_c('div',{staticClass:"modal-footer"},[_c('button',{staticClass:"btn btn-simple btn-sm px-3",attrs:{"type":"button"},on:{"click":function($event){return _vm.$modal.hide('upload-modal')}}},[_vm._v(_vm._s(_vm.$t('common.close')))]),_vm._v(" "),_c('button',{staticClass:"btn btn-primary btn-sm btn-round btn-fill px-4",class:[_vm.uploadedImage == null ? 'disabled' : ''],attrs:{"type":"button","disabled":_vm.uploadedImage == null},on:{"click":function($event){$event.preventDefault();return _vm.saveImage.apply(null, arguments)}}},[_vm._v("Save")])])])],1)])])]),_vm._v(" "),(_vm.mode !== 'save')?_c('div',{staticStyle:{"margin-top":"20px"}},[_c('div',{staticStyle:{"font-weight":"bold","font-size":"16px"}},[_vm._v("UPDATE ADMIN PASSWORD")]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("New Password :")]),_vm._v(" "),_c('div',{staticClass:"col-8",staticStyle:{"display":"flex"}},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.newPassword),expression:"newPassword"}],staticClass:"form-control",domProps:{"value":(_vm.newPassword)},on:{"input":function($event){if($event.target.composing){ return; }_vm.newPassword=$event.target.value}}}),_vm._v(" "),_c('button',{staticClass:"btn btn-xs btn-primary btn-fill",attrs:{"disabled":!_vm.newPassword || _vm.newPassSaving},on:{"click":_vm.saveNewPassword}},[_vm._v(_vm._s(_vm.newPassSaving ? 'Updating' : 'Update'))])])])]):_vm._e(),_vm._v(" "),(_vm.mode === 'save')?_c('div',[_c('hr'),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.labels.country_admin'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.email),expression:"item.email"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.email)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "email", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.labels.country_admin_password'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.password),expression:"item.password"}],staticClass:"form-control",attrs:{"type":"password"},domProps:{"value":(_vm.item.password)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "password", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.country.labels.country_admin_password_confirmation'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.password_confirmation),expression:"item.password_confirmation"}],staticClass:"form-control",attrs:{"type":"password"},domProps:{"value":(_vm.item.password_confirmation)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "password_confirmation", $event.target.value)}}})])])]):_vm._e()])])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -5876,7 +5876,7 @@ var Component = normalizeComponent(
       this.loading = true;
       this.$store.dispatch('definition/getAllComments', { filter: filter }).then(function (response) {
         _this2.loading = false;
-        _this2.datatable.total = response.pagination && response.pagination.recordCount ? response.pagination.recordCount : 1;
+        _this2.datatable.total = response.pagination?.recordCount ? response.pagination.recordCount : 1;
         _this2.datatable.data = response.set;
       });
     },
@@ -5910,7 +5910,7 @@ var Component = normalizeComponent(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.$emit('submitAction', _vm.item)}}},[_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.category.input.name'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.name),expression:"item.name"}],staticClass:"form-control",attrs:{"type":"text","disabled":_vm.countryDisabled},domProps:{"value":(_vm.item.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "name", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.category.input.code'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.code),expression:"item.code"}],staticClass:"form-control",attrs:{"type":"text","disabled":_vm.countryDisabled},domProps:{"value":(_vm.item.code)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "code", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.category.input.sort_order'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.sort_order),expression:"item.sort_order"}],staticClass:"form-control",attrs:{"type":"number","disabled":_vm.countryDisabled},domProps:{"value":(_vm.item.sort_order)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "sort_order", $event.target.value)}}})])]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isAdmin()),expression:"isAdmin()"}],staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.category.input.parent'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('treeselect',{attrs:{"options":_vm.categoryOptions,"placeholder":"Üst Kategori","valueFormat":"id","disabled":_vm.countryDisabled},model:{value:(_vm.selectedParent),callback:function ($$v) {_vm.selectedParent=$$v},expression:"selectedParent"}})],1)]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.category.input.status'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('div',{staticClass:"mt-2"},[_c('switches',{attrs:{"text-enabled":_vm.$t('common.buttons.active'),"text-disabled":_vm.$t('common.buttons.passive'),"disabled":_vm.countryDisabled},model:{value:(_vm.selectedStatus),callback:function ($$v) {_vm.selectedStatus=$$v},expression:"selectedStatus"}})],1)])]),_vm._v(" "),_c('hr'),_vm._v(" "),(_vm.item && _vm.item.user)?_c('div',[_c('div',{class:_vm.rowClass},[_c('h4',[_vm._v(_vm._s(_vm.$t('common.category.detail_modal.user_detail')))])]),_vm._v(" "),_c('div',{class:_vm.rowClass},[_c('div',{class:_vm.childColFirstClass},[_c('b',[_vm._v(_vm._s(_vm.$t('common.user.input.name'))+" :")])]),_vm._v(" "),_c('div',{class:_vm.childColSecondClass},[_vm._v(_vm._s(_vm.item && _vm.item.user ? _vm.item.user.firstname + ' '+ _vm.item.user.lastname : ''))])]),_vm._v(" "),_c('div',{class:_vm.rowClass},[_c('div',{class:_vm.childColFirstClass},[_c('b',[_vm._v(_vm._s(_vm.$t('common.user.input.email'))+" :")])]),_vm._v(" "),_c('div',{class:_vm.childColSecondClass},[_vm._v(_vm._s(_vm.item.user.email))])]),_vm._v(" "),_c('div',{class:_vm.rowClass},[_c('div',{class:_vm.colFirstClass},[_c('b',[_vm._v(_vm._s(_vm.$t('common.category.detail_modal.created_date'))+" :")])]),_vm._v(" "),_c('div',{class:_vm.colSecondClass},[_vm._v(_vm._s(_vm.item.parent && _vm.item.parent.created_at ? _vm.getDate(_vm.item.parent.created_at) : ''))])])]):_vm._e(),_vm._v(" "),_c('hr'),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col d-flex"},[(_vm.item.id)?_c('button',{staticClass:"btn btn-danger btn-sm btn-fill btn-round px-4",attrs:{"type":"button","name":"button","disabled":_vm.countryDisabled},on:{"click":function($event){$event.preventDefault();return _vm.$emit('remove')}}},[_vm._v(_vm._s(_vm.$t('common.buttons.delete')))]):_vm._e(),_vm._v(" "),_c('button',{staticClass:"btn btn-primary btn-sm btn-fill btn-round w-25 ml-auto",attrs:{"disabled":_vm.saving || _vm.countryDisabled,"type":"button"},on:{"click":function($event){$event.preventDefault();return _vm.$emit('save')}}},[_vm._v(_vm._s(_vm.saving ? 'Saving...' : _vm.$t('common.buttons.save')))])])])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.$emit('submitAction', _vm.item)}}},[_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.category.input.name'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.name),expression:"item.name"}],staticClass:"form-control",attrs:{"type":"text","disabled":_vm.countryDisabled},domProps:{"value":(_vm.item.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "name", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.category.input.code'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.code),expression:"item.code"}],staticClass:"form-control",attrs:{"type":"text","disabled":_vm.countryDisabled},domProps:{"value":(_vm.item.code)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "code", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.category.input.sort_order'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.sort_order),expression:"item.sort_order"}],staticClass:"form-control",attrs:{"type":"number","disabled":_vm.countryDisabled},domProps:{"value":(_vm.item.sort_order)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "sort_order", $event.target.value)}}})])]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.isAdmin()),expression:"isAdmin()"}],staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.category.input.parent'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('treeselect',{attrs:{"options":_vm.categoryOptions,"placeholder":"Üst Kategori","valueFormat":"id","disabled":_vm.countryDisabled},model:{value:(_vm.selectedParent),callback:function ($$v) {_vm.selectedParent=$$v},expression:"selectedParent"}})],1)]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v(_vm._s(_vm.$t('common.category.input.status'))+" :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('div',{staticClass:"mt-2"},[_c('switches',{attrs:{"text-enabled":_vm.$t('common.buttons.active'),"text-disabled":_vm.$t('common.buttons.passive'),"disabled":_vm.countryDisabled},model:{value:(_vm.selectedStatus),callback:function ($$v) {_vm.selectedStatus=$$v},expression:"selectedStatus"}})],1)])]),_vm._v(" "),_c('hr'),_vm._v(" "),(_vm.item?.user)?_c('div',[_c('div',{class:_vm.rowClass},[_c('h4',[_vm._v(_vm._s(_vm.$t('common.category.detail_modal.user_detail')))])]),_vm._v(" "),_c('div',{class:_vm.rowClass},[_c('div',{class:_vm.childColFirstClass},[_c('b',[_vm._v(_vm._s(_vm.$t('common.user.input.name'))+" :")])]),_vm._v(" "),_c('div',{class:_vm.childColSecondClass},[_vm._v(_vm._s(_vm.item?.user ? _vm.item.user.firstname + ' '+ _vm.item.user.lastname : ''))])]),_vm._v(" "),_c('div',{class:_vm.rowClass},[_c('div',{class:_vm.childColFirstClass},[_c('b',[_vm._v(_vm._s(_vm.$t('common.user.input.email'))+" :")])]),_vm._v(" "),_c('div',{class:_vm.childColSecondClass},[_vm._v(_vm._s(_vm.item.user.email))])]),_vm._v(" "),_c('div',{class:_vm.rowClass},[_c('div',{class:_vm.colFirstClass},[_c('b',[_vm._v(_vm._s(_vm.$t('common.category.detail_modal.created_date'))+" :")])]),_vm._v(" "),_c('div',{class:_vm.colSecondClass},[_vm._v(_vm._s(_vm.item.parent?.created_at ? _vm.getDate(_vm.item.parent.created_at) : ''))])])]):_vm._e(),_vm._v(" "),_c('hr'),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col d-flex"},[(_vm.item.id)?_c('button',{staticClass:"btn btn-danger btn-sm btn-fill btn-round px-4",attrs:{"type":"button","name":"button","disabled":_vm.countryDisabled},on:{"click":function($event){$event.preventDefault();return _vm.$emit('remove')}}},[_vm._v(_vm._s(_vm.$t('common.buttons.delete')))]):_vm._e(),_vm._v(" "),_c('button',{staticClass:"btn btn-primary btn-sm btn-fill btn-round w-25 ml-auto",attrs:{"disabled":_vm.saving || _vm.countryDisabled,"type":"button"},on:{"click":function($event){$event.preventDefault();return _vm.$emit('save')}}},[_vm._v(_vm._s(_vm.saving ? 'Saving...' : _vm.$t('common.buttons.save')))])])])])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -6216,7 +6216,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
     },
 
     uploadSuccess: function uploadSuccess(response) {
-      if (response && response.result.set) {
+      if (response?.result.set) {
         this.uploadedImage = response.result.set[0];
         this.imageUrl = this.uploadedImage.name;
       }
@@ -6418,7 +6418,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
       this.loading = true;
       this.$store.dispatch('definition/getAllPages', { filter: filter }).then(function (response) {
         _this2.loading = false;
-        _this2.datatable.total = response.pagination && response.pagination.recordCount ? response.pagination.recordCount : 1;
+        _this2.datatable.total = response.pagination?.recordCount ? response.pagination.recordCount : 1;
         _this2.datatable.data = _this2.pages;
       });
     },
@@ -8280,7 +8280,7 @@ var Component = normalizeComponent(
           _this.offsetLeft = offsetLeft;
         });
       } else {
-        unsync && unsync();
+        unsync?.();
       }
     }, { immediate: true });
   },
@@ -8744,7 +8744,7 @@ var Component = normalizeComponent(
     }
   },
   created: function created() {
-    if (this.item.parent && this.item.parent.id) {
+    if (this.item.parent?.id) {
       this.selectedParent = this.item.parent ? parseInt(this.item.parent) : 0;
       this.selectedStatus = this.item.status == "active" ? true : false;
     }
@@ -9396,7 +9396,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
       this.loading = true;
       this.$store.dispatch('definition/getAllPages', { filter: filter }).then(function (response) {
         _this2.loading = false;
-        _this2.datatable.total = response.pagination && response.pagination.recordCount ? response.pagination.recordCount : 1;
+        _this2.datatable.total = response.pagination?.recordCount ? response.pagination.recordCount : 1;
         _this2.datatable.data = _this2.pages;
       });
     },
@@ -9852,7 +9852,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
       };
       this.$store.dispatch("definition/getAllUsers", { filter: filter }).then(function (response) {
         _this3.loading = false;
-        _this3.datatable.total = response.pagination && response.pagination.recordCount ? response.pagination.recordCount : 1;
+        _this3.datatable.total = response.pagination?.recordCount ? response.pagination.recordCount : 1;
 
         _this3.datatable.data = response.set.filter(function (user) {
           return user.status === "approved";
@@ -9873,7 +9873,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
       };
       this.$store.dispatch("definition/getAllUsers", { filter: filter }).then(function (response) {
         _this4.loading = false;
-        _this4.datatableF.total = response.pagination && response.pagination.recordCount ? response.pagination.recordCount : 1;
+        _this4.datatableF.total = response.pagination?.recordCount ? response.pagination.recordCount : 1;
 
         _this4.datatableF.data = response.set.filter(function (user) {
           return user.status === "pending" || user.status === "pendingFreeze";
@@ -9894,7 +9894,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
       };
       this.$store.dispatch("definition/getAllUsers", { filter: filter }).then(function (response) {
         _this5.loading = false;
-        _this5.datatableTrash.total = response.pagination && response.pagination.recordCount ? response.pagination.recordCount : 1;
+        _this5.datatableTrash.total = response.pagination?.recordCount ? response.pagination.recordCount : 1;
         _this5.datatableTrash.data = response.set;
       });
     },
@@ -11216,7 +11216,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
       var input = event.target;
 
-      if (input.files && input.files[0]) {
+      if (input.files?.[0]) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
@@ -12977,7 +12977,7 @@ var Component = normalizeComponent(
 var getAllCategoryTree = function getAllCategoryTree(_ref, payload) {
   var commit = _ref.commit;
 
-  return new __WEBPACK_IMPORTED_MODULE_2__proxies_CategoryProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).getTree().then(function (response) {
+  return new __WEBPACK_IMPORTED_MODULE_2__proxies_CategoryProxy__["a" /* default */](payload?.filter ? payload.filter : {}).getTree().then(function (response) {
     commit(__WEBPACK_IMPORTED_MODULE_1__mutation_types__["a" /* SET_DEFINITION */], {
       key: "categories",
       data: response.result.set
@@ -12989,7 +12989,7 @@ var getAllCategoryTree = function getAllCategoryTree(_ref, payload) {
 var getSelectCategory = function getSelectCategory(_ref2, payload) {
   var commit = _ref2.commit;
 
-  return new __WEBPACK_IMPORTED_MODULE_2__proxies_CategoryProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).select().then(function (response) {
+  return new __WEBPACK_IMPORTED_MODULE_2__proxies_CategoryProxy__["a" /* default */](payload?.filter ? payload.filter : {}).select().then(function (response) {
     return response.result.set;
   }).catch(function (error) {
     __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a.reject(error);
@@ -13047,7 +13047,7 @@ var deleteCategory = function deleteCategory(_ref6, payload) {
 var getAllCountries = function getAllCountries(_ref7, payload) {
   var commit = _ref7.commit;
 
-  return new __WEBPACK_IMPORTED_MODULE_3__proxies_CountryProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).all().then(function (response) {
+  return new __WEBPACK_IMPORTED_MODULE_3__proxies_CountryProxy__["a" /* default */](payload?.filter ? payload.filter : {}).all().then(function (response) {
     commit(__WEBPACK_IMPORTED_MODULE_1__mutation_types__["a" /* SET_DEFINITION */], {
       key: "countries",
       data: response.result.set
@@ -13109,7 +13109,7 @@ var getAllCities = function getAllCities(_ref12, payload) {
   var commit = _ref12.commit;
 
   var id = payload.filter.id;
-  return new __WEBPACK_IMPORTED_MODULE_4__proxies_CityProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).getAllCitiesWithCountryId(id).then(function (response) {
+  return new __WEBPACK_IMPORTED_MODULE_4__proxies_CityProxy__["a" /* default */](payload?.filter ? payload.filter : {}).getAllCitiesWithCountryId(id).then(function (response) {
     commit(__WEBPACK_IMPORTED_MODULE_1__mutation_types__["a" /* SET_DEFINITION */], {
       key: "cities",
       data: response.result.set
@@ -13159,7 +13159,7 @@ var getAllUsers = function getAllUsers(_ref16, payload) {
   var commit = _ref16.commit;
 
   return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-    return new __WEBPACK_IMPORTED_MODULE_5__proxies_UserProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).getAllUsers().then(function (response) {
+    return new __WEBPACK_IMPORTED_MODULE_5__proxies_UserProxy__["a" /* default */](payload?.filter ? payload.filter : {}).getAllUsers().then(function (response) {
       resolve(response.result);
     });
   });
@@ -13227,7 +13227,7 @@ var getAllKeywords = function getAllKeywords(_ref22, payload) {
   var commit = _ref22.commit;
 
   return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-    return new __WEBPACK_IMPORTED_MODULE_6__proxies_KeywordProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).all().then(function (response) {
+    return new __WEBPACK_IMPORTED_MODULE_6__proxies_KeywordProxy__["a" /* default */](payload?.filter ? payload.filter : {}).all().then(function (response) {
       commit(__WEBPACK_IMPORTED_MODULE_1__mutation_types__["a" /* SET_DEFINITION */], {
         key: "keywords",
         data: response.result.set
@@ -13241,7 +13241,7 @@ var getAllComments = function getAllComments(_ref23, payload) {
   var commit = _ref23.commit;
 
   return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-    return new __WEBPACK_IMPORTED_MODULE_7__proxies_CommentProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).all().then(function (response) {
+    return new __WEBPACK_IMPORTED_MODULE_7__proxies_CommentProxy__["a" /* default */](payload?.filter ? payload.filter : {}).all().then(function (response) {
       commit(__WEBPACK_IMPORTED_MODULE_1__mutation_types__["a" /* SET_DEFINITION */], {
         key: "comments",
         data: response.result.set
@@ -13267,7 +13267,7 @@ var changeCommentStatus = function changeCommentStatus(_ref25, payload) {
   var commit = _ref25.commit;
 
   return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-    return new __WEBPACK_IMPORTED_MODULE_7__proxies_CommentProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).update(payload.data.id, payload.data).then(function (response) {
+    return new __WEBPACK_IMPORTED_MODULE_7__proxies_CommentProxy__["a" /* default */](payload?.filter ? payload.filter : {}).update(payload.data.id, payload.data).then(function (response) {
       commit(__WEBPACK_IMPORTED_MODULE_1__mutation_types__["a" /* SET_DEFINITION */], {
         key: "comments",
         data: response.result.set
@@ -13361,7 +13361,7 @@ var getAllSubjects = function getAllSubjects(_ref32, payload) {
   var commit = _ref32.commit;
 
   return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-    return new __WEBPACK_IMPORTED_MODULE_9__proxies_SubjectProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).all().then(function (response) {
+    return new __WEBPACK_IMPORTED_MODULE_9__proxies_SubjectProxy__["a" /* default */](payload?.filter ? payload.filter : {}).all().then(function (response) {
       commit(__WEBPACK_IMPORTED_MODULE_1__mutation_types__["a" /* SET_DEFINITION */], {
         key: "subjects",
         data: response.result.set
@@ -13411,7 +13411,7 @@ var getAllPendingChoices = function getAllPendingChoices(_ref36, payload) {
   var commit = _ref36.commit;
 
   return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-    return new __WEBPACK_IMPORTED_MODULE_10__proxies_SurveyProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).pendingChoices().then(function (response) {
+    return new __WEBPACK_IMPORTED_MODULE_10__proxies_SurveyProxy__["a" /* default */](payload?.filter ? payload.filter : {}).pendingChoices().then(function (response) {
       commit(__WEBPACK_IMPORTED_MODULE_1__mutation_types__["a" /* SET_DEFINITION */], {
         key: "pendingChoices",
         data: response.result.set
@@ -13425,7 +13425,7 @@ var getAllSpecialSurvey = function getAllSpecialSurvey(_ref37, payload) {
   var commit = _ref37.commit;
 
   return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-    return new __WEBPACK_IMPORTED_MODULE_10__proxies_SurveyProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).SpecialSurveyList().then(function (response) {
+    return new __WEBPACK_IMPORTED_MODULE_10__proxies_SurveyProxy__["a" /* default */](payload?.filter ? payload.filter : {}).SpecialSurveyList().then(function (response) {
       commit(__WEBPACK_IMPORTED_MODULE_1__mutation_types__["a" /* SET_DEFINITION */], {
         key: "specialSurveys",
         data: response.result.set
@@ -13439,7 +13439,7 @@ var getAllSurveys = function getAllSurveys(_ref38, payload) {
   var commit = _ref38.commit;
 
   return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-    return new __WEBPACK_IMPORTED_MODULE_10__proxies_SurveyProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).SurveyList().then(function (response) {
+    return new __WEBPACK_IMPORTED_MODULE_10__proxies_SurveyProxy__["a" /* default */](payload?.filter ? payload.filter : {}).SurveyList().then(function (response) {
       console.log("surveys", response);
       commit(__WEBPACK_IMPORTED_MODULE_1__mutation_types__["a" /* SET_DEFINITION */], {
         key: "normalSurveys",
@@ -13562,7 +13562,7 @@ var destroyChoice = function destroyChoice(_ref47, payload) {
 var getAllPages = function getAllPages(_ref48, payload) {
   var commit = _ref48.commit;
 
-  return new __WEBPACK_IMPORTED_MODULE_12__proxies_PageProxy__["a" /* default */](payload && payload.filter ? payload.filter : {}).all().then(function (response) {
+  return new __WEBPACK_IMPORTED_MODULE_12__proxies_PageProxy__["a" /* default */](payload?.filter ? payload.filter : {}).all().then(function (response) {
     commit(__WEBPACK_IMPORTED_MODULE_1__mutation_types__["a" /* SET_DEFINITION */], { key: "pages", data: response.result.set });
     if (response.result.set) return response.result.pagination;
   }).catch(function (error) {});

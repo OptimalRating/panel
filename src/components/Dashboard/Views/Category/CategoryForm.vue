@@ -135,7 +135,7 @@ export default {
     }
   },
   created() {
-    if (this.item.parent && this.item.parent.id) {
+    if (this.item.parent?.id) {
       this.selectedParent = this.item.parent ? parseInt(this.item.parent) : 0;
       this.selectedStatus = this.item.status == "active" ? true : false;
     }

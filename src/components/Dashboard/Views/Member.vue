@@ -871,7 +871,7 @@ export default {
         .then((response) => {
           this.loading = false;
           this.datatable.total =
-            response.pagination && response.pagination.recordCount
+            response.pagination?.recordCount
               ? response.pagination.recordCount
               : 1;
           // this.datatable.data = response.set;
@@ -897,7 +897,7 @@ export default {
         .then((response) => {
           this.loading = false;
           this.datatableF.total =
-            response.pagination && response.pagination.recordCount
+            response.pagination?.recordCount
               ? response.pagination.recordCount
               : 1;
           // this.datatableF.data = response.set;
@@ -922,7 +922,7 @@ export default {
         .then((response) => {
           this.loading = false;
           this.datatableTrash.total =
-            response.pagination && response.pagination.recordCount
+            response.pagination?.recordCount
               ? response.pagination.recordCount
               : 1;
           this.datatableTrash.data = response.set;
