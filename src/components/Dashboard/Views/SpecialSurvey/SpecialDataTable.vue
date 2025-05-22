@@ -76,7 +76,7 @@
     },
     watch: {
       "yearSelected" : function (val) {
-        if (typeof val == 'undefined' || null === val) {
+        if (typeof val == 'undefined' || val === null) {
           // console.log(val)
         }
         else {
@@ -84,7 +84,7 @@
         }
       },
       "monthSelected" : function (val) {
-        if (typeof val == 'undefined' || null === val) {
+        if (typeof val == 'undefined' || val === null) {
         }
         else {
           this.datatable.xprops.eventbus.$emit('monthSelected', val);

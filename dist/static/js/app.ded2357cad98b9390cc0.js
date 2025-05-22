@@ -631,7 +631,7 @@ var CommentProxy = function (_Proxy) {
     selectedSubject: function selectedSubject(val) {
       var _this = this;
 
-      if (typeof val !== "undefined" || null === val) {
+      if (typeof val !== "undefined" || val === null) {
         this.special.subjects = [];
         this._.map(val, function (item) {
           _this.special.subjects.push(item.id);
@@ -1089,12 +1089,12 @@ module.exports = {"tooltip":{"shoppingBagDetail":"Sepet Detayı"}}
 
   watch: {
     "yearSelected": function yearSelected(val) {
-      if (typeof val == 'undefined' || null === val) {} else {
+      if (typeof val == 'undefined' || val === null) {} else {
         this.datatable.xprops.eventbus.$emit('yearSelected', val);
       }
     },
     "monthSelected": function monthSelected(val) {
-      if (typeof val == 'undefined' || null === val) {} else {
+      if (typeof val == 'undefined' || val === null) {} else {
         this.datatable.xprops.eventbus.$emit('monthSelected', val);
       }
     }
@@ -6951,7 +6951,7 @@ var Component = normalizeComponent(
   },
   watch: {
     selectedCategory: function selectedCategory(val) {
-      if (typeof val == "undefined" || null === val) {
+      if (typeof val == "undefined" || val === null) {
         this.survey.category_id = null;
       }
     }
@@ -9700,28 +9700,28 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
       deep: true
     },
     selectedCountry: function selectedCountry(val) {
-      if (typeof val == "undefined" || null === val) {
+      if (typeof val == "undefined" || val === null) {
         this.user.country_id = null;
       } else {
         this.user.country_id = val;
       }
     },
     selectedStatus: function selectedStatus(val) {
-      if (typeof val == "undefined" || null === val) {
+      if (typeof val == "undefined" || val === null) {
         this.user.status = "pending";
       } else {
         this.user.status = val;
       }
     },
     filteredCountry: function filteredCountry(val) {
-      if (typeof val == "undefined" || null === val) {
+      if (typeof val == "undefined" || val === null) {
         this.datatable.query.country = null;
       } else {
         this.datatable.query.country = val;
       }
     },
     filteredCity: function filteredCity(val) {
-      if (typeof val == "undefined" || null === val) {
+      if (typeof val == "undefined" || val === null) {
         this.datatable.query.city = null;
       } else {
         this.datatable.query.city = val;
@@ -10824,7 +10824,7 @@ var Component = normalizeComponent(
     selectedSubject: function selectedSubject(val) {
       var _this = this;
 
-      if (typeof val !== "undefined" || null === val) {
+      if (typeof val !== "undefined" || val === null) {
         this.special.subjects = [];
         this._.map(val, function (item) {
           _this.special.subjects.push(item.id);
@@ -11529,22 +11529,22 @@ var Component = normalizeComponent(
   })),
   watch: {
     yearSelected: function yearSelected(val) {
-      if (typeof val == "undefined" || null === val) {} else {
+      if (typeof val == "undefined" || val === null) {} else {
         this.datatable.xprops.eventbus.$emit("yearSelected", val);
       }
     },
     monthSelected: function monthSelected(val) {
-      if (typeof val == "undefined" || null === val) {} else {
+      if (typeof val == "undefined" || val === null) {} else {
         this.datatable.xprops.eventbus.$emit("monthSelected", val);
       }
     },
     statusSelected: function statusSelected(val) {
-      if (typeof val == "undefined" || null === val) {} else {
+      if (typeof val == "undefined" || val === null) {} else {
         this.datatable.xprops.eventbus.$emit("statusSelected", val);
       }
     },
     categorySelected: function categorySelected(val) {
-      if (typeof val == "undefined" || null === val) {} else {
+      if (typeof val == "undefined" || val === null) {} else {
         this.datatable.xprops.eventbus.$emit("categorySelected", val);
       }
     }
@@ -11719,7 +11719,7 @@ var Component = normalizeComponent(
     selectedSubject: function selectedSubject(val) {
       var _this2 = this;
 
-      if (typeof val !== "undefined" || null === val) {
+      if (typeof val !== "undefined" || val === null) {
         this.special.subjects = [];
         this._.map(val, function (item) {
           _this2.special.subjects.push(item.id);
@@ -12272,22 +12272,22 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
   })),
   watch: {
     "yearSelected": function yearSelected(val) {
-      if (typeof val == 'undefined' || null === val) {} else {
+      if (typeof val == 'undefined' || val === null) {} else {
         this.datatable.xprops.eventbus.$emit('yearSelected', val);
       }
     },
     "monthSelected": function monthSelected(val) {
-      if (typeof val == 'undefined' || null === val) {} else {
+      if (typeof val == 'undefined' || val === null) {} else {
         this.datatable.xprops.eventbus.$emit('monthSelected', val);
       }
     },
     "statusSelected": function statusSelected(val) {
-      if (typeof val == 'undefined' || null === val) {} else {
+      if (typeof val == 'undefined' || val === null) {} else {
         this.datatable.xprops.eventbus.$emit('statusSelected', val);
       }
     },
     "categorySelected": function categorySelected(val) {
-      if (typeof val == 'undefined' || null === val) {} else {
+      if (typeof val == 'undefined' || val === null) {} else {
         this.datatable.xprops.eventbus.$emit('categorySelected', val);
       }
     }

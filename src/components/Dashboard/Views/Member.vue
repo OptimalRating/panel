@@ -717,28 +717,28 @@ export default {
       deep: true,
     },
     selectedCountry: function (val) {
-      if (typeof val == "undefined" || null === val) {
+      if (typeof val == "undefined" || val === null) {
         this.user.country_id = null;
       } else {
         this.user.country_id = val;
       }
     },
     selectedStatus: function (val) {
-      if (typeof val == "undefined" || null === val) {
+      if (typeof val == "undefined" || val === null) {
         this.user.status = "pending";
       } else {
         this.user.status = val;
       }
     },
     filteredCountry: function (val) {
-      if (typeof val == "undefined" || null === val) {
+      if (typeof val == "undefined" || val === null) {
         this.datatable.query.country = null;
       } else {
         this.datatable.query.country = val;
       }
     },
     filteredCity: function (val) {
-      if (typeof val == "undefined" || null === val) {
+      if (typeof val == "undefined" || val === null) {
         this.datatable.query.city = null;
       } else {
         this.datatable.query.city = val;
