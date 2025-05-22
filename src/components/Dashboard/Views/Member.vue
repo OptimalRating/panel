@@ -894,7 +894,7 @@ export default {
         .dispatch("definition/getAllUsers", { filter: filter })
         .then((response) => {
           this.loading = false;
-          this.datatableF.total = response.pagination?.recordCount
+          this.datatableF.total = response.pagination && response.pagination.recordCount
             ? response.pagination.recordCount
             : 1;
           // this.datatableF.data = response.set;
@@ -918,7 +918,7 @@ export default {
         .dispatch("definition/getAllUsers", { filter: filter })
         .then((response) => {
           this.loading = false;
-          this.datatableTrash.total = response.pagination?.recordCount
+          this.datatableTrash.total = response.pagination && response.pagination.recordCount
             ? response.pagination.recordCount
             : 1;
           this.datatableTrash.data = response.set;

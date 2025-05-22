@@ -27,7 +27,7 @@ export const getAllCategoryTree = ({ commit }, payload) => {
 };
 
 export const getSelectCategory = ({ commit }, payload) => {
-  return new CategoryProxy(payload?.filter ? payload.filter : {})
+  return new CategoryProxy(payload && payload.filter ? payload.filter : {})
     .select()
     .then((response) => {
       return response.result.set;
@@ -93,7 +93,7 @@ export const deleteCategory = ({ commit }, payload) => {
 
 // region country
 export const getAllCountries = ({ commit }, payload) => {
-  return new CountryProxy(payload?.filter ? payload.filter : {})
+  return new CountryProxy(payload && payload.filter ? payload.filter : {})
     .all()
     .then((response) => {
       commit(types.SET_DEFINITION, {
@@ -161,7 +161,7 @@ export const deleteCountry = ({ commit }, payload) => {
 // region cities
 export const getAllCities = ({ commit }, payload) => {
   let id = payload.filter.id;
-  return new CityProxy(payload?.filter ? payload.filter : {})
+  return new CityProxy(payload && payload.filter ? payload.filter : {})
     .getAllCitiesWithCountryId(id)
     .then((response) => {
       commit(types.SET_DEFINITION, {
@@ -216,7 +216,7 @@ export const deleteCity = ({ commit }, payload) => {
 // region user
 export const getAllUsers = ({ commit }, payload) => {
   return new Promise((resolve, reject) => {
-    return new UserProxy(payload?.filter ? payload.filter : {})
+    return new UserProxy(payload && payload.filter ? payload.filter : {})
       .getAllUsers()
       .then((response) => {
         //     commit(types.SET_DEFINITION, {key: 'users', data: response.result.set});
@@ -290,7 +290,7 @@ export const upgradeUser = ({ commit }, payload) => {
 // region keyword
 export const getAllKeywords = ({ commit }, payload) => {
   return new Promise((resolve, reject) => {
-    return new KeywordProxy(payload?.filter ? payload.filter : {})
+    return new KeywordProxy(payload && payload.filter ? payload.filter : {})
       .all()
       .then((response) => {
         commit(types.SET_DEFINITION, {
@@ -305,7 +305,7 @@ export const getAllKeywords = ({ commit }, payload) => {
 // region comment
 export const getAllComments = ({ commit }, payload) => {
   return new Promise((resolve, reject) => {
-    return new CommentProxy(payload?.filter ? payload.filter : {})
+    return new CommentProxy(payload && payload.filter ? payload.filter : {})
       .all()
       .then((response) => {
         commit(types.SET_DEFINITION, {
@@ -333,7 +333,7 @@ export const deleteComment = ({ commit }, payload) => {
 // region comment
 export const changeCommentStatus = ({ commit }, payload) => {
   return new Promise((resolve, reject) => {
-    return new CommentProxy(payload?.filter ? payload.filter : {})
+    return new CommentProxy(payload && payload.filter ? payload.filterr : {})
       .update(payload.data.id, payload.data)
       .then((response) => {
         commit(types.SET_DEFINITION, {
@@ -438,7 +438,7 @@ export const getChildren = ({ commit }, payload) => {
 //region subject
 export const getAllSubjects = ({ commit }, payload) => {
   return new Promise((resolve, reject) => {
-    return new SubjectProxy(payload?.filter ? payload.filter : {})
+    return new SubjectProxy(payload && payload.filter ? payload.filter : {})
       .all()
       .then((response) => {
         commit(types.SET_DEFINITION, {
@@ -493,7 +493,7 @@ export const deleteSubject = ({ commit }, payload) => {
 //region pendingChoices
 export const getAllPendingChoices = ({ commit }, payload) => {
   return new Promise((resolve, reject) => {
-    return new SurveyProxy(payload?.filter ? payload.filter : {})
+    return new SurveyProxy(payload && payload.filter ? payload.filter : {})
       .pendingChoices()
       .then((response) => {
         commit(types.SET_DEFINITION, {
@@ -509,7 +509,7 @@ export const getAllPendingChoices = ({ commit }, payload) => {
 //region specialSurvey
 export const getAllSpecialSurvey = ({ commit }, payload) => {
   return new Promise((resolve, reject) => {
-    return new SurveyProxy(payload?.filter ? payload.filter : {})
+    return new SurveyProxy(payload && payload.filter ? payload.filter : {})
       .SpecialSurveyList()
       .then((response) => {
         commit(types.SET_DEFINITION, {
@@ -525,7 +525,7 @@ export const getAllSpecialSurvey = ({ commit }, payload) => {
 //region specialSurvey
 export const getAllSurveys = ({ commit }, payload) => {
   return new Promise((resolve, reject) => {
-    return new SurveyProxy(payload?.filter ? payload.filter : {})
+    return new SurveyProxy(payload && payload.filter ? payload.filter : {})
       .SurveyList()
       .then((response) => {
         commit(types.SET_DEFINITION, {
@@ -659,7 +659,7 @@ export const destroyChoice = ({ commit }, payload) => {
 
 //region pages
 export const getAllPages = ({ commit }, payload) => {
-  return new PageProxy(payload?.filter ? payload.filter : {})
+  return new PageProxy(payload && payload.filter ? payload.filter : {})
     .all()
     .then((response) => {
       commit(types.SET_DEFINITION, { key: "pages", data: response.result.set });
