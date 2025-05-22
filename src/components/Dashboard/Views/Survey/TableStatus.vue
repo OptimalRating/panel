@@ -24,7 +24,7 @@ export default {
       if (status.value == true) {
         this.$modal.show("dialog", {
           title: "Warning!!",
-          text: `Are you sure?`,
+          text: "Are you sure?",
           buttons: [
             {
               title: "Cancel",
@@ -49,7 +49,7 @@ export default {
       } else {
         this.$modal.show("dialog", {
           title: "Warning!!",
-          text: `Are you sure?`,
+          text: "Are you sure?",
           buttons: [
             {
               title: "Cancel",

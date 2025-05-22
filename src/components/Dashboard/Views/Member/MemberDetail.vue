@@ -226,7 +226,7 @@ export default {
       user: null,
       cdnUrl: "https://staging.server.optimalrating.com/cdn",
       backendUrl: "https://staging.server.optimalrating.com",
-      imageUrl: `/images/user/`,
+      imageUrl: "/images/user/",
       userPortrait: null,
       userNationality: null,
       imageModal: null,

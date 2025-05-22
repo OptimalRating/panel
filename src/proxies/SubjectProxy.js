@@ -5,7 +5,7 @@ class SubjectProxy extends Proxy {
     super('subjects', parameters);
   }
   all(){
-    return this.submit('get', `/subjects`);
+    return this.submit('get', "/subjects");
   }
 }
 

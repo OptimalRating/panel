@@ -41,7 +41,7 @@
       },
       inlineClass () {
         if (this.inline) {
-          return `checkbox-inline`
+          return "checkbox-inline"
         }
       }
     },
