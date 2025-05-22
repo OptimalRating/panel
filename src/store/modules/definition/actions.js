@@ -528,7 +528,7 @@ export const getAllSurveys = ({ commit }, payload) => {
     return new SurveyProxy(payload?.filter ? payload.filter : {})
       .SurveyList()
       .then((response) => {
-        console.log("surveys", response);
+        
         commit(types.SET_DEFINITION, {
           key: "normalSurveys",
           data: response.result.set,

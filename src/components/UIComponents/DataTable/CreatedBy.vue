@@ -16,7 +16,7 @@ export default {
       .dispatch("definition/getUser", { id: this.row.user_id })
       .then(res => {
         this.name = res.set.email;
-        console.log(res);
+        
       });
   }
 };

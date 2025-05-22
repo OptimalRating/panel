@@ -357,10 +357,7 @@ export default {
 
         if (startDate < currentDate) {
           classes.disabled = true;
-          console.log(
-            "Date disabled because it's in the past:",
-            classes.disabled
-          );
+          
         }
       }
 

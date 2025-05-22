@@ -55,7 +55,7 @@
       })
     },
     mounted() {
-      console.log("mount")
+      
     },
     created() {
       this.bus.$on('select', item => {
