@@ -1,11 +1,11 @@
 module.exports = {
   extends: [
     "eslint:recommended",
-    "plugin:vue/recommended",
-    "prettier"
+    "plugin:vue/vue3-recommended",
+    "plugin:prettier/recommended"
   ],
   parserOptions: {
-    ecmaVersion: 6,
+    ecmaVersion: 2021,
     sourceType: "module"
   },
   plugins: [
@@ -13,6 +13,11 @@ module.exports = {
     "prettier"
   ],
   rules: {
+    "vue/multi-word-component-names": "off",
+    "vue/no-mutating-props": "warn",
+    "vue/no-unused-components": "warn",
+    "vue/valid-template-root": "warn",
+    "no-undef": "warn",
     "prettier/prettier": "error",
     "semi": ["error", "always"],
     "comma-dangle": ["error", "always-multiline"],
@@ -24,6 +29,11 @@ module.exports = {
         MethodDefinition: false,
         ClassDeclaration: false
       }
-    }]
+    }],
+    // Miscellaneous tweaks
+    'no-console': 'warn', // Warn about console logs (can be adjusted to 'off' or 'error' if needed)
+    'no-debugger': 'warn', // Warn about debugger statements
+    'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }], // Warn on unused variables but allow unused function arguments with an underscore
+    'no-empty-function': 'warn', // Warn about empty functions
   }
 };
