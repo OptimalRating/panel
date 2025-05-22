@@ -26,7 +26,7 @@ jobs:
       - name: Run ESLint (Auto Fix)
         run: |
           npm run lint || true
-          npx eslint --fix --ext .js,.vue src test/unit/specs || true
+          npx eslint --fix --ext .js,.vue src || true
 
       - name: Commit fixed ESLint issues
         run: |
