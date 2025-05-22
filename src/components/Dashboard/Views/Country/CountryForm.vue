@@ -4,50 +4,40 @@
       <div class="form-group row">
         <label class="col-4 col-form-label">Admin e-mail :</label>
         <div class="col-8" style="line-height: 33px">
-          {{ item.user && item.id ? item.user.email : item.email }}
+          {{item.user && item.id ? item.user.email : item.email}}
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-4 col-form-label"
-          >{{ $t("common.country.input.name_en") }} :</label
-        >
+        <label class="col-4 col-form-label">{{$t('common.country.input.name_en')}} :</label>
         <div class="col-8">
           <input
-            v-model="item.name_en"
             type="text"
             class="form-control"
+            v-model="item.name_en"
             @keyup="countryAdminGenerate"
           />
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-4 col-form-label"
-          >{{ $t("common.country.input.name") }} :</label
-        >
+        <label class="col-4 col-form-label">{{$t('common.country.input.name')}} :</label>
         <div class="col-8">
-          <input v-model="item.name" type="text" class="form-control" />
+          <input type="text" class="form-control" v-model="item.name" />
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-4 col-form-label"
-          >{{ $t("common.country.input.code") }} :</label
-        >
+        <label class="col-4 col-form-label">{{$t('common.country.input.code')}} :</label>
         <div class="col-8">
-          <input v-model="item.code" type="text" class="form-control" />
+          <input type="text" class="form-control" v-model="item.code" />
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-4 col-form-label"
-          >{{ $t("common.country.input.sort_order") }} :</label
-        >
+        <label class="col-4 col-form-label">{{$t('common.country.input.sort_order')}} :</label>
         <div class="col-8">
-          <input v-model="item.sort_order" type="text" class="form-control" />
+          <input type="text" class="form-control" v-model="item.sort_order" />
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-4 col-form-label"
-          >{{ $t("common.country.input.status") }} :</label
-        >
+        <label class="col-4 col-form-label">{{$t('common.country.input.status')}} :</label>
         <div class="col-8">
           <switches
             v-model="selectedStatus"
@@ -57,9 +47,7 @@
         </div>
       </div>
       <div class="from-group row">
-        <label class="col-4 col-form-label"
-          >{{ $t("common.country.input.flag") }} :</label
-        >
+        <label class="col-4 col-form-label">{{$t('common.country.input.flag')}} :</label>
         <div class="col-8">
           <div class="form-image-upload">
             <div v-if="item && item.flag" class="image-container">
@@ -75,13 +63,12 @@
                 @click="$modal.show('upload-modal')"
               >
                 <i class="fas fa-upload fa-lg mr-2"></i>
-                {{ $t("common.inputs.upload_image") }}
+                {{$t('common.inputs.upload_image')}}
               </button>
               <br />
-              <small class="text-muted"
-                >Önerilen görsel boyutu : {{ imageSize.width }} x
-                {{ imageSize.height }}</small
-              >
+              <small
+                class="text-muted"
+              >Önerilen görsel boyutu : {{imageSize.width}} x {{imageSize.height}}</small>
               <modal
                 name="upload-modal"
                 height="auto"
@@ -94,36 +81,16 @@
                       <div class="col">
                         <h4 class="mt-0">Flag Upload</h4>
                         <i
-                          slot="top-right"
                           class="fas fa-times fa-2x btn-modal-close text-success"
+                          slot="top-right"
                           @click="$modal.hide('upload-modal')"
                         ></i>
                         <file-upload
-<<<<<<< Updated upstream
-                          upload-type="ct"
-                          :max-files="1"
-                          :resize-size="{
-                            width: imageSize.width,
-                            height: imageSize.height,
-                          }"
-                          :thumbnail-size="{
-                            width: thumbnailSize.width,
-                            height: thumbnailSize.height,
-                          }"
-                          =======
-upload-type="ct"
-                          :max-files="1"
-                          :resize-size="{
-                            width: imageSize.width,
-                            height: imageSize.height,
-                          }"
-                          :thumbnail-size="{
-                            width: thumbnailSize.width,
-                            height: thumbnailSize.height,
-                          }"
-                          @upload-success="uploadSuccess"
-                          @upload-success="uploadSuccess"
->>>>>>> Stashed changes
+                          uploadType="ct"
+                          :maxFiles="1"
+                          @uploadSuccess="uploadSuccess"
+                          :resizeSize="{width: imageSize.width, height: imageSize.height}"
+                          :thumbnailSize="{width: thumbnailSize.width, height: thumbnailSize.height}"
                         ></file-upload>
                       </div>
                     </div>
@@ -134,18 +101,14 @@ upload-type="ct"
                     type="button"
                     class="btn btn-simple btn-sm px-3"
                     @click="$modal.hide('upload-modal')"
-                  >
-                    {{ $t("common.close") }}
-                  </button>
+                  >{{$t('common.close')}}</button>
                   <button
                     type="button"
                     class="btn btn-primary btn-sm btn-round btn-fill px-4"
                     :class="[uploadedImage == null ? 'disabled' : '']"
                     :disabled="uploadedImage == null"
                     @click.prevent="saveImage"
-                  >
-                    Save
-                  </button>
+                  >Save</button>
                 </div>
               </modal>
             </div>
@@ -153,72 +116,43 @@ upload-type="ct"
         </div>
       </div>
       <div v-if="mode !== 'save'" style="margin-top: 20px">
-        <div style="font-weight: bold; font-size: 16px">
-          UPDATE ADMIN PASSWORD
-        </div>
+        <div style="font-weight: bold; font-size: 16px">UPDATE ADMIN PASSWORD</div>
         <div class="form-group row">
           <label class="col-4 col-form-label">New Password :</label>
           <div class="col-8" style="display: flex">
-            <input v-model="newPassword" class="form-control" />
+            <input class="form-control" v-model="newPassword" />
             <button
               class="btn btn-xs btn-primary btn-fill"
-              :disabled="!newPassword || newPassSaving"
+              :disabled="!newPassword || newPassSaving"
               @click="saveNewPassword"
-            >
-              {{ newPassSaving ? "Updating" : "Update" }}
-            </button>
+            >{{newPassSaving ? 'Updating' : 'Update'}}</button>
           </div>
         </div>
       </div>
       <div v-if="mode === 'save'">
         <hr />
         <div class="form-group row">
-          <label class="col-4 col-form-label"
-            >{{ $t("common.country.labels.country_admin") }} :</label
-          >
+          <label class="col-4 col-form-label">{{$t('common.country.labels.country_admin')}} :</label>
           <div class="col-8">
-            <input v-model="item.email" type="text" class="form-control" />
+            <input type="text" class="form-control" v-model="item.email" />
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-4 col-form-label"
-            >{{ $t("common.country.labels.country_admin_password") }} :</label
-          >
+          <label
+            class="col-4 col-form-label"
+          >{{$t('common.country.labels.country_admin_password')}} :</label>
           <div class="col-8">
-            <input
-v-model="item.password" v-model="item.password" <<<<<<<
-              Updated
-              upstream
-              type="password"
-class="form-control"
-              =======
-              type="password"
-              class="form-control"
->>>>>>> Stashed changes
-            />
+            <input type="password" class="form-control" v-model="item.password" />
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-4 col-form-label"
-            >{{
-              $t("common.country.labels.country_admin_password_confirmation")
-            }}
-            :</label
-          >
+          <label
+            class="col-4 col-form-label"
+          >{{$t('common.country.labels.country_admin_password_confirmation')}} :</label>
           <div class="col-8">
-            <input
-v-model="item.password_confirmation" v-model="item.password_confirmation" <<<<<<<
-              Updated
-              upstream
-              type="password"
-class="form-control"
-              =======
-              type="password"
-              class="form-control"
->>>>>>> Stashed changes
-            />
+            <input type="password" class="form-control" v-model="item.password_confirmation" />
           </div>
         </div>
       </div>
@@ -230,10 +164,10 @@ class="form-control"
 import FileUpload from "src/components/UIComponents/Inputs/FileUpload";
 
 export default {
-  components: {
-    FileUpload,
-  },
   props: ["item", "mode"],
+  components: {
+    FileUpload
+  },
   data() {
     return {
       newPassword: "",
@@ -243,15 +177,15 @@ export default {
       uploadedImage: null,
       imageSize: {
         width: 240,
-        height: 240,
+        height: 240
       },
       thumbnailSize: {
         width: 280,
-        height: 280,
+        height: 280
       },
       selectedStatus: this.item.status == "active" ? true : false,
       activeText: this.$t("common.labels.active"),
-      passiveText: this.$t("common.labels.passive"),
+      passiveText: this.$t("common.labels.passive")
     };
   },
   watch: {
@@ -266,7 +200,7 @@ export default {
     },
     selectedStatus: function() {
       this.item.status = this.selectedStatus ? "active" : "passive";
-    },
+    }
   },
   methods: {
     saveNewPassword() {
@@ -274,10 +208,10 @@ export default {
       this.$store
         .dispatch("definition/updateCountryPassword", {
           id: this.item.id,
-          data: { ...this.item, password: this.newPassword },
+          data: {...this.item, password: this.newPassword}
         })
         .then(() => {
-          this.notify("Password updated.", "success");
+          this.notify("Password updated.", 'success');
           this.newPassSaving = false;
           this.newPassword = "";
         })
@@ -286,7 +220,7 @@ export default {
         });
     },
     uploadSuccess: function(response) {
-      if (response?.result.set) {
+      if (response && response.result.set) {
         this.uploadedImage = response.result.set[0];
         this.imageUrl = this.uploadedImage.name;
         //this.cdnUrl = this.uploadedImage.cdnPath;
@@ -304,7 +238,7 @@ export default {
       let name = this.item.name_en;
       let email = name.replace(" ", "_").toLowerCase();
       this.item.email = email + "_admin@optimalrating.com";
-    },
-  },
+    }
+  }
 };
 </script>

@@ -2,88 +2,55 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 mt-4">
-        <h4 class="mb-4 mt-2 text-dark border-left border-warning pl-2">
-          {{ $t("common.survey.components.edit") }}
-        </h4>
+        <h4
+          class="mb-4 mt-2 text-dark border-left border-warning pl-2"
+        >{{$t('common.survey.components.edit')}}</h4>
       </div>
     </div>
 
     <div class="card">
       <div class="card-body">
         <div class="row">
-          <div v-if="isLoading" class="col-md-12">
+          <div class="col-md-12" v-if="isLoading">
             <form @submit.prevent="update">
               <div class="col-12 float-left">
                 <div class="col-10 float-left">
                   <div class="form-group row">
                     <label class="col-2 col-form-label">Added By :</label>
                     <div class="col-10">
-                      <h5 v-if="addedUser">
-                        {{ addedUser.firstname }} {{ addedUser.middlename }}
-                        {{ addedUser.lastname }} / {{ addedUser.username }}
-                      </h5>
+                      <h5
+                        v-if="addedUser"
+                      >{{ addedUser.firstname}} {{ addedUser.middlename }} {{ addedUser.lastname }} / {{ addedUser.username }}</h5>
                       <h5 v-else>-</h5>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-3 col-form-label">Survey Title :</label>
                     <div class="col-8">
-                      <input
-v-model="survey.title" v-model="survey.title" <<<<<<<
-                        Updated
-                        upstream
-                        type="text"
-class="form-control"
-                        =======
-                        type="text"
-                        class="form-control"
->>>>>>> Stashed changes
-                      />
+                      <input type="text" class="form-control" v-model="survey.title" />
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-3 col-form-label">Survey Url :</label>
                     <div class="col-8">
-                      <input
-v-model="survey.slug" v-model="survey.slug" <<<<<<<
-                        Updated
-                        upstream
-                        type="text"
-class="form-control"
-                        =======
-                        type="text"
-                        class="form-control"
->>>>>>> Stashed changes
-                      />
+                      <input type="text" class="form-control" v-model="survey.slug" />
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-3 col-form-label"
-                      >Survey Category :</label
-                    >
+                    <label class="col-3 col-form-label">Survey Category :</label>
                     <div class="col-8">
                       <treeselect
                         v-model="selectedCategory"
                         :options="categoryOptions"
                         placeholder="Üst Kategori"
-                        value-format="id"
+                        valueFormat="id"
                       />
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-3 col-form-label"
-                      >Survey Description :</label
-                    >
+                    <label class="col-3 col-form-label">Survey Description :</label>
                     <div class="col-8">
-                      <vue-editor
-v-model="survey.description" v-model="survey.description" <<<<<<<
-                        Updated
-                        upstream
-:editor-toolbar="customToolbar"
-                        =======
-                        :editor-toolbar="customToolbar"
->>>>>>> Stashed changes
-                      ></vue-editor>
+                      <vue-editor :editorToolbar="customToolbar" v-model="survey.description"></vue-editor>
                     </div>
                   </div>
                 </div>
@@ -91,45 +58,23 @@ v-model="survey.description" v-model="survey.description" <<<<<<<
                   <img
                     v-if="addedUser"
                     class="preview"
-                    :src="
-                      cdnUrl +
-                      userImageUrl +
-                      addedUser.user_details.profile_image
-                    "
+                    :src="cdnUrl + userImageUrl + addedUser.user_details.profile_image "
                   />
                 </div>
               </div>
               <div class="clearfix"></div>
               <hr />
               <h4>Choices</h4>
-              <div
-v-for="(choice, index) in survey.choices" <<<<<<< Updated
-                upstream
-                class="form-group row mb-5"
-              >
+              <div class="form-group row mb-5" v-for="(choice, index) in survey.choices">
                 <div class="col-7 pt-3">
-                  <input
-                    v-for="(choice, index) in survey.choices"
-                    v-model="choice.choice_title"
-                    type="text"
-class="form-control"
-                =======
-                class="form-group row mb-5"
-              >
-                <div class="col-7 pt-3">
-                  <input
-                    v-model="choice.choice_title"
-                    type="text"
-                    class="form-control"
->>>>>>> Stashed changes
-                  />
+                  <input type="text" class="form-control" v-model="choice.choice_title" />
                 </div>
                 <div class="col-1">
                   <image-field
-                    :image-name="choice.choice_image"
-                    :path="choice_path"
-                    :image-id="choice.id"
                     @upload="uploading = $event"
+                    :imageName="choice.choice_image"
+                    :path="choice_path"
+                    :imageId="choice.id"
                     @change="onImage($event, index)"
                   ></image-field>
                 </div>
@@ -155,26 +100,14 @@ class="form-control"
                   />
                 </div>
                 <div class="col-7">
-                  <vue-editor
-v-model="choice.choice_description" v-model="choice.choice_description" <<<<<<<
-                    Updated
-                    upstream
-                    :editor-toolbar="customToolbar"
-:tag="textarea"
-                    =======
-                    :editor-toolbar="customToolbar"
-                    :tag="textarea"
->>>>>>> Stashed changes
-                    @text-change="onTextChange($event, index)"
-                  ></vue-editor>
+                  <vue-editor :editorToolbar="customToolbar" :tag="textarea" v-model="choice.choice_description" @text-change="onTextChange($event, index)"></vue-editor>
                 </div>
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary pull-right mt-2">
-                  {{
-                    saving ? "Updating..." : uploading ? "Uploading" : "Update"
-                  }}
-                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary pull-right mt-2"
+                >{{saving ? 'Updating...' : uploading ? 'Uploading' : 'Update'}}</button>
               </div>
             </form>
           </div>
@@ -202,7 +135,7 @@ export default {
     DataTable,
     DateMonthColumn,
     ImageField,
-    VueEditor,
+    VueEditor
   },
   data() {
     return {
@@ -210,7 +143,7 @@ export default {
       saving: false,
       customToolbar: [
         ["bold", "italic", "underline"],
-        [{ list: "ordered" }, { list: "bullet" }],
+        [{ list: "ordered" }, { list: "bullet" }]
       ],
       descToolbar: [["video"]],
       isLoading: false,
@@ -221,14 +154,14 @@ export default {
       category: null,
       choice_path: "cdn/images/choice/",
       cdnUrl: process.env.CDN_LOCATION,
-      userImageUrl: "cdn/images/user/",
-      selectedCategory: null,
+      userImageUrl: `cdn/images/user/`,
+      selectedCategory: null
     };
   },
   mounted() {
     this.$store
       .dispatch("definition/getDetailSurvey", { id: this.$route.params.id })
-      .then((response) => {
+      .then(response => {
         this.survey = response.result.set;
         this.addedUser = response.result.set.user;
         this.selectedCategory = response.result.set.category_id;
@@ -238,38 +171,34 @@ export default {
   },
   computed: {
     ...mapState("definition", {
-      categories: (state) => state.categories,
+      categories: state => state.categories
     }),
     categoryOptions: function() {
       let _this = this;
       function mapChildren(children) {
-        return _this._.map(children, (child) => {
+        return _this._.map(children, child => {
           let obj = {
             id: child.id,
-            label: child.name || "",
+            label: child.name || ""
           };
           if (child.children) obj.children = mapChildren(child.children);
           return obj;
         });
       }
 
-      return this._.map(this.categories, (item) => {
+      return this._.map(this.categories, item => {
         let obj = {
           id: item.id,
-          label: item.name || "",
+          label: item.name || ""
         };
         if (item.children) obj.children = mapChildren(item.children);
         return obj;
       });
-    },
+    }
   },
   methods: {
     onTextChange(e, i) {
-      this.survey.choices[i].choice_description = this.survey.choices[
-        i
-      ].choice_description
-        .replace("<p>", "")
-        .replace("</p>", "");
+      this.survey.choices[i].choice_description = this.survey.choices[i].choice_description.replace("<p>", "").replace("</p>", "")
     },
     onImage(e, i) {
       this.survey.choices[i].choice_image = e;
@@ -280,7 +209,7 @@ export default {
       this.$store
         .dispatch("definition/updateChoiceStatus", {
           id: choice.id,
-          status: this.survey.choices[index].status,
+          status: this.survey.choices[index].status
         })
         .then(() => {
           this.saving = false;
@@ -307,7 +236,7 @@ export default {
       this.loading = true;
       this.$store
         .dispatch("definition/getAllCategoryTree", {
-          filter: { sort: ["+listOrder"] },
+          filter: { sort: ["+listOrder"] }
         })
         .then(() => {
           this.loading = false;
@@ -319,19 +248,19 @@ export default {
     deleteChoice(id) {
       this.$store
         .dispatch("definition/destroyChoice", { data: id })
-        .then((response) => {
+        .then(response => {
           this.choices = response.result.set;
           this.notify("Choice has been deleted", "success");
         });
-    },
+    }
   },
   watch: {
     selectedCategory: function(val) {
-      if (typeof val == "undefined" || val === null) {
+      if (typeof val == "undefined" || null === val) {
         this.survey.category_id = null;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>

@@ -3,12 +3,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-8">
-          <h4 class="mb-4 mt-2">{{ $t("common.keyword.labels.list") }}</h4>
+          <h4 class="mb-4 mt-2">{{$t('common.keyword.labels.list')}}</h4>
           <input
             id="statusApproved"
-            v-model="hideSystem"
             value="approved"
             type="checkbox"
+            v-model="hideSystem"
             @change="onHide"
           />
           <label for="statusApproved">Hide system messages</label>
@@ -20,12 +20,8 @@
             <div class="col-12">
               <card>
                 <datatable
-<<<<<<< Updated upstream
-=======
-                  :class="{ 'loading-table': loading }"
->>>>>>> Stashed changes
+                  :class="{'loading-table': loading}"
                   v-if="datatable.data"
-                  :class="{ 'loading-table': loading }"
                   v-bind="datatable"
                 />
               </card>
@@ -45,47 +41,26 @@
           <div class="row">
             <div class="col">
               <i
-                slot="top-right"
                 class="fas fa-times fa-2x btn-modal-close text-success"
+                slot="top-right"
                 @click="$modal.hide('translation-modal')"
               ></i>
-              <h4 class="mt-0">
-                {{ $t("common.keyword.labels.translation") }}
-              </h4>
+              <h4 class="mt-0">{{$t('common.keyword.labels.translation')}}</h4>
               <hr />
               <form @submit.prevent="$emit('submitAction', item)">
                 <div class="form-group row">
-                  <label class="col-4 col-form-label"
-                    >{{ $t("common.keyword.input.keyword") }} :</label
-                  >
+                  <label class="col-4 col-form-label">{{$t('common.keyword.input.keyword')}} :</label>
                   <div class="col-8">
-                    <input
-v-model="keyword.default" v-model="keyword.default" <<<<<<<
-                      Updated
-                      upstream
-                      type="text"
-class="form-control"
-                      =======
-                      type="text"
-                      class="form-control"
->>>>>>> Stashed changes
-                      disabled
-                    />
+                    <input type="text" class="form-control" v-model="keyword.default" disabled />
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-4 col-form-label"
-                    >{{ $t("common.keyword.input.translation") }} :</label
-                  >
+                  <label class="col-4 col-form-label">{{$t('common.keyword.input.translation')}} :</label>
                   <div class="col-8">
                     <input
-                      v-model="keyword.translation.translation"
-                      v-model="keyword.translation.translation"
                       type="text"
-class="form-control" <<<<<<< Updated
-                      upstream
-=======
->>>>>>> Stashed changes
+                      class="form-control"
+                      v-model="keyword.translation.translation "
                     />
                   </div>
                 </div>
@@ -99,20 +74,13 @@ class="form-control" <<<<<<< Updated
           type="button"
           class="btn btn-simple btn-sm px-3"
           @click="$modal.hide('translation-modal')"
-        >
-          {{ $t("common.close") }}
-        </button>
+        >{{$t('common.close')}}</button>
         <button
           type="button"
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
+          @click="saveTranslation"
           :disabled="saving"
-<<<<<<< Updated upstream
-          =======
-@click="saveTranslation"
->>>>>>> Stashed changes
-        >
-          {{ saving ? "Saving..." : $t("common.buttons.save") }}
-        </button>
+        >{{ saving ? 'Saving...' : $t('common.buttons.save') }}</button>
       </div>
     </modal>
   </div>
@@ -128,7 +96,7 @@ import { Keyword, Translation } from "src/models/definition";
 export default {
   components: {
     Card,
-    TableCustomColumn,
+    TableCustomColumn
   },
   data() {
     // console.log("HIII I M")
@@ -147,19 +115,19 @@ export default {
           {
             title: this.$t("common.keyword.datatable.default"),
             field: "default",
-            tdComp: TableCustomColumn,
+            tdComp: TableCustomColumn
           },
           {
             title: this.$t("common.keyword.datatable.translation"),
             field: "translation.translation",
-            tdComp: TableCustomColumn,
+            tdComp: TableCustomColumn
           },
           {
             tdComp: KeywordActions,
             visible: "true",
             thStyle: { width: "10%" },
-            tdStyle: { width: "10%" },
-          },
+            tdStyle: { width: "10%" }
+          }
         ],
         data: [],
         total: 0,
@@ -169,10 +137,10 @@ export default {
         supportNested: true,
         supportBackup: true,
         xprops: {
-          eventbus: new Vue(),
-        },
+          eventbus: new Vue()
+        }
       },
-      bus: new Vue(),
+      bus: new Vue()
     };
   },
   watch: {
@@ -180,19 +148,19 @@ export default {
       handler(query) {
         this.getAllKeywords();
       },
-      deep: true,
-    },
+      deep: true
+    }
   },
   computed: {
     ...mapState("definition", {
-      _keywords: (state) => state.keywords,
+      _keywords: state => state.keywords
     }),
     keywords: function() {
       return this._.cloneDeep(this._keywords);
-    },
+    }
   },
   created() {
-    this.datatable.xprops.eventbus.$on("add-key", (item) => {
+    this.datatable.xprops.eventbus.$on("add-key", item => {
       this.addKey(item);
       item = null;
     });
@@ -200,7 +168,7 @@ export default {
   methods: {
     onHide() {
       let _d = this.hideSystem
-        ? this.fullData.filter((x) => x.key.split(".").length < 3)
+        ? this.fullData.filter(x => x.key.split(".").length < 3)
         : [...this.fullData];
       this.datatable.data = _d.map((x, i) => ({ ...x, index: i + 1 }));
     },
@@ -213,12 +181,12 @@ export default {
         sort: query.sort,
         order: query.order,
         limit: query.limit,
-        offset: query.offset,
+        offset: query.offset
       };
       this.loading = true;
       this.$store
         .dispatch("definition/getAllKeywords", { filter: filter })
-        .then((response) => {
+        .then(response => {
           this.fullData = [...response.set];
           this.onHide();
           this.loading = false;
@@ -242,21 +210,22 @@ export default {
       this.$store
         .dispatch("definition/saveTranslation", {
           mode: this.mode,
-          data: this.keyword,
+          data: this.keyword
         })
-        .then((response) => {
+        .then(response => {
           this.getAllKeywords();
           this.saving = false;
           this.datatable.data = null;
           this.$modal.hide("translation-modal");
           this.notify(this.$t(response.message), "success");
         })
-        .catch((error) => {
+        .catch(error => {
           this.saving = false;
           //console.log(error);
         });
-    },
-  },
+    }
+  }
 };
 </script>
-<style></style>
+<style>
+</style>

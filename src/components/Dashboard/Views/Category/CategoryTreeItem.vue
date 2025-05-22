@@ -66,14 +66,14 @@ export default {
     CategoryTreeItem,
   },
   props: ["item", "bus", "depth"],
-  data: function () {
+  data: function() {
     return {
       open: false,
       isActive: null,
     };
   },
   computed: {
-    isFolder: function () {
+    isFolder: function() {
       return this.item.children && this.item.children.length;
     },
     indent() {
@@ -87,8 +87,8 @@ export default {
     });
   },
   methods: {
-    toggle: function () {
-      if (this.isFolder) {
+    toggle: function() {
+      if(this.isFolder) {
         this.open = !this.open;
       }
     },

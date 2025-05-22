@@ -1,49 +1,31 @@
 <template>
   <div style="text-align: right; margin-bottom: 16px">
-    <button class="btn" @click="$modal.show('categoryCreateModal')">
-      Add new category
-    </button>
-    <modal
-      name="categoryCreateModal"
-      :classes="['v--modal', 'm-modal']"
-      height="auto"
-    >
+    <button class="btn" @click="$modal.show('categoryCreateModal')">Add new category</button>
+    <modal name="categoryCreateModal" :classes="['v--modal', 'm-modal']" height="auto">
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
             <div class="col">
               <i
-                slot="top-right"
                 class="fas fa-times fa-2x btn-modal-close text-success"
+                slot="top-right"
                 @click="$modal.hide('categoryCreateModal')"
               ></i>
               <h4 class="mt-0">Create Category</h4>
               <hr />
               <div style="font-weight: bold">Name</div>
-              <<<<<<< Updated upstream
-              <input v-model="name" class="form-control" />
-              <div style="font-weight: bold; margin-top: 20px">
-                Translation Code
-              </div>
-              <input v-model="code" class="form-control" />
-              =======
-              <input v-model="name" class="form-control" />
-              <div style="font-weight: bold; margin-top: 20px">
-                Translation Code
-              </div>
-              <input v-model="code" class="form-control" />
-              >>>>>>> Stashed changes
-              <div style="font-weight: bold; margin-top: 20px">
-                Parent Category
-              </div>
+              <input class="form-control" v-model="name" />
+              <div style="font-weight: bold; margin-top: 20px">Translation Code</div>
+              <input class="form-control" v-model="code" />
+              <div style="font-weight: bold; margin-top: 20px">Parent Category</div>
               <treeselect
                 v-model="parent"
                 :options="categoryOptions"
                 placeholder="Üst Kategori"
-                value-format="id"
+                valueFormat="id"
               />
               <div style="font-weight: bold; margin-top: 20px">Sort Order</div>
-              <input v-model="sort_order" type="number" class="form-control" />
+              <input type="number" class="form-control" v-model="sort_order" />
               <div style="font-weight: bold; margin-top: 20px">Status</div>
               <switches
                 v-model="status"
@@ -59,17 +41,13 @@
           type="button"
           class="btn btn-simple btn-sm px-3"
           @click="$modal.hide('categoryEditModal')"
-        >
-          Cancel
-        </button>
+        >Cancel</button>
         <button
           type="button"
           :disabled="saving"
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
           @click="save"
-        >
-          {{ saving ? "Saving..." : "Save" }}
-        </button>
+        >{{saving ? 'Saving...' : 'Save'}}</button>
       </div>
     </modal>
   </div>
@@ -85,35 +63,35 @@ export default {
       code: "",
       sort_order: 0,
       parent: 0,
-      status: true,
+      status: true
     };
   },
   computed: {
     ...mapState("definition", {
-      categories: (state) => state.categories,
+      categories: state => state.categories
     }),
-    categoryOptions: function () {
+    categoryOptions: function() {
       let _this = this;
       function mapChildren(children) {
-        return _this._.map(children, (child) => {
+        return _this._.map(children, child => {
           let obj = {
             id: child.id,
-            label: child.name || "",
+            label: child.name || ""
           };
           if (child.children) obj.children = mapChildren(child.children);
           return obj;
         });
       }
 
-      return this._.map(this.categories, (item) => {
+      return this._.map(this.categories, item => {
         let obj = {
           id: item.id,
-          label: item.name || "",
+          label: item.name || ""
         };
         if (item.children) obj.children = mapChildren(item.children);
         return obj;
       });
-    },
+    }
   },
   methods: {
     save() {
@@ -123,7 +101,7 @@ export default {
         code,
         sort_order,
         parent,
-        status: status ? "active" : "passive",
+        status: status ? "active" : "passive"
       };
       this.saving = true;
       this.$store
@@ -140,7 +118,7 @@ export default {
         .catch(() => {
           this.saving = false;
         });
-    },
-  },
+    }
+  }
 };
 </script>

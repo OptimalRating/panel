@@ -3,12 +3,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-8">
-          <h4 class="mb-4 mt-2">{{ $t("common.keyword.labels.list") }}</h4>
+          <h4 class="mb-4 mt-2">{{$t('common.keyword.labels.list')}}</h4>
           <input
             id="statusApproved"
-            v-model="hideSystem"
             value="approved"
             type="checkbox"
+            v-model="hideSystem"
             @change="onHide"
           />
           <label for="statusApproved">Hide system messages</label>
@@ -21,7 +21,7 @@
             @click="openModal('save')"
           >
             <i class="fas fa-plus"></i>
-            {{ $t("common.buttons.new") }}
+            {{$t('common.buttons.new')}}
           </button>
         </div>
       </div>
@@ -31,12 +31,8 @@
             <div class="col-12">
               <card>
                 <datatable
-<<<<<<< Updated upstream
-=======
-                  :class="{ 'loading-table': loading }"
->>>>>>> Stashed changes
+                  :class="{'loading-table': loading}"
                   v-if="datatable.data"
-                  :class="{ 'loading-table': loading }"
                   v-bind="datatable"
                 />
               </card>
@@ -45,58 +41,29 @@
         </div>
       </div>
     </div>
-    <modal
-      name="keyword-modal"
-      height="auto"
-      :draggable="true"
-      :classes="['v--modal', 'm-modal']"
-    >
+    <modal name="keyword-modal" height="auto" :draggable="true" :classes="['v--modal', 'm-modal']">
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
             <div class="col">
               <i
-                slot="top-right"
                 class="fas fa-times fa-2x btn-modal-close text-success"
+                slot="top-right"
                 @click="$modal.hide('keyword-modal')"
               ></i>
-              <h4 class="mt-0">{{ $t("common.keyword.labels.new") }}</h4>
+              <h4 class="mt-0">{{$t('common.keyword.labels.new')}}</h4>
               <hr />
               <form @submit.prevent="$emit('submitAction', item)">
                 <div class="form-group row">
-                  <label class="col-4 col-form-label"
-                    >{{ $t("common.keyword.input.keyword") }} :</label
-                  >
+                  <label class="col-4 col-form-label">{{$t('common.keyword.input.keyword')}} :</label>
                   <div class="col-8">
-                    <input
-v-model="keyword.key" v-model="keyword.key" <<<<<<<
-                      Updated
-                      upstream
-                      type="text"
-class="form-control"
-                      =======
-                      type="text"
-                      class="form-control"
->>>>>>> Stashed changes
-                    />
+                    <input type="text" class="form-control" v-model="keyword.key" />
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-4 col-form-label"
-                    >{{ $t("common.keyword.input.default") }} :</label
-                  >
+                  <label class="col-4 col-form-label">{{$t('common.keyword.input.default')}} :</label>
                   <div class="col-8">
-                    <input
-v-model="keyword.default" v-model="keyword.default" <<<<<<<
-                      Updated
-                      upstream
-                      type="text"
-class="form-control"
-                      =======
-                      type="text"
-                      class="form-control"
->>>>>>> Stashed changes
-                    />
+                    <input type="text" class="form-control" v-model="keyword.default" />
                   </div>
                 </div>
               </form>
@@ -109,20 +76,13 @@ class="form-control"
           type="button"
           class="btn btn-simple btn-sm px-3"
           @click="$modal.hide('keyword-modal')"
-        >
-          {{ $t("common.close") }}
-        </button>
+        >{{$t('common.close')}}</button>
         <button
           type="button"
           class="btn btn-primary btn-sm btn-round btn-fill px-4"
+          @click="saveKeyword"
           :disabled="saving"
-<<<<<<< Updated upstream
-          =======
-@click="saveKeyword"
->>>>>>> Stashed changes
-        >
-          {{ saving ? "Saving..." : $t("common.buttons.save") }}
-        </button>
+        >{{saving ? 'Saving...' : $t('common.buttons.save')}}</button>
       </div>
     </modal>
   </div>
@@ -139,7 +99,7 @@ export default {
   components: {
     Card,
     TableActions,
-    TableCustomColumn,
+    TableCustomColumn
   },
   data() {
     return {
@@ -157,19 +117,19 @@ export default {
           {
             title: this.$t("common.keyword.datatable.key"),
             field: "key",
-            tdComp: TableCustomColumn,
+            tdComp: TableCustomColumn
           },
           {
             title: this.$t("common.keyword.datatable.default"),
             field: "default",
-            tdComp: TableCustomColumn,
+            tdComp: TableCustomColumn
           },
           {
             tdComp: TableActions,
             visible: "true",
             thStyle: { width: "10%" },
-            tdStyle: { width: "10%" },
-          },
+            tdStyle: { width: "10%" }
+          }
         ],
         data: [],
         total: 0,
@@ -179,10 +139,10 @@ export default {
         supportNested: true,
         supportBackup: true,
         xprops: {
-          eventbus: new Vue(),
-        },
+          eventbus: new Vue()
+        }
       },
-      bus: new Vue(),
+      bus: new Vue()
     };
   },
   watch: {
@@ -190,26 +150,26 @@ export default {
       handler(query) {
         this.getAllKeywords();
       },
-      deep: true,
-    },
+      deep: true
+    }
   },
   computed: {
     ...mapState("definition", {
-      keywords: (state) => state.keywords,
-    }),
+      keywords: state => state.keywords
+    })
   },
   created() {
-    this.datatable.xprops.eventbus.$on("edit", (item) => {
+    this.datatable.xprops.eventbus.$on("edit", item => {
       this.edit(item);
     });
-    this.datatable.xprops.eventbus.$on("delete", (item) => {
+    this.datatable.xprops.eventbus.$on("delete", item => {
       this.delete(item);
     });
   },
   methods: {
     onHide() {
       let _d = this.hideSystem
-        ? this.fullData.filter((x) => x.key.split(".").length < 3)
+        ? this.fullData.filter(x => x.key.split(".").length < 3)
         : [...this.fullData];
       this.datatable.data = _d.map((x, i) => ({ ...x, index: i + 1 }));
     },
@@ -222,12 +182,12 @@ export default {
         sort: query.sort,
         order: query.order,
         limit: query.limit,
-        offset: query.offset,
+        offset: query.offset
       };
       this.loading = true;
       this.$store
         .dispatch("definition/getAllKeywords", { filter: filter })
-        .then((response) => {
+        .then(response => {
           this.fullData = [...response.set];
           this.onHide();
           this.loading = false;
@@ -244,7 +204,7 @@ export default {
         text: `${item.default} will be deleted. Are you sure?`,
         buttons: [
           {
-            title: "Cancel",
+            title: "Cancel"
           },
           {
             title: "Yes",
@@ -257,9 +217,9 @@ export default {
                   this.$modal.hide("dialog");
                   this.getAllKeywords();
                 });
-            },
-          },
-        ],
+            }
+          }
+        ]
       });
     },
     openModal(mode) {
@@ -274,34 +234,35 @@ export default {
       if (this.mode === "save") {
         this.$store
           .dispatch("definition/createKeyword", { data: this.keyword })
-          .then((response) => {
+          .then(response => {
             this.saving = false;
             this.getAllKeywords();
             this.$modal.hide("keyword-modal");
             this.notify(this.$t(response.message), "success");
           })
-          .catch((error) => {
+          .catch(error => {
             this.saving = false;
             this.notify(this.$t(response.message), "err");
           });
       } else {
         this.$store
           .dispatch("definition/updateKeyword", { data: this.keyword })
-          .then((response) => {
+          .then(response => {
             this.saving = false;
             this.getAllKeywords();
             this.$modal.hide("keyword-modal");
             this.notify(this.$t(response.message), "success");
           })
-          .catch((error) => {
+          .catch(error => {
             this.saving = false;
             this.getAllKeywords();
             this.$modal.hide("keyword-modal");
             this.notify(this.$t(response.message), "err");
           });
       }
-    },
-  },
+    }
+  }
 };
 </script>
-<style></style>
+<style>
+</style>

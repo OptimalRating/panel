@@ -3,23 +3,14 @@
     <div class="image-preview">
       <div class="boxImage mr-3 float-right">
         <div class="pp float-left iconbox-60" @click="$refs.fileInput1.click()">
-          <img
-            v-if="imageUrl"
-            :src="imageUrl"
-            width="100%"
-            height="100%"
-            @error="onError"
-          />
+          <img v-if="imageUrl" :src="imageUrl" width="100%" height="100%" @error="onError" />
           <input
-            ref="fileInput1"
             type="file"
             name="choice_image"
+            ref="fileInput1"
+            @change="previewImage"
             accept="image/*"
-            style="display: none"
-<<<<<<< Updated upstream
-            =======
-@change="previewImage"
->>>>>>> Stashed changes
+            style="display:none;"
           />
         </div>
         <div class="Grg65b">
@@ -39,37 +30,33 @@ export default {
       secondPath: "cdn/images/survey_approval/",
       isSec: false,
       imageUrl: this.imageName
-        ? process.env.CDN_LOCATION + "cdn/images/choice/" + this.imageName
+        ? process.env.CDN_LOCATION + 'cdn/images/choice/' + this.imageName
         : null,
       selectedFile: null,
       headers: {
         Authorization: this.$http.defaults.headers.common["Authorization"],
         "Cache-Control": "",
-        "X-Requested-With": "",
+        "X-Requested-With": ""
       },
-      url: this.$http.defaults.baseURL + "choice_image/upload",
+      url: this.$http.defaults.baseURL + "choice_image/upload"
     };
   },
   methods: {
     onError() {
-      if (!this.isSec) {
+      if(!this.isSec) {
         this.isSec = true;
-        this.imageUrl = this.imageName
-          ? process.env.CDN_LOCATION +
-            "cdn/images/survey_approval/" +
-            this.imageName
-          : null;
+        this.imageUrl = this.imageName ? process.env.CDN_LOCATION + 'cdn/images/survey_approval/' + this.imageName : null;
       }
     },
     previewImage: function(event) {
       // Reference to the DOM input element
       var input = event.target;
       // Ensure that you have a file before attempting to read it
-      if (input.files?.[0]) {
+      if (input.files && input.files[0]) {
         // create a new FileReader to read this image and convert to base64 format
         var reader = new FileReader();
         // Define a callback function to run, when FileReader finishes its job
-        reader.onload = (e) => {
+        reader.onload = e => {
           // Note: arrow function used here, so that "this.imageUrl" refers to the imageUrl of Vue component
           // Read image as base64 and set to imageUrl
           this.imageUrl = e.target.result;
@@ -83,19 +70,16 @@ export default {
         fd.append("choice_image", this.selectedFile);
         fd.append("name", this.selectedFile.name);
         fd.append("choice_id", this.imageId);
-        this.$emit("upload", true);
-        axios
-          .post(this.url, fd, this.headers)
-          .then((response) => {
-            this.$emit("upload", false);
-            this.$emit("change", response.data.result.set[0].name);
-          })
-          .catch(() => {
-            this.$emit("upload", false);
-          });
+        this.$emit('upload', true);
+        axios.post(this.url, fd, this.headers).then(response => {
+          this.$emit('upload', false);
+          this.$emit("change", response.data.result.set[0].name);
+        }).catch(() => {
+          this.$emit('upload', false);
+        });
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -141,3 +125,4 @@ export default {
   opacity: 0.8;
 }
 </style>
+
