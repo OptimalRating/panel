@@ -1,11 +1,11 @@
-import Proxy from './Proxy';
+import Proxy from "./Proxy";
 
 class CategoryProxy extends Proxy {
   constructor(parameters = {}) {
-    super('keywords', parameters);
+    super("keywords", parameters);
   }
-  all(){
-    return this.submit('get', "/keywords");
+  all() {
+    return this.submit("get", "/keywords");
   }
 }
 

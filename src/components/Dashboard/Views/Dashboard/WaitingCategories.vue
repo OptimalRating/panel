@@ -3,14 +3,18 @@
     <h4 class="mb-4 mt-2 text-danger" @click="test()">
       Pending Categories
       <i
-        @click="collapsed = !collapsed"
         :class="`fa fa-caret-${collapsed ? 'right' : 'down'}`"
-        style="color: #333; cursor: pointer; margin-left: 10px;"
+        @click="collapsed = !collapsed"
+        style="color: #333; cursor: pointer; margin-left: 10px"
       />
     </h4>
     <card v-if="!collapsed" class="col-12 float-left">
       <div class="col">
-        <datatable :class="{'loading-table': loading}" v-if="datatable.data" v-bind="datatable" />
+        <datatable
+          :class="{ 'loading-table': loading }"
+          v-if="datatable.data"
+          v-bind="datatable"
+        />
       </div>
       <modal
         name="category-detail-modal"
@@ -23,13 +27,21 @@
             <div class="row">
               <div class="col">
                 <i
-                  class="fas fa-times fa-2x btn-modal-close text-success"
                   slot="top-right"
+                  class="fas fa-times fa-2x btn-modal-close text-success"
                   @click="$modal.hide('category-detail-modal')"
                 ></i>
-                <h4 class="mt-0">{{$t('common.category.components.detail')}}</h4>
+                <h4 class="mt-0">
+                  {{ $t("common.category.components.detail") }}
+                </h4>
                 <hr />
-                <category-form :nodisable="true" :item="category" :whichForm="'survey'" @save="save" @remove="remove"></category-form>
+                <category-form
+                  :nodisable="true"
+                  :item="category"
+                  :whichForm="'survey'"
+                  @save="save"
+                  @remove="remove"
+                ></category-form>
               </div>
             </div>
           </div>
@@ -49,7 +61,6 @@ import TableStatus from "src/components/UIComponents/DataTable/TableStatus";
 import CategoryForm from "src/components/Dashboard/Views/Category/CategoryForm";
 import { Category } from "../../../../models/definition";
 export default {
-  props: ["bus", "categories"],
   components: {
     Card,
     DetailModal,
@@ -58,6 +69,7 @@ export default {
     TableStatus,
     CategoryForm
   },
+  props: ["bus", "categories"],
   data() {
     return {
       collapsed: false,
@@ -68,23 +80,23 @@ export default {
           {
             title: this.$t("common.category.datatable.name"),
             field: "name",
-            tdComp: TableCustomColumn
+            tdComp: TableCustomColumn,
           },
           {
             title: this.$t("common.category.datatable.parent_name"),
             field: "parent.name",
-            tdComp: TableCustomColumn
+            tdComp: TableCustomColumn,
           },
           {
             title: this.$t("common.category.datatable.status"),
             field: "status",
-            tdComp: TableCustomColumn
+            tdComp: TableCustomColumn,
           },
           {
             tdComp: WaitCategoryTableActions,
             visible: "true",
             thStyle: { width: "30%" },
-            tdStyle: { width: "30%" }
+            tdStyle: { width: "30%" },
           }
         ],
         data: null,
@@ -95,19 +107,19 @@ export default {
         supportNested: true,
         supportBackup: true,
         xprops: {
-          eventbus: new Vue()
+          eventbus: new Vue(),
         }
-      }
+      },
     };
   },
   created() {
-    this.datatable.xprops.eventbus.$on("detail", item => {
+    this.datatable.xprops.eventbus.$on("detail", (item) => {
       this.category = item;
 
       this.$modal.show("category-detail-modal");
     });
 
-    this.datatable.xprops.eventbus.$on("status", item => {
+    this.datatable.xprops.eventbus.$on("status", (item) => {
       this.updateStatus(item);
     });
     this.getAllDashboardData();
@@ -127,7 +139,7 @@ export default {
       this.$store
         .dispatch("definition/updateCategory", {
           id: this.category.id,
-          data: category
+          data: category,
         })
         .then(() => {
           this.getAllDashboardData();
@@ -143,7 +155,7 @@ export default {
     remove() {
       this.$store
         .dispatch("definition/getChildren", this.category)
-        .then(response => {
+        .then((response) => {
           let message = "Are you sure to delete this category?";
           let countChild = response.length;
           if (countChild > 0)
@@ -165,26 +177,26 @@ export default {
                     this.loading = true;
                     this.$store
                       .dispatch("definition/deleteCategory", {
-                        data: this.category
+                        data: this.category,
                       })
                       .then(() => {
                         this.loading = false;
                         this.notify(
                           "Category has been deleted successfully.",
-                          "success"
+                          "success",
                         );
                         this.getAllDashboardData();
                         this.bus.$emit("update-list");
                         this.$modal.hide("category-detail-modal");
                       });
-                  }
+                  },
                 }
-              ]
+              ],
             },
-            { classes: "test" }
+            { classes: "test" },
           );
         })
-        .catch(error => {
+        .catch((error) => {
           //this.notify('Kategori  silinirken bir hata oluştu.', 'error');
         });
     },
@@ -192,9 +204,9 @@ export default {
       this.$store
         .dispatch("definition/updateCategoryStatus", {
           id: item.id,
-          status: item.status
+          status: item.status,
         })
-        .then(response => {
+        .then((response) => {
           this.getAllDashboardData();
         });
     },
@@ -202,7 +214,7 @@ export default {
       this.loading = true;
       this.$store
         .dispatch("definition/getAllCategoryTree", {
-          filter: { sort: ["+listOrder"] }
+          filter: { sort: ["+listOrder"] },
         })
         .then(() => {
           this.loading = false;
@@ -212,10 +224,12 @@ export default {
         });
     },
     getAllDashboardData() {
-      this.$store.dispatch("definition/getAllDashboardData").then(response => {
-        this.datatable.data = response.categories;
-      });
-    }
+      this.$store
+        .dispatch("definition/getAllDashboardData")
+        .then((response) => {
+          this.datatable.data = response.categories;
+        });
+    },
   }
 };
 </script>

@@ -3,25 +3,24 @@
     <ul class="tree-view">
       <category-tree-item
         v-for="item in items"
-        :item="item"
         :key="item.id"
+        :item="item"
         :bus="bus"
-        :depth="0">
+        :depth="0"
+      >
       </category-tree-item>
     </ul>
-
   </div>
 </template>
 
 <script>
-import CategoryTreeItem from 'src/components/Dashboard/Views/Category/CategoryTreeItem'
+import CategoryTreeItem from "src/components/Dashboard/Views/Category/CategoryTreeItem";
 export default {
-  props: ['items', 'bus'],
   components: {
-    CategoryTreeItem
-  }
-}
+    CategoryTreeItem,
+  },
+  props: ["items", "bus"],
+};
 </script>
 
-<style lang="css">
-</style>
+<style lang="css"></style>

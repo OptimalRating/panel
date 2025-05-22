@@ -4,8 +4,8 @@
       <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="#" @click.prevent="logout" class="nav-link">
-              {{$t('common.logout')}}
+            <a href="#" class="nav-link" @click.prevent="logout">
+              {{ $t("common.logout") }}
             </a>
           </li>
         </ul>
@@ -15,40 +15,39 @@
 </template>
 
 <script>
-  export default {
-    computed: {
-      routeName() {
-        const {name} = this.$route
-        return this.capitalizeFirstLetter(name)
-      }
+export default {
+  data() {
+    return {
+      activeNotifications: false,
+    };
+  },
+  computed: {
+    routeName() {
+      const { name } = this.$route;
+      return this.capitalizeFirstLetter(name);
     },
-    data() {
-      return {
-        activeNotifications: false
-      }
+  },
+  methods: {
+    capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
     },
-    methods: {
-      capitalizeFirstLetter (string) {
-        return string.charAt(0).toUpperCase() + string.slice(1)
-      },
-      toggleNotificationDropDown() {
-        this.activeNotifications = !this.activeNotifications
-      },
-      closeDropDown() {
-        this.activeNotifications = false
-      },
-      toggleSidebar() {
-        this.$sidebar.displaySidebar(!this.$sidebar.showSidebar)
-      },
-      hideSidebar() {
-        this.$sidebar.displaySidebar(false)
-      },
-      logout() {
-        this.$store.dispatch('auth/logout');
-      }
-    }
-  }
+    toggleNotificationDropDown() {
+      this.activeNotifications = !this.activeNotifications;
+    },
+    closeDropDown() {
+      this.activeNotifications = false;
+    },
+    toggleSidebar() {
+      this.$sidebar.displaySidebar(!this.$sidebar.showSidebar);
+    },
+    hideSidebar() {
+      this.$sidebar.displaySidebar(false);
+    },
+    logout() {
+      this.$store.dispatch("auth/logout");
+    },
+  },
+};
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

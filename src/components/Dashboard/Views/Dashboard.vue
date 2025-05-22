@@ -9,17 +9,17 @@
 </template>
 
 <script>
-  import Vue from 'vue'
-  import WaitingCategories from 'src/components/Dashboard/Views/Dashboard/WaitingCategories';
-  export default {
-    components:{
-      WaitingCategories
-    },
-    data(){
-      return{
-        bus: new Vue(),
-        categories: []
-      }
-    }
-  }
+import Vue from "vue";
+import WaitingCategories from "src/components/Dashboard/Views/Dashboard/WaitingCategories";
+export default {
+  components: {
+    WaitingCategories,
+  },
+  data() {
+    return {
+      bus: new Vue(),
+      categories: [],
+    };
+  },
+};
 </script>

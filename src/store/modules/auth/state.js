@@ -1,4 +1,4 @@
 export default {
   authenticated: false,
-  roles: null
+  roles: null,
 };

@@ -1,17 +1,17 @@
-import Proxy from './Proxy';
+import Proxy from "./Proxy";
 
 class CityProxy extends Proxy {
   constructor(parameters = {}) {
-    super('cities', parameters);
+    super("cities", parameters);
   }
-  all(){
-    return this.submit('get', "/cities");
+  all() {
+    return this.submit("get", "/cities");
   }
-  getAllCitiesWithCountryId(id){
-    return this.submit('get', `/cities/country/${id}`);
+  getAllCitiesWithCountryId(id) {
+    return this.submit("get", `/cities/country/${id}`);
   }
-  createCityWithCountryAdmin(data){
-    return this.submit('post', "/cities/country", data);
+  createCityWithCountryAdmin(data) {
+    return this.submit("post", "/cities/country", data);
   }
 }
 

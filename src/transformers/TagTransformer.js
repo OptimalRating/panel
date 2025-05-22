@@ -5,12 +5,11 @@
  * The transformer for the tag group.
  */
 
-import Transformer from './Transformer';
+import Transformer from "./Transformer";
 
 export default class TagTransformer extends Transformer {
-
   static fetch(items) {
-    return  Transformer.fetchLanguages(items);
+    return Transformer.fetchLanguages(items);
   }
 
   /**

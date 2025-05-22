@@ -1,8 +1,8 @@
-import Proxy from './Proxy';
+import Proxy from "./Proxy";
 
 class CityProxy extends Proxy {
   constructor(parameters = {}) {
-    super('pages', parameters);
+    super("pages", parameters);
   }
 }
 

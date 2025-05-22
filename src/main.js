@@ -1,12 +1,12 @@
-import Vue from 'vue';
-import plugins from './plugins';
-import App from './App.vue';
-import store from './store';
+import Vue from "vue";
+import plugins from "./plugins";
+import App from "./App.vue";
+import store from "./store";
 
-store.dispatch('auth/check');
+store.dispatch("auth/check");
 
 new Vue({
-  el: '#app',
+  el: "#app",
   i18n: plugins.i18n,
   router: plugins.router,
   store,

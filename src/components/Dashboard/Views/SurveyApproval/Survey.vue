@@ -1,7 +1,7 @@
 <template>
   <div class="Survey">
-    <div style="display :flex">
-      <div>{{data.title}}</div>
+    <div style="display: flex">
+      <div>{{ data.title }}</div>
       <div style="margin-left: auto">
         <i class="fa fa-pencil-square-o" />
         <i class="fa fa-trash" />
@@ -23,7 +23,7 @@ export default {
   props: ["data"],
   data() {
     return {
-      editData: {}
+      editData: {},
     };
   },
   methods: {
@@ -31,13 +31,13 @@ export default {
       this.$store
         .dispatch("definition/updateSurveyStatus", {
           id: this.data.id,
-          status: val ? "1" : "0"
+          status: val ? "1" : "0",
         })
         .then(() => {
           this.data.status = val ? "1" : "0";
           this.editData.status = val ? "1" : "0";
         });
-    }
-  }
+    },
+  },
 };
 </script>

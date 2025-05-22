@@ -1,8 +1,8 @@
-import Proxy from './Proxy';
+import Proxy from "./Proxy";
 
 class SurveyChoiceProxy extends Proxy {
   constructor(parameters = {}) {
-    super('surveys/choices', parameters);
+    super("surveys/choices", parameters);
   }
 }
 

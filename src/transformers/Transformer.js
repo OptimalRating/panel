@@ -10,8 +10,8 @@
  * they will be camelCased.
  */
 
-import store from '../store';
-import lodash from  'lodash'
+import store from "../store";
+import lodash from "lodash";
 
 export default class Transformer {
   /**
@@ -22,7 +22,7 @@ export default class Transformer {
    * @returns {Array} The transformed items.
    */
   static fetchCollection(items) {
-    return items.map(item => this.fetch(item));
+    return items.map((item) => this.fetch(item));
   }
 
   /**
@@ -33,15 +33,16 @@ export default class Transformer {
    * @returns {Array} The transformed items.
    */
   static sendCollection(items) {
-    return items.map(item => this.send(item));
+    return items.map((item) => this.send(item));
   }
 
-  static fetchLanguages(item){
-
+  static fetchLanguages(item) {
     let languages = store.state.account.settings.languages;
 
     return item.localizations.map((localization) => {
-      localization.language = languages.find((language) => language.id == localization.language);
+      localization.language = languages.find(
+        (language) => language.id == localization.language,
+      );
       return localization;
     });
   }
@@ -54,9 +55,9 @@ export default class Transformer {
    * @returns {Array} The transformed localizations.
    */
   static mapLanguages(item) {
-    return item.localizations.map(localization =>{
+    return item.localizations.map((localization) =>{
       localization.language = localization.language.id;
       return localization;
-    })
+    });
   }
 }

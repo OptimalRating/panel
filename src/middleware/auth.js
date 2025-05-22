@@ -1,8 +1,8 @@
-export default function auth ({ next, store }){
-  if(!store.state.auth.authenticated){
+export default function auth({ next, store }) {
+  if (!store.state.auth.authenticated) {
     return next({
-      name: 'auth.login'
-    })
+      name: "auth.login",
+    });
   }
-  return next()
+  return next();
 }

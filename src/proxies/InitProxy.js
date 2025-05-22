@@ -1,11 +1,11 @@
-import Proxy from './Proxy';
+import Proxy from "./Proxy";
 
 class InitProxy extends Proxy {
   constructor(parameters = {}) {
-    super('panel-init', parameters);
+    super("panel-init", parameters);
   }
-  dashboard(){
-    return this.submit('get', "/dashboard");
+  dashboard() {
+    return this.submit("get", "/dashboard");
   }
 }
 

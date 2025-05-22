@@ -17,12 +17,12 @@
             <form @submit.prevent="forgotPassword(username)">
               <div class="form-group">
                 <input
+                  v-model="username"
                   class="form-control"
                   type="text"
                   name="username"
                   autocomplete="off"
                   :placeholder="$t('auth.username')"
-                  v-model="username"
                 />
                 <span class="forgot-pass">
                   <small
@@ -52,7 +52,7 @@
 
 <script>
 export default {
-  name: 'login',
+  name: "Login",
   data() {
     return {
       username: null,
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     login(user) {
-      this.$store.dispatch('auth/login', user);
+      this.$store.dispatch("auth/login", user);
     },
   },
 };

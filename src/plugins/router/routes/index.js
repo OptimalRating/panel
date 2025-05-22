@@ -1,18 +1,18 @@
-import auth from './auth';
-import admin from './admin';
-import NotFound from 'components/GeneralViews/NotFoundPage.vue';
-import DashboardLayout from 'components/Dashboard/Layout/DashboardLayout.vue';
+import auth from "./auth";
+import admin from "./admin";
+import NotFound from "components/GeneralViews/NotFoundPage.vue";
+import DashboardLayout from "components/Dashboard/Layout/DashboardLayout.vue";
 
 const routes = [
   {
-    path: '/',
+    path: "/",
     component: DashboardLayout,
-    redirect: '/admin/dashboard',
+    redirect: "/admin/dashboard",
   },
   auth,
   admin,
   {
-    path: '*',
+    path: "*",
     component: NotFound,
   },
 ];
