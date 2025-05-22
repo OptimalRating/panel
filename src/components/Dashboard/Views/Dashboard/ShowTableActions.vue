@@ -18,11 +18,14 @@ export default {
       this.xprops.eventbus.$emit(key, this.row);
     },
     changeStatus(status) {
-      this.xprops.eventbus.$emit("detail", {
-        item: this.row.id,
-        status: status.value == true ? "a" : "i",
-      },
+  this.xprops.eventbus.$emit(
+    "detail",
+    {
+      item: this.row.id,
+      status: status.value == true ? "a" : "i",
     }
+  );
+}
   },
 };
 </script>

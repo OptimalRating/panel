@@ -870,9 +870,9 @@ export default {
         .dispatch("definition/getAllUsers", { filter: filter })
         .then((response) => {
           this.loading = false;
-          this.datatable.total = response.pagination?.recordCount
-            ? response.pagination.recordCount
-            : 1;
+          this.datatable.total = response.pagination && response.pagination.recordCount
+          ? response.pagination.recordCount
+          : 1;
           // this.datatable.data = response.set;
           this.datatable.data = response.set.filter(
             (user) => user.status === "approved",

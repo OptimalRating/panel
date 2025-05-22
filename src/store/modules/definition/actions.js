@@ -14,7 +14,7 @@ import SurveyChoiceProxy from "@/proxies/SurveyChoiceProxy";
 
 //region category
 export const getAllCategoryTree = ({ commit }, payload) => {
-  return new CategoryProxy(payload?.filter ? payload.filter : {})
+  return new CategoryProxy(payload && payload.filter ? payload.filter : {})
     .getTree()
     .then((response) => {
       commit(types.SET_DEFINITION, {

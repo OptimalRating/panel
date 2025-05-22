@@ -39,12 +39,13 @@ export default {
     hasIcon() {
       const { addonRight, addonLeft } = this.$slots;
       return (
-        addonRight !== undefined ||
-        addonLeft !== undefined ||
-        this.addonRightIcon !== undefined ||
-        this.addonLeftIcon !== undefined;
-      );
+  addonRight !== undefined ||
+  addonLeft !== undefined ||
+  this.addonRightIcon !== undefined ||
+  this.addonLeftIcon !== undefined
+);
     },
   }
+}
 </script>
 <style></style>
