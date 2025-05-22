@@ -94,7 +94,7 @@ export default {
       deep: true,
     },
     selectedSubject: function(val) {
-      if (typeof val !== "undefined" || null === val) {
+      if (typeof val !== "undefined" || val === null) {
         this.special.subjects = [];
         this._.map(val, (item) => {
           this.special.subjects.push(item.id);

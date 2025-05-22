@@ -256,7 +256,7 @@ export default {
   },
   watch: {
     selectedCategory: function(val) {
-      if (typeof val == "undefined" || null === val) {
+      if (typeof val == "undefined" || val === null) {
         this.survey.category_id = null;
       }
     }
