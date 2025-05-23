@@ -172,7 +172,7 @@ export default {
     return {
       newPassword: "",
       newPassSaving: false,
-      cdnUrl: "https://staging.server.optimalrating.com/cdn/",
+      cdnUrl: "https://server.optimalrating.com/cdn/",
       imageUrl: `images/country/${this.item.flag}`,
       uploadedImage: null,
       imageSize: {

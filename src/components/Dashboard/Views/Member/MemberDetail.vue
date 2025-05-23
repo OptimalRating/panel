@@ -260,8 +260,8 @@ export default {
     return {
       saving: false,
       user: null,
-      cdnUrl: "https://staging.server.optimalrating.com/cdn",
-      backendUrl: "https://staging.server.optimalrating.com",
+      cdnUrl: "https://server.optimalrating.com/cdn",
+      backendUrl: "https://server.optimalrating.com",
       imageUrl: "/images/user/",
       userPortrait: null,
       userNationality: null,

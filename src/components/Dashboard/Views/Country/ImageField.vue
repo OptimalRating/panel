@@ -13,7 +13,7 @@ export default {
   props: ["row", "field", "xprops"],
   data() {
     return {
-      imageUrl: "https://staging.server.optimalrating.com/cdn/",
+      imageUrl: "https://server.optimalrating.com/cdn/",
     };
   },
 };
