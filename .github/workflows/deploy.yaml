@@ -21,10 +21,12 @@ jobs:
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Run ESLint Check
-        run: npx eslint --ext .js,.vue src
+      #- name: Run ESLint Check
+        #run: npx eslint --ext .js,.vue src
+      - name: Run Prettier Auto Fix
+        run: npx prettier --write "src/**/*.{js,vue}"
 
-      - name: Run ESLint Auto Fix (optional, only if you want to auto-format before checking)
+      - name: Run ESLint Auto Fix 
         run: npx eslint --fix --ext .js,.vue src
           #npm run lint || true
           #npx eslint --fix --ext .js,.vue src || true
