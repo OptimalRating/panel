@@ -15,6 +15,7 @@ module.exports = {
   rules: {
     // Vue specific rules
     'vue/multi-word-component-names': 'off',
+    'vue/no-deprecated-slot-attribute': 'off',
     'vue/no-mutating-props': 'warn',
     'vue/no-unused-components': 'warn',
     'vue/valid-template-root': 'warn',
