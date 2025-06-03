@@ -90,33 +90,55 @@
         _categories: state => state.categories
       })
     },
-    watch: {
-      "yearSelected" : function (val) {
-        if (typeof val == 'undefined' || null === val) {
-          // console.log(val)
-        }
-        else {
+    // watch: {
+    //   "yearSelected" : function (val) {
+    //     if (typeof val == 'undefined' || null === val) {
+    //       // console.log(val)
+    //     }
+    //     else {
+    //       this.datatable.xprops.eventbus.$emit('yearSelected', val);
+    //     }
+    //   },
+    //   "monthSelected" : function (val) {
+    //     if (typeof val == 'undefined' || null === val) {
+    //     }
+    //     else {
+    //       this.datatable.xprops.eventbus.$emit('monthSelected', val);
+    //     }
+    //   },
+    //   "statusSelected" : function (val) {
+    //     if (typeof val == 'undefined' || null === val) {
+    //     }
+    //     else {
+    //       this.datatable.xprops.eventbus.$emit('statusSelected', val);
+    //     }
+    //   },
+    //   "categorySelected" : function (val) {
+    //     if (typeof val == 'undefined' || null === val) {
+    //     }
+    //     else {
+    //       this.datatable.xprops.eventbus.$emit('categorySelected', val);
+    //     }
+    //   },
+    // },
+      watch: {
+      yearSelected(val) {
+        if (val !== undefined && val !== null) {
           this.datatable.xprops.eventbus.$emit('yearSelected', val);
         }
       },
-      "monthSelected" : function (val) {
-        if (typeof val == 'undefined' || null === val) {
-        }
-        else {
+      monthSelected(val) {
+        if (val !== undefined && val !== null) {
           this.datatable.xprops.eventbus.$emit('monthSelected', val);
         }
       },
-      "statusSelected" : function (val) {
-        if (typeof val == 'undefined' || null === val) {
-        }
-        else {
+      statusSelected(val) {
+        if (val !== undefined && val !== null) {
           this.datatable.xprops.eventbus.$emit('statusSelected', val);
         }
       },
-      "categorySelected" : function (val) {
-        if (typeof val == 'undefined' || null === val) {
-        }
-        else {
+      categorySelected(val) {
+        if (val !== undefined && val !== null) {
           this.datatable.xprops.eventbus.$emit('categorySelected', val);
         }
       },

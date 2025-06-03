@@ -54,10 +54,10 @@
         },
       };
     },
-    watch:{
-      "trashData": (item)=>{
-        this.datatableTrash.data = item
-      }
+    watch: {
+    trashData(item) {
+    this.datatableTrash.data = item;
+    }
     },
     created() {
       this.datatableTrash.xprops.eventbus.$on('undoUser', item => {

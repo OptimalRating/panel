@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <li
     :is="tag"
     v-click-outside="closeDropDown"
@@ -19,7 +19,30 @@
       <slot></slot>
     </div>
   </li>
+</template> -->
+<template>
+  <component
+    :is="tag"
+    v-click-outside="closeDropDown"
+    class="dropdown nav-item"
+    :class="{ show: isOpen }"
+    aria-haspopup="true"
+    :aria-expanded="isOpen"
+    @click="toggleDropDown"
+  >
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+      <slot name="title">
+        <i :class="icon"></i>
+        <span class="no-icon">{{ title }}</span>
+        <b class="caret"></b>
+      </slot>
+    </a>
+    <div v-show="isOpen" class="dropdown-menu">
+      <slot></slot>
+    </div>
+  </component>
 </template>
+
 <script>
 export default {
   name: "DropDown",

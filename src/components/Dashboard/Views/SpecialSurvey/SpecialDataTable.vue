@@ -74,22 +74,34 @@
 
       }
     },
+    // watch: {
+    //   "yearSelected" : function (val) {
+    //     if (typeof val == 'undefined' || null === val) {
+    //       // console.log(val)
+    //     }
+    //     else {
+    //       this.datatable.xprops.eventbus.$emit('yearSelected', val);
+    //     }
+    //   },
+    //   "monthSelected" : function (val) {
+    //     if (typeof val == 'undefined' || null === val) {
+    //     }
+    //     else {
+    //       this.datatable.xprops.eventbus.$emit('monthSelected', val);
+    //     }
+    //   },
+    // },
     watch: {
-      "yearSelected" : function (val) {
-        if (typeof val == 'undefined' || null === val) {
-          // console.log(val)
-        }
-        else {
-          this.datatable.xprops.eventbus.$emit('yearSelected', val);
-        }
-      },
-      "monthSelected" : function (val) {
-        if (typeof val == 'undefined' || null === val) {
-        }
-        else {
-          this.datatable.xprops.eventbus.$emit('monthSelected', val);
-        }
-      },
+    yearSelected(val) {
+    if (val !== undefined && val !== null) {
+      this.datatable.xprops.eventbus.$emit('yearSelected', val);
+      }
+    },
+    monthSelected(val) {
+    if (val !== undefined && val !== null) {
+      this.datatable.xprops.eventbus.$emit('monthSelected', val);
+      }
+    },
     },
     created(){
       this.months.push(this._.map(this.monthsArray, (month, index)=>{

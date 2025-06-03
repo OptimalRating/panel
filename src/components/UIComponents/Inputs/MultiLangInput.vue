@@ -7,7 +7,8 @@
     </slot>
     <div :class="inputClass">
       <ul :id="tabId" class="nav nav-tabs multi-lang-tabs" role="tablist">
-        <li v-for="(item, key, index) in items" class="nav-item">
+        <!-- <li v-for="(item, key, index) in items" class="nav-item"> -->
+          <li v-for="(item, key, index) in items" :key="key" class="nav-item">
           <a
             :id="key + '-tab'"
             class="nav-link"
@@ -37,6 +38,7 @@
       <div :id="tabId + '-content'" class="tab-content">
         <div
           v-for="(item, key, index) in items"
+          :key="key"
           :id="`${tabId}-${key}`"
           class="tab-pane show"
           :class="[

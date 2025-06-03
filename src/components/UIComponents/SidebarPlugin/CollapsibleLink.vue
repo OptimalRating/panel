@@ -46,7 +46,7 @@ export default {
       type: Array,
       default: () => [],
     },
-    collapse: {},
+    // collapse: {},
     link: {
       type: [String, Object],
       default: () => {

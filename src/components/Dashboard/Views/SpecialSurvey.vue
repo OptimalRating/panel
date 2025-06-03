@@ -68,7 +68,8 @@
                     {{ $t("common.special.input.add_option") }}
                   </button>
                 </div>
-                <div v-for="(option, index) in choices" class="form-group row">
+                <!-- <div v-for="(option, index) in choices" class="form-group row"> -->
+                  <div v-for="(option, index) in choices" :key="option.id || index" class="form-group row">
                   <label class="col-4 col-form-label"
                     >{{ $t("common.special.input.option") }} :</label
                   >

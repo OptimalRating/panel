@@ -65,7 +65,8 @@
               <div class="clearfix"></div>
               <hr />
               <h4>Choices</h4>
-              <div class="form-group row mb-5" v-for="(choice, index) in survey.choices">
+              <!-- <div class="form-group row mb-5" v-for="(choice, index) in survey.choices"> -->
+                <div v-for="(choice, index) in survey.choices" :key="choice.id || index" class="form-group row mb-5">
                 <div class="col-7 pt-3">
                   <input type="text" class="form-control" v-model="choice.choice_title" />
                 </div>

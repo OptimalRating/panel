@@ -18,7 +18,7 @@ export default {
     return {
       dropzoneOptions: {
         url: this.$http.defaults.baseURL + "file/upload",
-        thumbnailWidth: 200,
+        // thumbnailWidth: 200,
         addRemoveLinks: true,
         dictDefaultMessage:
           "<i class='fas fa-upload' style='font-size: 30pt'></i>",
@@ -30,7 +30,7 @@ export default {
         maxFiles: this.maxFiles ? this.maxFiles : 1,
         resizeHeight: this.resizeSize ? this.resizeSize.height : null,
         resizeWidth: this.resizeSize ? this.resizeSize.width : null,
-        thumbnailWidth: this.thumbnailSize ? this.thumbnailSize.width : null,
+        thumbnailWidth: this.thumbnailSize ? this.thumbnailSize.width : 200,
         thumbnailHeight: this.thumbnailSize ? this.thumbnailSize.height : null,
         resizeMethod: "contain",
         thumbnailMethod: "contain",

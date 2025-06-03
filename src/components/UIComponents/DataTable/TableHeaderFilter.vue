@@ -44,7 +44,8 @@ export default {
       const { query } = this;
       // `$props.query` would be initialized to `{ limit: 10, offset: 0, sort: '', order: '' }` by default
       // custom query conditions must be set to observable by using `Vue.set / $vm.$set`
-      this.$set(query, this.field, this.keyword);
+      // this.$set(query, this.field, this.keyword);
+      query[this.field] = this.keyword;
       query.offset = 0; // reset pagination
     },
   },
