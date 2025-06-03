@@ -38,8 +38,6 @@ jobs:
         #  git add .
         #  git diff --cached --quiet || git commit -m "chore: auto-fix ESLint issues"
         #  git push
-        # env:
-        #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Project
         run: npm run build
