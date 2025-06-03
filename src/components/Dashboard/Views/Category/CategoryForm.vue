@@ -159,7 +159,7 @@ export default {
       this.selectedParent = this.item.parent ? parseInt(this.item.parent) : 0;
       this.selectedStatus = this.item.status == "active" ? true : false;
     },
-    selectedParent: function(val) {
+    selectedParent: function (val) {
       this.item.parent = parseInt(val);
     },
     selectedStatus: function() {

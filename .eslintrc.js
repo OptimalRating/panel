@@ -28,9 +28,10 @@ module.exports = {
 
     // Prettier and formatting
     'prettier/prettier': 'error',
+    'space-before-function-paren': 'off',
     'semi': ['error', 'always'],
     'comma-dangle': ['error', 'always-multiline'],
-    'space-before-function-paren': ['error', 'never'],
+    // 'space-before-function-paren': ['error', 'never'],
     'arrow-parens': ['error', 'always'],
 
     // JSDoc (optional)

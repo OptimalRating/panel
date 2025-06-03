@@ -50,10 +50,10 @@ export default {
   },
   computed: {},
   watch: {
-    item: function() {
+    item: function () {
       this.isChanged = false;
     },
-    category: function() {
+    category: function () {
       if (this.category.id) {
         if (this.category.category)
           this.category.category = this.category.category.id;
