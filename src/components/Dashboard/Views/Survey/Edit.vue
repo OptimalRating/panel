@@ -204,6 +204,8 @@ export default {
       .dispatch("definition/getDetailSurvey", { id: this.$route.params.id })
       .then(response => {
         this.survey = response.result.set;
+        this.choices = this.survey.choices;  // newly added 
+        conosle.log("LOAD",this.choices)
         this.addedUser = response.result.set.user;
         this.selectedCategory = response.result.set.category_id;
         this.isLoading = true;
@@ -262,8 +264,9 @@ export default {
       this.$store
         .dispatch("definition/destroyChoice", { data: id })
         .then(response => {
-          this.choices = response.result.set;
+          // this.choices = response.result.set;
           this.notify("Choice has been deleted", "success");
+          console.log("HII",response.result.set)
           this.loadSurvey();
         });
     }
