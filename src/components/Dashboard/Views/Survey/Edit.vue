@@ -160,15 +160,16 @@ export default {
     };
   },
   mounted() {
-    this.$store
-      .dispatch("definition/getDetailSurvey", { id: this.$route.params.id })
-      .then(response => {
-        this.survey = response.result.set;
-        this.addedUser = response.result.set.user;
-        this.selectedCategory = response.result.set.category_id;
-        this.isLoading = true;
-      });
-    this.getCategories(0);
+    this.loadSurvey();
+    // this.$store
+    //   .dispatch("definition/getDetailSurvey", { id: this.$route.params.id })
+    //   .then(response => {
+    //     this.survey = response.result.set;
+    //     this.addedUser = response.result.set.user;
+    //     this.selectedCategory = response.result.set.category_id;
+    //     this.isLoading = true;
+    //   });
+    // this.getCategories(0);
   },
   computed: {
     ...mapState("definition", {
@@ -198,6 +199,17 @@ export default {
     }
   },
   methods: {
+    loadSurvey() {
+    this.$store
+      .dispatch("definition/getDetailSurvey", { id: this.$route.params.id })
+      .then(response => {
+        this.survey = response.result.set;
+        this.addedUser = response.result.set.user;
+        this.selectedCategory = response.result.set.category_id;
+        this.isLoading = true;
+      });
+      this.getCategories(0);
+    },
     onTextChange(e, i) {
       this.survey.choices[i].choice_description = this.survey.choices[i].choice_description.replace("<p>", "").replace("</p>", "")
     },
@@ -252,6 +264,7 @@ export default {
         .then(response => {
           this.choices = response.result.set;
           this.notify("Choice has been deleted", "success");
+          this.loadSurvey();
         });
     }
   },
