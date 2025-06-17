@@ -12,6 +12,7 @@ import SpecialSurvey from "components/Dashboard/Views/SpecialSurvey.vue";
 import Subject from "components/Dashboard/Views/Subject.vue";
 import Comments from "components/Dashboard/Views/Comments.vue";
 import Page from "components/Dashboard/Views/Page.vue";
+import Privacies from "components/Dashboard/Views/Privacies.vue";
 /*******CountryAdmin****************************************/
 import KeywordCountryAdmin from "components/Dashboard/Views/CountryAdmin/Keyword.vue";
 import CityCountryAdmin from "components/Dashboard/Views/CountryAdmin/City.vue";
