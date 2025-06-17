@@ -39,8 +39,8 @@ jobs:
         #  git diff --cached --quiet || git commit -m "chore: auto-fix ESLint issues"
         #  git push
 
-      - name: Build Project
-        run: npm run build
+      # - name: Build Project
+      #   run: npm run build
 
       - name: Deploy with SSH and Password 
         uses: appleboy/ssh-action@v1.0.0
@@ -50,24 +50,24 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           source: "dist/*"
           target: "/var/www/html/production/panel/"
-          # script: |
-          #   echo "Deploying project..."
+          script: |
+            echo "Deploying project..."
             
-          #   # Navigate to the deployment folder (check if it exists, clone if not)
-          #   if [ ! -d "/var/www/html/production/panel/.git" ]; then
-          #     git clone https://github.com/OptimalRating/panel.git /var/www/html/production/panel/
-          #   fi
+          #  # Navigate to the deployment folder (check if it exists, clone if not)
+          #  if [ ! -d "/var/www/html/production/panel/.git" ]; then
+          #    git clone https://github.com/OptimalRating/panel.git /var/www/html/production/panel/
+          #  fi
 
-          #   cd /var/www/html/production/panel
+            cd /var/www/html/production/panel
 
-          #   # Pull the latest code from GitHub
-          #   git pull origin main
+            # Pull the latest code from GitHub
+            git pull origin main
 
-          #   # Install production dependencies and build
-          #   npm install --production
+            # Install production dependencies and build
+            npm install --production
 
-          #   # Build the Vue.js app
-          #   npm run build
+            # Build the Vue.js app
+            npm run build
 
           #   # Restart the application (adjust pm2 to use the right path)
           #   # pm2 restart all || pm2 start dist/ --name "optimal-panel" # Use dist if it's the build output folder for Vue.js

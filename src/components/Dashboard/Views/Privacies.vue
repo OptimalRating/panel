@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-8">
-          <h4 class="mb-4 mt-2">Privacies Page</h4>
+          <h4 class="mb-4 mt-2">Privacies</h4>
         </div>
       </div>
       <div class="row">
