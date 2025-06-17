@@ -39,8 +39,8 @@ jobs:
         #  git diff --cached --quiet || git commit -m "chore: auto-fix ESLint issues"
         #  git push
 
-      # - name: Build Project
-      #   run: npm run build
+      - name: Build Project
+        run: npm run build
 
       - name: Deploy with SSH and Password 
         uses: appleboy/ssh-action@v1.0.0
