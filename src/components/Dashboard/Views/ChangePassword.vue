@@ -5,7 +5,7 @@
         >Old Password:</label
       >
       <div class="col-8">
-        <input v-model="item.title" type="text" class="form-control" />
+        <input  type="text" class="form-control" />
       </div>
     </div>
     <div class="form-group row">
@@ -13,7 +13,7 @@
         >New Password:</label
       >
       <div class="col-8">
-        <input v-model="item.title" type="text" class="form-control" />
+        <input  type="text" class="form-control" />
       </div>
     </div>
     <div class="form-group row">
@@ -21,7 +21,7 @@
         >Confirm Password:</label
       >
       <div class="col-8">
-        <input v-model="item.title" type="text" class="form-control" />
+        <input type="text" class="form-control" />
       </div>
     </div>
 
