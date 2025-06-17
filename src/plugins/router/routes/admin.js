@@ -75,6 +75,14 @@ const admin = {
         middleware: [auth],
       },
     },
+    {
+      path: "privacies",
+      name: "admin.privacies",
+      component: Privacies,
+      meta: {
+        middleware: [auth],
+      },
+    },
     /*************Country Admin****************/
     {
       path: "country/keywords",
