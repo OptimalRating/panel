@@ -111,7 +111,6 @@ export default {
 
 <script>
 import Card from "src/components/UIComponents/Cards/Card.vue";
-import { notification } from "ant-design-vue"; // or any notification plugin you're using
 // import ApiUrl from "@/api/apiUrl"; // base API URL
 import axios from "axios"; // Axios is the most common HTTP client
 
@@ -154,8 +153,7 @@ export default {
         this.form.oldPassword = "";
         this.form.password = "";
         this.form.confirm = "";
-
-        notification.success({ message: "Password has been updated." });
+        this.notify("Password has been updated.", "success");
       } catch (error) {
         this.loading = false;
 
@@ -164,8 +162,7 @@ export default {
         )
           ? "Old password is wrong"
           : "Password could not be changed.";
-
-        notification.error({ message: errorMessage });
+        this.notify(errorMessage, "err");
       }
     },
   },
