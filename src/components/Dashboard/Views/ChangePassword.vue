@@ -64,19 +64,34 @@ export default {
               <div class="form-group row">
                 <label class="col-4 col-form-label">Old Password:</label>
                 <div class="col-8">
-                  <input v-model="form.oldPassword" type="password" name="oldPassword" class="form-control" />
+                  <input
+                    v-model="form.oldPassword"
+                    type="password"
+                    name="oldPassword"
+                    class="form-control"
+                  />
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-4 col-form-label">New Password:</label>
                 <div class="col-8">
-                  <input v-model="form.password" type="password" name="password" class="form-control" />
+                  <input
+                    v-model="form.password"
+                    type="password"
+                    name="password"
+                    class="form-control"
+                  />
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-4 col-form-label">Confirm Password:</label>
                 <div class="col-8">
-                  <input v-model="form.confirm" type="password" name="confirm" class="form-control" />
+                  <input
+                    v-model="form.confirm"
+                    type="password"
+                    name="confirm"
+                    class="form-control"
+                  />
                 </div>
               </div>
               <button
@@ -84,7 +99,7 @@ export default {
                 class="btn btn-sm btn-fill btn-round btn-primary float-right mb-2 mt-2"
                 :disabled="loading"
               >
-                {{ loading ? 'Saving...' : 'Save' }}
+                {{ loading ? "Saving..." : "Save" }}
               </button>
             </form>
           </card>
@@ -107,9 +122,9 @@ export default {
   data() {
     return {
       form: {
-        oldPassword: '',
-        password: '',
-        confirm: '',
+        oldPassword: "",
+        password: "",
+        confirm: "",
       },
       loading: false,
     };
@@ -126,27 +141,33 @@ export default {
 
       this.loading = true;
       try {
-        await this.post(`${'https://server.optimalrating.com/api/'}check-password`, { password: this.form.oldPassword });
-        await this.post(`${'https://server.optimalrating.com/api/'}password-change`, { password: this.form.password });
+        await this.post(
+          `${"https://server.optimalrating.com/api/"}check-password`,
+          { password: this.form.oldPassword }
+        );
+        await this.post(
+          `${"https://server.optimalrating.com/api/"}password-change`,
+          { password: this.form.password }
+        );
 
         this.loading = false;
-        this.form.oldPassword = '';
-        this.form.password = '';
-        this.form.confirm = '';
+        this.form.oldPassword = "";
+        this.form.password = "";
+        this.form.confirm = "";
 
-        notification.success({ message: 'Password has been updated.' });
+        notification.success({ message: "Password has been updated." });
       } catch (error) {
         this.loading = false;
 
-        const errorMessage =
-          error?.response?.config?.url.includes("check-password")
-            ? 'Old password is wrong'
-            : 'Password could not be changed.';
+        const errorMessage = error.response.config.url.includes(
+          "check-password"
+        )
+          ? "Old password is wrong"
+          : "Password could not be changed.";
 
         notification.error({ message: errorMessage });
       }
-    }
-  }
+    },
+  },
 };
 </script>
-
