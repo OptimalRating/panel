@@ -813,6 +813,17 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ }),
 
+/***/ "0kDJ":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"content"},[_c('div',{staticClass:"container-fluid"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-12"},[_c('card',[_c('form',[_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("Old Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{staticClass:"form-control",attrs:{"type":"password","name":"oldPassword"}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("New Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{staticClass:"form-control",attrs:{"type":"password","name":"password"}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("Confirm Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{staticClass:"form-control",attrs:{"type":"password","name":"confirm"}})])]),_vm._v(" "),_c('button',{staticClass:"btn btn-sm btn-fill btn-round btn-primary float-right mb-2 mt-2",attrs:{"type":"button","name":"button"}},[_vm._v("\n              Save\n            ")])])])],1)])])])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"row"},[_c('div',{staticClass:"col-8"},[_c('h4',{staticClass:"mb-4 mt-2"},[_vm._v("Change Password")])])])}]
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
 /***/ "149S":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2691,6 +2702,22 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ }),
 
+/***/ "C6nk":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_src_components_UIComponents_Cards_Card_vue__ = __webpack_require__("jEp+");
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  components: {
+    Card: __WEBPACK_IMPORTED_MODULE_0_src_components_UIComponents_Cards_Card_vue__["a" /* default */]
+  }
+});
+
+/***/ }),
+
 /***/ "C9+X":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2889,7 +2916,8 @@ var admin = {
     name: "admin.change_password",
     component: __WEBPACK_IMPORTED_MODULE_15_components_Dashboard_Views_ChangePassword_vue__["a" /* default */],
     meta: {
-      middleware: [__WEBPACK_IMPORTED_MODULE_18__middleware_auth__["a" /* default */]]
+      middleware: [__WEBPACK_IMPORTED_MODULE_18__middleware_auth__["a" /* default */]],
+      title: "Change Password"
     }
   }, {
     path: "country/keywords",
@@ -5763,10 +5791,13 @@ var Component = normalizeComponent(
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4c1e0ef4_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ChangePassword_vue__ = __webpack_require__("vI2n");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ChangePassword_vue__ = __webpack_require__("C6nk");
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b0115bb2_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ChangePassword_vue__ = __webpack_require__("0kDJ");
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
-var __vue_script__ = null
+
+
 /* template */
 
 /* template functional */
@@ -5778,8 +5809,8 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  __vue_script__,
-  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4c1e0ef4_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ChangePassword_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ChangePassword_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b0115bb2_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ChangePassword_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -12560,17 +12591,6 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ }),
 
-/***/ "vI2n":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('form',[_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("Old Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.title),expression:"item.title"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.title)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "title", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("New Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.title),expression:"item.title"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.title)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "title", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("Confirm Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.item.title),expression:"item.title"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.item.title)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.item, "title", $event.target.value)}}})])])])}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
 /***/ "vYlU":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14280,4 +14300,4 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.092a905915dbf4521808.js.map
+//# sourceMappingURL=app.0a18f3e3122b97161dd5.js.map
