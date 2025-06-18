@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@riophae/vue-treeselect": "0.0.28",
-    "ant-design-vue": "^1.7.8",
     "axios": "^0.17.1",
     "bootstrap": "^4.0.0-beta.2",
     "chartist": "^0.11.0",
