@@ -91,6 +91,7 @@ const admin = {
       component: ChangePassword,
       meta: {
         middleware: [auth],
+        title: "Change Password",
       },
     },
     /*************Country Admin****************/
