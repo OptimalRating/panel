@@ -54,7 +54,7 @@ jobs:
 
             # Clean install on server to ensure correct native bindings
             rm -rf node_modules package-lock.json
-            npm install --legacy-peer-deps
+            npm install --production --legacy-peer-deps
 
             # Run build on server to avoid native binding errors with node-sass
             npm run build

@@ -134,7 +134,7 @@ export default {
     },
     async onSubmit() {
       if (this.form.password !== this.form.confirm) {
-        notification.error({ message: "Passwords do not match" });
+        this.notify("Passwords do not match", "err");
         return;
       }
 
