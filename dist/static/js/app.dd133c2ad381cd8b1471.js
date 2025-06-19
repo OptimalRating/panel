@@ -813,17 +813,6 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ }),
 
-/***/ "0kDJ":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"content"},[_c('div',{staticClass:"container-fluid"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-12"},[_c('card',[_c('form',[_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("Old Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{staticClass:"form-control",attrs:{"type":"password","name":"oldPassword"}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("New Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{staticClass:"form-control",attrs:{"type":"password","name":"password"}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("Confirm Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{staticClass:"form-control",attrs:{"type":"password","name":"confirm"}})])]),_vm._v(" "),_c('button',{staticClass:"btn btn-sm btn-fill btn-round btn-primary float-right mb-2 mt-2",attrs:{"type":"button","name":"button"}},[_vm._v("\n              Save\n            ")])])])],1)])])])}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"row"},[_c('div',{staticClass:"col-8"},[_c('h4',{staticClass:"mb-4 mt-2"},[_vm._v("Change Password")])])])}]
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
 /***/ "149S":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2706,13 +2695,111 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_src_components_UIComponents_Cards_Card_vue__ = __webpack_require__("jEp+");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__("Xxa5");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__("exGp");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_src_components_UIComponents_Cards_Card_vue__ = __webpack_require__("jEp+");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__("mtWM");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
+
+
+
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   components: {
-    Card: __WEBPACK_IMPORTED_MODULE_0_src_components_UIComponents_Cards_Card_vue__["a" /* default */]
+    Card: __WEBPACK_IMPORTED_MODULE_2_src_components_UIComponents_Cards_Card_vue__["a" /* default */]
+  },
+  data: function data() {
+    return {
+      form: {
+        oldPassword: "",
+        password: "",
+        confirm: ""
+      },
+      loading: false
+    };
+  },
+
+  methods: {
+    post: function post(url, data) {
+      var _this = this;
+
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                return _context.abrupt("return", __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post(url, data));
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, _this);
+      }))();
+    },
+    onSubmit: function onSubmit() {
+      var _this2 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var errorMessage;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!(_this2.form.password !== _this2.form.confirm)) {
+                  _context2.next = 3;
+                  break;
+                }
+
+                _this2.notify("Passwords do not match", "err");
+                return _context2.abrupt("return");
+
+              case 3:
+
+                _this2.loading = true;
+                _context2.prev = 4;
+                _context2.next = 7;
+                return _this2.post("https://server.optimalrating.com/api/" + "check-password", { password: _this2.form.oldPassword });
+
+              case 7:
+                _context2.next = 9;
+                return _this2.post("https://server.optimalrating.com/api/" + "password-change", { password: _this2.form.password });
+
+              case 9:
+
+                _this2.loading = false;
+                _this2.form.oldPassword = "";
+                _this2.form.password = "";
+                _this2.form.confirm = "";
+                _this2.notify("Password has been updated.", "success");
+                _context2.next = 21;
+                break;
+
+              case 16:
+                _context2.prev = 16;
+                _context2.t0 = _context2["catch"](4);
+
+                _this2.loading = false;
+
+                errorMessage = _context2.t0.response.config.url.includes("check-password") ? "Old password is wrong" : "Password could not be changed.";
+
+                _this2.notify(errorMessage, "err");
+
+              case 21:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, _this2, [[4, 16]]);
+      }))();
+    }
   }
 });
 
@@ -4510,6 +4597,17 @@ var Component = normalizeComponent(
 
 /***/ }),
 
+/***/ "MqSn":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"content"},[_c('div',{staticClass:"container-fluid"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-12"},[_c('card',[_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.onSubmit.apply(null, arguments)}}},[_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("Old Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.oldPassword),expression:"form.oldPassword"}],staticClass:"form-control",attrs:{"type":"password","name":"oldPassword"},domProps:{"value":(_vm.form.oldPassword)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "oldPassword", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("New Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.password),expression:"form.password"}],staticClass:"form-control",attrs:{"type":"password","name":"password"},domProps:{"value":(_vm.form.password)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "password", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-4 col-form-label"},[_vm._v("Confirm Password:")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.confirm),expression:"form.confirm"}],staticClass:"form-control",attrs:{"type":"password","name":"confirm"},domProps:{"value":(_vm.form.confirm)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "confirm", $event.target.value)}}})])]),_vm._v(" "),_c('button',{staticClass:"btn btn-sm btn-fill btn-round btn-primary float-right mb-2 mt-2",attrs:{"type":"submit","disabled":_vm.loading}},[_vm._v("\n              "+_vm._s(_vm.loading ? "Saving..." : "Save")+"\n            ")])])])],1)])])])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"row"},[_c('div',{staticClass:"col-8"},[_c('h4',{staticClass:"mb-4 mt-2"},[_vm._v("Change Password -")])])])}]
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
 /***/ "Mvq5":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5793,7 +5891,7 @@ var Component = normalizeComponent(
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ChangePassword_vue__ = __webpack_require__("C6nk");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b0115bb2_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ChangePassword_vue__ = __webpack_require__("0kDJ");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_68a8a0da_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ChangePassword_vue__ = __webpack_require__("MqSn");
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
 
@@ -5810,7 +5908,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_ChangePassword_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b0115bb2_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ChangePassword_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_68a8a0da_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_ChangePassword_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -14300,4 +14398,4 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.0a18f3e3122b97161dd5.js.map
+//# sourceMappingURL=app.dd133c2ad381cd8b1471.js.map
