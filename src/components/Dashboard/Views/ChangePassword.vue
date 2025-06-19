@@ -1,9 +1,9 @@
-<!-- <template>
+<template>
   <div class="content">
     <div class="container-fluid">
       <div class="row">
         <div class="col-8">
-          <h4 class="mb-4 mt-2">Change Password</h4>
+          <h4 class="mb-4 mt-2">Change Password -</h4>
         </div>
       </div>
       <div class="row">
@@ -116,9 +116,9 @@ export default {
     },
   },
 };
-</script> -->
+</script>
 
-<template>
+<!-- <template>
   <div class="content">
     <div class="container-fluid">
       <div class="row">
@@ -169,4 +169,4 @@ export default {
     Card,
   },
 };
-</script>
+</script> -->
