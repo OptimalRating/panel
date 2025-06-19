@@ -1424,9 +1424,9 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Edit_vue__ = __webpack_require__("Z43e");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_36e6a84d_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Edit_vue__ = __webpack_require__("H13t");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_778f94d5_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Edit_vue__ = __webpack_require__("45ss");
 function injectStyle (ssrContext) {
-  __webpack_require__("Zao9")
+  __webpack_require__("lQ3L")
 }
 var normalizeComponent = __webpack_require__("VU/8")
 /* script */
@@ -1439,12 +1439,12 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-36e6a84d"
+var __vue_scopeId__ = "data-v-778f94d5"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Edit_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_36e6a84d_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Edit_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_778f94d5_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Edit_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -1560,6 +1560,17 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
     }
   }
 });
+
+/***/ }),
+
+/***/ "45ss":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container-fluid"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-md-12 mt-4"},[_c('h4',{staticClass:"mb-4 mt-2 text-dark border-left border-warning pl-2"},[_vm._v(_vm._s(_vm.$t('common.survey.components.edit')))])])]),_vm._v(" "),_c('div',{staticClass:"card"},[_c('div',{staticClass:"card-body"},[_c('div',{staticClass:"row"},[(_vm.isLoading)?_c('div',{staticClass:"col-md-12"},[_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.update.apply(null, arguments)}}},[_c('div',{staticClass:"col-12 float-left"},[_c('div',{staticClass:"col-10 float-left"},[_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-2 col-form-label"},[_vm._v("Added By :")]),_vm._v(" "),_c('div',{staticClass:"col-10"},[(_vm.addedUser)?_c('h5',[_vm._v(_vm._s(_vm.addedUser.firstname)+" "+_vm._s(_vm.addedUser.middlename)+" "+_vm._s(_vm.addedUser.lastname)+" / "+_vm._s(_vm.addedUser.username))]):_c('h5',[_vm._v("-")])])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-3 col-form-label"},[_vm._v("Survey Title :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.survey.title),expression:"survey.title"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.survey.title)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.survey, "title", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-3 col-form-label"},[_vm._v("Survey Url :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.survey.slug),expression:"survey.slug"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.survey.slug)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.survey, "slug", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-3 col-form-label"},[_vm._v("Survey Category :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('treeselect',{attrs:{"options":_vm.categoryOptions,"placeholder":"Üst Kategori","valueFormat":"id"},model:{value:(_vm.selectedCategory),callback:function ($$v) {_vm.selectedCategory=$$v},expression:"selectedCategory"}})],1)]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-3 col-form-label"},[_vm._v("Survey Description :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('vue-editor',{attrs:{"editorToolbar":_vm.customToolbar},model:{value:(_vm.survey.description),callback:function ($$v) {_vm.$set(_vm.survey, "description", $$v)},expression:"survey.description"}})],1)])]),_vm._v(" "),_c('div',{staticClass:"col-2 float-right overflow-hidden profileImage"},[(_vm.addedUser)?_c('img',{staticClass:"preview",attrs:{"src":_vm.cdnUrl + _vm.userImageUrl + _vm.addedUser.user_details.profile_image}}):_vm._e()])]),_vm._v(" "),_c('div',{staticClass:"clearfix"}),_vm._v(" "),_c('hr'),_vm._v(" "),_c('h4',[_vm._v("Choices")]),_vm._v(" "),_vm._l((_vm.survey.choices),function(choice,index){return _c('div',{key:choice.id || index,staticClass:"form-group row mb-5"},[_c('div',{staticClass:"col-7 pt-3"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(choice.choice_title),expression:"choice.choice_title"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(choice.choice_title)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(choice, "choice_title", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticClass:"col-1"},[_c('image-field',{attrs:{"imageName":choice.choice_image,"path":_vm.choice_path,"imageId":choice.id},on:{"upload":function($event){_vm.uploading = $event},"change":function($event){return _vm.onImage($event, index)}}})],1),_vm._v(" "),_c('div',{staticClass:"col-1"},[_c('i',{staticClass:"fa nc-fav-remove"}),_vm._v(" "),_c('button',{staticClass:"btn btn-danger btn-sm",attrs:{"type":"button"},on:{"click":function($event){return _vm.deleteChoice(choice.id)}}},[_c('i',{staticClass:"far fa-trash-alt"})])]),_vm._v(" "),_c('div',{staticClass:"col-1 pt-2"},[_vm._v("\n                Status\n                "),_c('toggle-button',{attrs:{"color":"#82C7EB","sync":true,"height":20,"width":40,"value":choice.status === '1' ? true : false},on:{"change":function($event){return _vm.changeStatus(index, choice, $event)}}})],1),_vm._v(" "),_c('div',{staticClass:"col-7"},[_c('vue-editor',{attrs:{"editorToolbar":_vm.customToolbar,"tag":_vm.textarea},on:{"text-change":function($event){return _vm.onTextChange($event, index)}},model:{value:(choice.choice_description),callback:function ($$v) {_vm.$set(choice, "choice_description", $$v)},expression:"choice.choice_description"}})],1)])}),_vm._v(" "),_c('div',{staticClass:"form-group"},[_c('button',{staticClass:"btn btn-primary pull-right mt-2",attrs:{"type":"submit"}},[_vm._v(_vm._s(_vm.saving ? 'Updating...' : _vm.uploading ? 'Uploading' : 'Update'))])])],2)]):_vm._e()])])])])}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ }),
 
@@ -3547,17 +3558,6 @@ var Component = normalizeComponent(
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.status),expression:"status"}],staticStyle:{"margin":"0","vertical-align":"middle"},attrs:{"type":"checkbox","name":"MultiSelect"},domProps:{"checked":Array.isArray(_vm.status)?_vm._i(_vm.status,null)>-1:(_vm.status)},on:{"change":[function($event){var $$a=_vm.status,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.status=$$a.concat([$$v]))}else{$$i>-1&&(_vm.status=$$a.slice(0,$$i).concat($$a.slice($$i+1)))}}else{_vm.status=$$c}},_vm.toggle]}})}
-var staticRenderFns = []
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
-/***/ "H13t":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container-fluid"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-md-12 mt-4"},[_c('h4',{staticClass:"mb-4 mt-2 text-dark border-left border-warning pl-2"},[_vm._v(_vm._s(_vm.$t('common.survey.components.edit')))])])]),_vm._v(" "),_c('div',{staticClass:"card"},[_c('div',{staticClass:"card-body"},[_c('div',{staticClass:"row"},[(_vm.isLoading)?_c('div',{staticClass:"col-md-12"},[_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.update.apply(null, arguments)}}},[_c('div',{staticClass:"col-12 float-left"},[_c('div',{staticClass:"col-10 float-left"},[_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-2 col-form-label"},[_vm._v("Added By :")]),_vm._v(" "),_c('div',{staticClass:"col-10"},[(_vm.addedUser)?_c('h5',[_vm._v(_vm._s(_vm.addedUser.firstname)+" "+_vm._s(_vm.addedUser.middlename)+" "+_vm._s(_vm.addedUser.lastname)+" / "+_vm._s(_vm.addedUser.username))]):_c('h5',[_vm._v("-")])])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-3 col-form-label"},[_vm._v("Survey Title :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.survey.title),expression:"survey.title"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.survey.title)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.survey, "title", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-3 col-form-label"},[_vm._v("Survey Url :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.survey.slug),expression:"survey.slug"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.survey.slug)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.survey, "slug", $event.target.value)}}})])]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-3 col-form-label"},[_vm._v("Survey Category :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('treeselect',{attrs:{"options":_vm.categoryOptions,"placeholder":"Üst Kategori","valueFormat":"id"},model:{value:(_vm.selectedCategory),callback:function ($$v) {_vm.selectedCategory=$$v},expression:"selectedCategory"}})],1)]),_vm._v(" "),_c('div',{staticClass:"form-group row"},[_c('label',{staticClass:"col-3 col-form-label"},[_vm._v("Survey Description :")]),_vm._v(" "),_c('div',{staticClass:"col-8"},[_c('vue-editor',{attrs:{"editorToolbar":_vm.customToolbar},model:{value:(_vm.survey.description),callback:function ($$v) {_vm.$set(_vm.survey, "description", $$v)},expression:"survey.description"}})],1)])]),_vm._v(" "),_c('div',{staticClass:"col-2 float-right overflow-hidden profileImage"},[(_vm.addedUser)?_c('img',{staticClass:"preview",attrs:{"src":_vm.cdnUrl + _vm.userImageUrl + _vm.addedUser.user_details.profile_image}}):_vm._e()])]),_vm._v(" "),_c('div',{staticClass:"clearfix"}),_vm._v(" "),_c('hr'),_vm._v(" "),_c('h4',[_vm._v("Choices")]),_vm._v(" "),_vm._l((_vm.survey.choices),function(choice,index){return _c('div',{key:choice.id || index,staticClass:"form-group row mb-5"},[_c('div',{staticClass:"col-7 pt-3"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(choice.choice_title),expression:"choice.choice_title"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(choice.choice_title)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(choice, "choice_title", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticClass:"col-1"},[_c('image-field',{attrs:{"imageName":choice.choice_image,"path":_vm.choice_path,"imageId":choice.id},on:{"upload":function($event){_vm.uploading = $event},"change":function($event){return _vm.onImage($event, index)}}})],1),_vm._v(" "),_c('div',{staticClass:"col-1"},[_c('i',{staticClass:"fa nc-fav-remove"}),_vm._v(" "),_c('button',{staticClass:"btn btn-danger btn-sm",attrs:{"type":"button"},on:{"click":function($event){return _vm.deleteChoice(choice.id)}}},[_c('i',{staticClass:"far fa-trash-alt"})])]),_vm._v(" "),_c('div',{staticClass:"col-1 pt-2"},[_vm._v("\n                Status\n                "),_c('toggle-button',{attrs:{"color":"#82C7EB","sync":true,"height":20,"width":40,"value":choice.status === '1' ? true : false},on:{"change":function($event){return _vm.changeStatus(index, choice, $event)}}})],1),_vm._v(" "),_c('div',{staticClass:"col-7"},[_c('vue-editor',{attrs:{"editorToolbar":_vm.customToolbar,"tag":_vm.textarea},on:{"text-change":function($event){return _vm.onTextChange($event, index)}},model:{value:(choice.choice_description),callback:function ($$v) {_vm.$set(choice, "choice_description", $$v)},expression:"choice.choice_description"}})],1)])}),_vm._v(" "),_c('div',{staticClass:"form-group"},[_c('button',{staticClass:"btn btn-primary pull-right mt-2",attrs:{"type":"submit"}},[_vm._v(_vm._s(_vm.saving ? 'Updating...' : _vm.uploading ? 'Uploading' : 'Update'))])])],2)]):_vm._e()])])])])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -7127,7 +7127,7 @@ var Component = normalizeComponent(
       this.$store.dispatch("definition/getDetailSurvey", { id: this.$route.params.id }).then(function (response) {
         _this2.survey = response.result.set;
         _this2.choices = _this2.survey.choices;
-        conosle.log("LOAD", _this2.choices);
+        console.log("LOAD", _this2.choices);
         _this2.addedUser = response.result.set.user;
         _this2.selectedCategory = response.result.set.category_id;
         _this2.isLoading = true;
@@ -7262,13 +7262,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
-
-/***/ }),
-
-/***/ "Zao9":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -10439,6 +10432,13 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["a"] = (Component.exports);
 
+
+/***/ }),
+
+/***/ "lQ3L":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -14398,4 +14398,4 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.dd133c2ad381cd8b1471.js.map
+//# sourceMappingURL=app.e7bac3d9bbeffd6dfb5e.js.map

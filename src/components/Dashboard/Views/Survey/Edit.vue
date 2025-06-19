@@ -205,7 +205,7 @@ export default {
       .then(response => {
         this.survey = response.result.set;
         this.choices = this.survey.choices;  // newly added 
-        conosle.log("LOAD",this.choices)
+        console.log("LOAD",this.choices)
         this.addedUser = response.result.set.user;
         this.selectedCategory = response.result.set.category_id;
         this.isLoading = true;
